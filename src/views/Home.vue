@@ -5,13 +5,13 @@
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="8">
             <v-card class="elevation-12">
-                  <v-row>
-                    <v-col cols="12" md="8">
-                      <v-card-text class="mt-12">
-                        <!-- <h1
+              <v-row>
+                <v-col cols="12" md="8">
+                  <v-card-text class="mt-12">
+                    <!-- <h1
                           class="text-center display-2 teal--text text--accent-3"
                         >Sign in to Diprella</h1> -->
-                        <h2>Sign In</h2><br>
+                    <h2>Sign In</h2><br>
                         <p>Enter Your Name and Password</p><br><br>
                         <!-- <div class="text-center mt-4">
                           <v-btn class="mx-2" fab color="black" outlined>
@@ -25,9 +25,9 @@
                             <v-icon>fab fa-linkedin-in</v-icon>
                           </v-btn>
                         </div> -->
-                        <v-form>
-                          <h4>Username</h4>
-                          <v-text-field
+                    <v-form>
+                      <h4>Username</h4>
+                      <v-text-field
                             label="Enter Your Username"
                             name="Email"
                             type="text"
