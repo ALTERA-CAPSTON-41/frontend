@@ -6,18 +6,7 @@
       </v-list-item-content>
 
       <v-divider></v-divider>
-
-      <v-list dense>
-        <v-list-item v-for="item in items" :key="item.title">
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <NavPage />
     </v-navigation-drawer>
 
     <!-- Sizes your content based upon application components -->
@@ -28,14 +17,42 @@
           <v-toolbar-title class="font-weight-medium">
             DAFTAR DOKTER
 
-            <v-avatar color="grey">
-              <v-icon dark> mdi-account-circle </v-icon>
-            </v-avatar>
+            <v-btn color="grey" left @click="dialog = !dialog">
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
           </v-toolbar-title>
         </div>
+        <v-dialog v-model="dialog" max-width="500px">
+          <v-card>
+            <v-card-text>
+              <v-text-field label="Nama Dokter"></v-text-field>
+
+              <small class="grey--text">* This doesn't actually save.</small>
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn text color="primary" @click="dialog = false">
+                Input
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
 
         <v-card height="1000px">
           <v-card-title>
+            <div>
+              <v-container id="dropdown-example-3">
+                <v-overflow-btn
+                  class="my-2"
+                  :items="dropdown_edit"
+                  label="FILTER"
+                  item-value="text"
+                ></v-overflow-btn>
+              </v-container>
+            </div>
+
             <v-spacer></v-spacer>
             <div class="text-right">
               <v-btn
@@ -66,9 +83,15 @@
 </template>
 
 <script>
+import NavPage from "../components/NavPage.vue";
 export default {
+  name: "App",
+  components: {
+    NavPage,
+  },
   data() {
     return {
+      dialog: false,
       search: "",
       headers: [
         {
