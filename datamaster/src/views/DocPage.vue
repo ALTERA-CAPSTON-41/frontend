@@ -21,6 +21,7 @@
               <v-icon>mdi-plus</v-icon>
             </v-btn>
           </v-toolbar-title>
+          <v-avatar right color="grey"></v-avatar>
         </div>
         <v-dialog v-model="dialog" max-width="500px">
           <v-card>
@@ -55,17 +56,15 @@
 
             <v-spacer></v-spacer>
             <div class="text-right">
-              <v-btn
-                v-model="search"
-                label="pencarian"
-                hide-details
-                width="300px"
-                class="ma-2 py-2"
-              >
-                <v-icon left>mdi-magnify</v-icon> Pencarian
+              <v-btn height="50px">
+                <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Pencarian"
+                  single-line
+                  hide-details
+                ></v-text-field>
               </v-btn>
-
-              <v-btn clas="ma-2"> Cari </v-btn>
             </div>
           </v-card-title>
           <v-data-table

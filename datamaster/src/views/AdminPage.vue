@@ -40,23 +40,38 @@
           </v-card>
         </v-dialog>
 
-        <div>
-          <v-container id="dropdown-example-3">
-            <v-overflow-btn
-              class="my-2"
-              :items="dropdown_edit"
-              label="FILTER"
-              item-value="text"
-            ></v-overflow-btn>
-          </v-container>
-        </div>
-        <div class="text-right">
-          <v-btn width="300px" class="ma-2 py-2">
-            <v-icon left>mdi-magnify</v-icon> Pencarian
-          </v-btn>
+        <v-card height="1000px">
+          <v-card-title>
+            <div>
+              <v-container id="dropdown-example-3">
+                <v-overflow-btn
+                  class="my-2"
+                  :items="dropdown_edit"
+                  label="FILTER"
+                  item-value="text"
+                ></v-overflow-btn>
+              </v-container>
+            </div>
 
-          <v-btn clas="ma-2"> Akun </v-btn>
-        </div>
+            <v-spacer></v-spacer>
+            <div class="text-right">
+              <v-btn height="50px">
+                <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Pencarian"
+                  single-line
+                  hide-details
+                ></v-text-field>
+              </v-btn>
+            </div>
+          </v-card-title>
+          <v-data-table
+            :headers="headers"
+            :items="desserts"
+            :search="search"
+          ></v-data-table>
+        </v-card>
 
         <v-card height="1000px" class="my-4"> </v-card>
         <!-- If using vue-router -->
@@ -77,6 +92,7 @@ export default {
   },
   data() {
     return {
+      dialog: false,
       search: "",
       headers: [
         {

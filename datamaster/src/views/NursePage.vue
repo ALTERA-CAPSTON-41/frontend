@@ -40,31 +40,30 @@
           </v-card>
         </v-dialog>
 
-        <div>
-          <v-container id="dropdown-example-3">
-            <v-overflow-btn
-              class="my-2"
-              :items="dropdown_edit"
-              label="FILTER"
-              item-value="text"
-            ></v-overflow-btn>
-          </v-container>
-        </div>
         <v-card height="1000px">
           <v-card-title>
+            <div>
+              <v-container id="dropdown-example-3">
+                <v-overflow-btn
+                  class="my-2"
+                  :items="dropdown_edit"
+                  label="FILTER"
+                  item-value="text"
+                ></v-overflow-btn>
+              </v-container>
+            </div>
+
             <v-spacer></v-spacer>
             <div class="text-right">
-              <v-btn
-                v-model="search"
-                label="pencarian"
-                hide-details
-                width="300px"
-                class="ma-2 py-2"
-              >
-                <v-icon left>mdi-magnify</v-icon> Pencarian
+              <v-btn height="50px">
+                <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Pencarian"
+                  single-line
+                  hide-details
+                ></v-text-field>
               </v-btn>
-
-              <v-btn clas="ma-2"> Cari </v-btn>
             </div>
           </v-card-title>
           <v-data-table
@@ -93,6 +92,7 @@ export default {
   },
   data() {
     return {
+      dialog: false,
       search: "",
       headers: [
         {
