@@ -1,25 +1,65 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import Dashboard from "../views/Dashboard.vue";
+import Sidebar from "../components/Sidebar.vue";
+import Login from "../views/Login.vue";
+import Administrator from "../views/Administrator.vue";
+import Beranda from "../views/Beranda.vue";
+import DaftarAntrean from "../views/DaftarAntrean.vue";
+import Dokter from "../views/Dokter.vue";
+import Pasien from "../views/Pasien.vue";
+import Perawat from "../views/Perawat.vue";
+import Poliklinik from "../views/Poliklinik.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Dashboard",
-    component: Dashboard,
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  },
+    component: Sidebar,
+    children:[{
+        path: "/",
+        name: "Beranda",
+        component: Beranda,
+    },
+    {
+        path: "/DaftarAntrean",
+        name: "Daftar Antrean",
+        component: DaftarAntrean,
+    },
+    {
+        path: "/Pasien",
+        name: "Pasien",
+        component: Pasien,
+    },
+    {
+        path: "/Poliklinik",
+        name: "Poliklinik",
+        component: Poliklinik,
+    },
+    {
+        path: "/Dokter",
+        name: "Dokter",
+        component: Dokter,
+    },
+    {
+        path: "/Perawat",
+        name: "Perawat",
+        component: Perawat,
+    },
+    {
+        path: "/Administrator",
+        name: "Administrator",
+        component: Administrator,
+    },
+    ]
+},
+{
+    path: "/Login",
+    name: "Login",
+    component: Login,
+    children: [
+    ]
+},
 ];
 
 const router = new VueRouter({
@@ -27,5 +67,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+
+
 
 export default router;
