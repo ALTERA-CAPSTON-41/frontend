@@ -5,6 +5,18 @@
         color="#FEFEFE"
         app
         >
+
+        <div class="title">
+        <v-img
+            lazy-src="https://picsum.photos/id/11/10/6"
+            max-height="300"
+            max-width="158"
+            center
+            src="https://picsum.photos/id/11/500/300"
+        ></v-img>
+        <span>Hai, Admin</span>
+        </div>
+
         <v-list-item class="px-2 pt-1">
             <v-list-item-content>
                 <v-img class="navLogo"
@@ -67,6 +79,18 @@
             </v-list-item>
             </template>  
         </v-list>
+<br><br>
+        <v-btn
+      tile
+      color="#1AC09C"
+      class="d-flex"
+      rounded
+    >
+      <v-icon left>
+        mdi-plus
+      </v-icon>
+      Tambah Antrean
+    </v-btn>
 
         </v-navigation-drawer>
 
@@ -122,16 +146,16 @@
 export default {
     data: () => ({
       group: null,
-      page: "Beranda",
+      page: "Dashboard",
       selectedItem: 0,
       items: [
         { icon: 'mdi-view-dashboard', text: 'Beranda' , route:'/'},
-        { icon: 'mdi-format-list-checks', text: 'Daftar Antrean' , route:'/zz'},
-        { icon: 'mdi-account-multiple', text: ' Data Pasien', route:'/JadwalLatihan' },
-        { icon: 'mdi-hospital-building', text: 'Poliklinik', route:'/DataPemesanan' },
-        { icon: 'mdi-doctor', text: 'Dokter', route:'/DataPelatih' },
-        { icon: 'mdi-account', text: 'Perawat', route:'/DataAdmin' },
-        { icon: 'mdi-shield-account', text: 'Administrator', route:'/JadwalLatihan' },
+        { icon: 'mdi-format-list-checks', text: 'Daftar Antrean' , route:'/DaftarAntrean'},
+        { icon: 'mdi-account-multiple', text: ' Pasien', route:'/Pasien' },
+        { icon: 'mdi-hospital-building', text: 'Poliklinik', route:'/Poliklinik' },
+        { icon: 'mdi-doctor', text: 'Dokter', route:'/Dokter' },
+        { icon: 'mdi-account', text: 'Perawat', route:'/Perawat' },
+        { icon: 'mdi-shield-account', text: 'Administrator', route:'/Administrator' },
       ],
       mini: false,
       fab: false,
@@ -156,7 +180,7 @@ export default {
 
 <style>
 .buttonLogout:hover{
-    background-color: #d1ccc6;
+    background-color: #dfbc91;
     cursor: pointer;
 }
 
@@ -165,7 +189,7 @@ export default {
 }
 
 .v-application .orange--text {
-    color: #6e6966 !important;
+    color: #8a5537 !important;
     caret-color: #b4aea6 !important;
     background-repeat: repeat-x;
 }
@@ -175,8 +199,11 @@ export default {
     left: 10%
 }
 
+.title {
+    justify-content: center !important;
+}
+
 * {
-    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 18px;
 }

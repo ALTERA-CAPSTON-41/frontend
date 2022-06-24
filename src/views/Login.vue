@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-content>
+    <v-main>
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="8">
@@ -59,7 +59,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
@@ -75,13 +75,16 @@ export default {
     }
   }),
   methods:{
-    async login()
-    {
+ async login(){
       let result = await axios.post(
         'https://virtserver.swaggerhub.com/capstone-41/clinic-api/1.0.0/login'
       )
-        console.warn(result)
-        console.log("test data login")
+       .then(() => 
+       {
+          this.$router.push({ path: "/" });
+        })
+      console.log("login berhasil", result)
+      console.warn(result)
     }
   },
   props: {
