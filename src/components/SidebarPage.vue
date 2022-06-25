@@ -3,11 +3,11 @@
     <v-navigation-drawer permanent color="#FEFEFE" app>
       <div class="title">
         <v-img
-          lazy-src="https://picsum.photos/id/11/10/6"
-          max-height="300"
-          max-width="158"
-          center
-          src="https://picsum.photos/id/11/500/300"
+          class="mx-auto"
+          max-height="350"
+          max-width="120"
+          justify-center
+          src="../assets/img/lego.png"
         ></v-img>
         <span>Hai, Admin</span>
       </div>
@@ -79,8 +79,8 @@
           </v-list-item>
         </template>
       </v-list>
-      <br /><br />
-      <v-btn tile color="#1AC09C" class="d-flex" rounded>
+
+      <v-btn justify-center color="#827e7e" class="white--text ma-5" rounded>
         <v-icon left> mdi-plus </v-icon>
         Tambah Antrean
       </v-btn>
@@ -90,26 +90,8 @@
       <div class="d-flex align-center">
         <v-toolbar-title class="judulHalaman">
           {{ this.page }}
-          <v-btn color="grey" left @click="dialog = !dialog">
-            <v-icon>mdi-plus</v-icon>
-          </v-btn>
         </v-toolbar-title>
       </div>
-      <v-dialog v-model="dialog" max-width="500px">
-        <v-card>
-          <v-card-text>
-            <v-text-field label="Nama Dokter"></v-text-field>
-
-            <small class="grey--text">* This doesn't actually save.</small>
-          </v-card-text>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-
-            <v-btn text color="primary" @click="dialog = false"> Input </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
 
       <v-spacer></v-spacer>
 
@@ -149,7 +131,6 @@
 <script>
 export default {
   data: () => ({
-    dialog: false,
     group: null,
     page: "Dokter",
     selectedItem: 0,
@@ -217,12 +198,12 @@ export default {
 }
 
 .title {
+  text-align: center !important;
   justify-content: center !important;
 }
 
 * {
   font-weight: 600;
-  font-size: 18px;
 }
 
 .nameUser {

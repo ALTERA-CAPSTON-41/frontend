@@ -5,7 +5,7 @@
       <v-container fluid>
         <div class="my-4">
           <v-toolbar-title class="font-weight-medium">
-            DETAIL DOKTER
+            TAMBAH DOKTER
           </v-toolbar-title>
         </div>
         <v-form>
@@ -32,6 +32,8 @@
               filled
             ></v-text-field>
             <v-text-field v-model="pk" label="Poliklinik" filled></v-text-field>
+            <v-btn class="mr-4" @click="submit"> submit </v-btn>
+            <v-btn @click="clear"> clear </v-btn>
           </v-container>
         </v-form>
       </v-container>

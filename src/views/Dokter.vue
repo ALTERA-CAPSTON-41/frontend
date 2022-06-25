@@ -6,14 +6,38 @@
         <v-card height="800px">
           <v-card-title>
             <div>
+              <br />
               <v-container id="dropdown-example-3">
                 <v-overflow-btn
                   :items="dropdown_edit"
                   label="FILTER"
                   item-value="text"
+                  outlined
                 ></v-overflow-btn>
               </v-container>
             </div>
+            <v-btn color="grey" left @click="dialog = !dialog">
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+            <v-dialog v-model="dialog" max-width="500px">
+              <v-card>
+                <v-card-text>
+                  <v-text-field label="Nama Dokter"></v-text-field>
+
+                  <small class="grey--text"
+                    >* This doesn't actually save.</small
+                  >
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+
+                  <v-btn text color="primary" @click="dialog = false">
+                    Input
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
 
             <v-spacer></v-spacer>
             <div class="text-right">
