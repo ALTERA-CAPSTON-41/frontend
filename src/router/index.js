@@ -1,30 +1,26 @@
-import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Login.vue";
+// Import Component2 Kalian
+
+import Dokter from "@/views/Dokter.vue";
+import DetailDok from "@/views/DetailDok.vue";
+import Vue from "vue";
 
 Vue.use(VueRouter);
-
 const routes = [
   {
     path: "/",
-    name: "Login",
-    component: Home,
+    name: "Doktor",
+    component: Dokter,
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: "/DetailDok",
+    name: "Detail Page",
+    component: DetailDok,
   },
 ];
-
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
+  base: "/",
   routes,
 });
-
 export default router;

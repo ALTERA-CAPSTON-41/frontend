@@ -1,52 +1,13 @@
 <template>
   <v-app>
-    <v-navigation-drawer app>
-      <v-list-item-content class="text-center">
-        <v-list-title> Menu </v-list-title>
-      </v-list-item-content>
-
-      <v-divider></v-divider>
-      <NavPage />
-    </v-navigation-drawer>
-
-    <!-- Sizes your content based upon application components -->
+    <SidebarPage />
     <v-main>
-      <!-- Provides the application the proper gutter -->
       <v-container fluid>
-        <div class="my-4">
-          <v-toolbar-title class="font-weight-medium">
-            DAFTAR DOKTER
-
-            <v-btn color="grey" left @click="dialog = !dialog">
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-          </v-toolbar-title>
-          <v-avatar right color="grey"></v-avatar>
-        </div>
-        <v-dialog v-model="dialog" max-width="500px">
-          <v-card>
-            <v-card-text>
-              <v-text-field label="Nama Dokter"></v-text-field>
-
-              <small class="grey--text">* This doesn't actually save.</small>
-            </v-card-text>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-
-              <v-btn text color="primary" @click="dialog = false">
-                Input
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-
-        <v-card height="1000px">
+        <v-card height="800px">
           <v-card-title>
             <div>
               <v-container id="dropdown-example-3">
                 <v-overflow-btn
-                  class="my-2"
                   :items="dropdown_edit"
                   label="FILTER"
                   item-value="text"
@@ -82,11 +43,11 @@
 </template>
 
 <script>
-import NavPage from "../components/NavPage.vue";
+import SidebarPage from "../components/SidebarPage.vue";
 export default {
   name: "App",
   components: {
-    NavPage,
+    SidebarPage,
   },
   data() {
     return {
@@ -202,13 +163,6 @@ export default {
             { icons: "mdi-Delete" },
           ],
         },
-      ],
-      items: [
-        { title: "Beranda", icon: "mdi-view-dashboard" },
-        { title: "Poliklinik", icon: "mdi-hospital" },
-        { title: "Dokter", icon: "mdi-doctor" },
-        { title: "Perawat", icon: "mdi-account" },
-        { title: "Administrator", icon: "mdi-shield-account" },
       ],
     };
   },
