@@ -3,11 +3,11 @@
     <v-navigation-drawer permanent color="#FEFEFE" app>
       <div class="title">
         <v-img
-          lazy-src="https://picsum.photos/id/11/10/6"
-          max-height="300"
-          max-width="158"
-          center
-          src="https://picsum.photos/id/11/500/300"
+          class="mx-auto"
+          max-height="350"
+          max-width="120"
+          justify-center
+          src="../assets/img/lego.png"
         ></v-img>
         <span>Hai, Admin</span>
       </div>
@@ -79,8 +79,8 @@
           </v-list-item>
         </template>
       </v-list>
-      <br /><br />
-      <v-btn tile color="#1AC09C" class="d-flex" rounded>
+
+      <v-btn justify-center color="#827e7e" class="white--text ma-5" rounded>
         <v-icon left> mdi-plus </v-icon>
         Tambah Antrean
       </v-btn>
@@ -132,7 +132,7 @@
 export default {
   data: () => ({
     group: null,
-    page: "Dashboard",
+    page: "Dokter",
     selectedItem: 0,
     items: [
       { icon: "mdi-view-dashboard", text: "Beranda", route: "/" },
@@ -198,12 +198,12 @@ export default {
 }
 
 .title {
+  text-align: center !important;
   justify-content: center !important;
 }
 
 * {
   font-weight: 600;
-  font-size: 18px;
 }
 
 .nameUser {

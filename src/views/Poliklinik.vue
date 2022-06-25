@@ -1,30 +1,131 @@
 <template>
-  <v-container>
-    <v-col cols="12" sm="6" md="4">
-      <v-text-field
-        class="mt-6 ml-2"
-        filled
-        rounded
-        dense
-        append-icon="mdi-magnify"
-      />
-    </v-col>
-    <v-row>
-      <v-card class="mx-auto mt-6" max-width="344">
-        <v-btn icon @click="show = !show">
-          <v-icon>{{ show ? "mdi-chevron-up" : "mdi-dots-vertical" }}</v-icon>
-        </v-btn>
-        <v-img
-          src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-          height="200px"
-        ></v-img>
+  <v-app>
+    <Sidebar />
+    <v-main style="padding: 0px;">
+      <v-container fluid style="padding: 0px">
+        <v-card height="auto">
+          <v-card-title>
+            <v-spacer></v-spacer>
+            <div class="text-right">
+              <v-btn height="50px">
+                <v-text-field
+                  v-model="search"
+                  class="mt-6 ml-2"
+                  append-icon="mdi-magnify"
+                  label="Pencarian"
+                  rounded
+                ></v-text-field>
+              </v-btn>
+            </div>
+          </v-card-title>
+          <v-row>
+            <v-col cols="4">
+              <v-btn icon @click="show = !show">
+                <v-icon>{{
+                  show ? "mdi-chevron-up" : "mdi-dots-vertical"
+                }}</v-icon>
+              </v-btn>
+              <v-img src="../assets/img/lego.png" max-width="344" />
+              <v-card-actions>
+                <v-btn color="Black" text> Poliklinik Penyakit Dalam </v-btn>
 
-        <v-card-actions>
-          <v-btn color="Black" text> Poliklinik Penyakit Dalam </v-btn>
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-col>
 
-          <v-spacer></v-spacer>
-        </v-card-actions>
-      </v-card>
-    </v-row>
-  </v-container>
+            <v-col cols="4">
+              <v-btn icon @click="show = !show">
+                <v-icon>{{
+                  show ? "mdi-chevron-up" : "mdi-dots-vertical"
+                }}</v-icon>
+              </v-btn>
+              <v-img src="../assets/img/lego.png" max-width="344" />
+              <v-card-actions>
+                <v-btn color="Black" text> Poliklinik Penyakit Dalam </v-btn>
+
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-col>
+
+            <v-col cols="4">
+              <v-btn icon @click="show = !show">
+                <v-icon>{{
+                  show ? "mdi-chevron-up" : "mdi-dots-vertical"
+                }}</v-icon>
+              </v-btn>
+              <v-img src="../assets/img/lego.png" max-width="344" />
+              <v-card-actions>
+                <v-btn color="Black" text> Poliklinik Penyakit Dalam </v-btn>
+
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-col>
+
+            <v-col cols="4">
+              <v-btn icon @click="show = !show">
+                <v-icon>{{
+                  show ? "mdi-chevron-up" : "mdi-dots-vertical"
+                }}</v-icon>
+              </v-btn>
+              <v-img src="../assets/img/lego.png" max-width="344" />
+              <v-card-actions>
+                <v-btn color="Black" text> Poliklinik Penyakit Dalam </v-btn>
+
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-col>
+
+            <v-col cols="4">
+              <v-btn icon @click="show = !show">
+                <v-icon>{{
+                  show ? "mdi-chevron-up" : "mdi-dots-vertical"
+                }}</v-icon>
+              </v-btn>
+              <v-img src="../assets/img/lego.png" max-width="344" />
+              <v-card-actions>
+                <v-btn color="Black" text> Poliklinik Penyakit Dalam </v-btn>
+
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-col>
+
+            <v-col cols="4">
+              <v-btn icon @click="show = !show">
+                <v-icon>{{
+                  show ? "mdi-chevron-up" : "mdi-dots-vertical"
+                }}</v-icon>
+              </v-btn>
+              <v-img src="../assets/img/lego.png" max-width="344" />
+              <v-card-actions>
+                <v-btn color="Black" text> Poliklinik Penyakit Dalam </v-btn>
+
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-col>
+          </v-row>
+        </v-card>
+        <!-- If using vue-router -->
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+    <v-footer app> </v-footer>
+  </v-app>
 </template>
+
+//
+<script>
+// import Sidebar from "../components/SideBar.vue";
+// export default {
+//   name: "App",
+//   components: {
+//     Sidebar,
+//   },
+//   data() {
+//     return {
+//       dialog: false,
+//       search: "",
+//     };
+//   },
+// };
+//
+</script>
