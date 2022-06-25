@@ -9,6 +9,8 @@ import Dokter from "../views/Dokter.vue";
 import Pasien from "../views/Pasien.vue";
 import Perawat from "../views/Perawat.vue";
 import Poliklinik from "../views/Poliklinik.vue";
+import AddPerawat from "../views/AddPerawat.vue";
+import DetailPerawat from "../views/DetailPerawat.vue";
 
 Vue.use(VueRouter);
 
@@ -50,6 +52,16 @@ const routes = [
         path: "/Administrator",
         name: "Administrator",
         component: Administrator,
+    },
+    {
+        path: "/AddPerawat",
+        name: "AddPerawat",
+        component: AddPerawat,
+    },
+    {
+        path: "/DetailPerawat",
+        name: "DetailPerawat",
+        component: DetailPerawat,
     },
     ]
 },
