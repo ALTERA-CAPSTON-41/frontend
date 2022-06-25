@@ -1,10 +1,32 @@
 <template>
   <v-app>
     <Sidebar />
-    <v-main style="padding: 0px;">
+    <v-main style="padding: 0px">
       <v-container fluid style="padding: 0px">
         <v-card height="auto">
           <v-card-title>
+            <v-btn color="grey" left @click="dialog = !dialog">
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+            <v-dialog v-model="dialog" max-width="500px">
+              <v-card>
+                <v-card-text>
+                  <v-text-field label="Nama Dokter"></v-text-field>
+
+                  <small class="grey--text"
+                    >* This doesn't actually save.</small
+                  >
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+
+                  <v-btn text color="primary" @click="dialog = false">
+                    Input
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
             <v-spacer></v-spacer>
             <div class="text-right">
               <v-btn height="50px">
