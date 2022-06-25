@@ -4,16 +4,6 @@
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="8">
-            <div class="title">
-        <v-img
-            class="mx-auto"
-            max-height="350"
-            max-width="120"
-            justify-center
-            src="../assets/img/lego.png"
-        ></v-img>
-        <span>Hai, Admin</span>
-        </div>
             <v-card class="elevation-12">
               <v-row>
                 <v-col cols="12" md="8">
@@ -71,13 +61,16 @@ export default {
     }
   }),
   methods:{
-    async login()
-    {
+  async login(){
       let result = await axios.post(
         'https://virtserver.swaggerhub.com/capstone-41/clinic-api/1.0.0/login'
       )
-        console.warn(result)
-        console.log("test data login")
+       .then(() => 
+       {
+          this.$router.push({ path: "/" });
+        })
+      console.log("login berhasil", result)
+      console.warn(result)
     }
   },
   props: {
