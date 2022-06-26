@@ -32,8 +32,11 @@
               filled
             ></v-text-field>
             <v-text-field v-model="pk" label="Poliklinik" filled></v-text-field>
-            <v-btn class="mr-4" @click="submit"> submit </v-btn>
-            <v-btn @click="clear"> clear </v-btn>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn right class="mr-4" @click="submit"> simpan </v-btn>
+              <v-btn @click="clear"> batal </v-btn>
+            </v-card-actions>
           </v-container>
         </v-form>
       </v-container>

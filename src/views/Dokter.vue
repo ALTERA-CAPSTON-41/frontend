@@ -16,28 +16,9 @@
                 ></v-overflow-btn>
               </v-container>
             </div>
-            <v-btn color="grey" left @click="dialog = !dialog">
+            <v-btn href="/AddDok" height="53px" color="grey" left>
               <v-icon>mdi-plus</v-icon>
             </v-btn>
-            <v-dialog v-model="dialog" max-width="500px">
-              <v-card>
-                <v-card-text>
-                  <v-text-field label="Nama Dokter"></v-text-field>
-
-                  <small class="grey--text"
-                    >* This doesn't actually save.</small
-                  >
-                </v-card-text>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-
-                  <v-btn text color="primary" @click="dialog = false">
-                    Input
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
 
             <v-spacer></v-spacer>
             <div class="text-right">
@@ -52,11 +33,13 @@
               </v-btn>
             </div>
           </v-card-title>
-          <v-data-table
-            :headers="headers"
-            :items="desserts"
-            :search="search"
-          ></v-data-table>
+          <v-card href="/DetailDok">
+            <v-data-table
+              :headers="headers"
+              :items="desserts"
+              :search="search"
+            ></v-data-table>
+          </v-card>
         </v-card>
         <!-- If using vue-router -->
         <router-view></router-view>
@@ -75,7 +58,6 @@ export default {
   },
   data() {
     return {
-      dialog: false,
       search: "",
       headers: [
         {

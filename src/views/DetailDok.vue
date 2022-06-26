@@ -6,32 +6,62 @@
         <div class="my-4">
           <v-toolbar-title class="font-weight-medium">
             DETAIL DOKTER
+            <v-btn href="/AddDok" color="grey" left>
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
           </v-toolbar-title>
         </div>
         <v-form>
           <v-container>
-            <v-text-field v-model="nama" label="Nama" filled></v-text-field>
+            <v-text-field
+              disabled
+              v-model="nama"
+              label="Nama"
+              filled
+            ></v-text-field>
             <v-row>
               <v-col cols="12" sm="6">
-                <v-text-field v-model="nip" label="NIP" filled></v-text-field>
+                <v-text-field
+                  disabled
+                  v-model="nip"
+                  label="NIP"
+                  filled
+                ></v-text-field>
               </v-col>
 
               <v-col cols="12" sm="6">
-                <v-text-field v-model="sip" label="SIP" filled></v-text-field>
+                <v-text-field
+                  disabled
+                  v-model="sip"
+                  label="SIP"
+                  filled
+                ></v-text-field>
               </v-col>
             </v-row>
-            <v-text-field v-model="alamat" label="Alamat" filled></v-text-field>
             <v-text-field
+              disabled
+              v-model="alamat"
+              label="Alamat"
+              filled
+            ></v-text-field>
+            <v-text-field
+              disabled
               v-model="jk"
               label="Jenis Kelamin"
               filled
             ></v-text-field>
             <v-text-field
+              disabled
               v-model="tgl"
               label="Tanggal Lahir"
               filled
             ></v-text-field>
-            <v-text-field v-model="pk" label="Poliklinik" filled></v-text-field>
+            <v-text-field
+              disabled
+              v-model="pk"
+              label="Poliklinik"
+              filled
+            ></v-text-field>
           </v-container>
         </v-form>
       </v-container>
