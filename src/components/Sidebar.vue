@@ -113,7 +113,7 @@
             v-bind="attrs"
             v-on="on">
                 <v-icon color="##757475" class="mdi-36px">mdi-account-circle</v-icon>
-                <v-icon color="##757475">mdi-chevron-down</v-icon>
+                <v-icon color="##757475" class="mdi-36px">mdi-chevron-down</v-icon>
             </v-btn>
             </template>
             
@@ -146,7 +146,7 @@
 export default {
     data: () => ({
       group: null,
-      page: "Dashboard",
+      page: "Beranda",
       selectedItem: 0,
       items: [
         { icon: 'mdi-view-dashboard', text: 'Beranda' , route:'/'},
