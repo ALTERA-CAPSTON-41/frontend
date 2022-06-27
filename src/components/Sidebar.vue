@@ -81,16 +81,16 @@
         </v-list>
 
         <v-btn
-      justify-center
-      color="#827e7e"
-      class="white--text ma-5"
-      rounded
-    >
-      <v-icon left>
-        mdi-plus
-      </v-icon>
-      Tambah Antrean
-    </v-btn>
+            justify-center
+            color="#827e7e"
+            class="antrean-bwh white--text ma-6"
+            rounded
+        >
+            <v-icon left>
+                mdi-plus
+            </v-icon>
+            Tambah Antrean
+        </v-btn>
 
         </v-navigation-drawer>
 
@@ -219,6 +219,11 @@ export default {
 
 .icon-2 {
     font-size: 15px;
+}
+
+.antrean-bwh {
+    bottom: 6git bra5px;
+    position: absolute !important;
 }
 
 </style>
