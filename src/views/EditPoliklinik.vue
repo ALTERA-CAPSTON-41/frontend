@@ -5,7 +5,7 @@
       <v-container fluid style="margin-left padding: 0px">
         <div class="my-4">
           <v-toolbar-title class="font-weight-medium">
-            TAMBAH POLIKLINIK
+            EDIT POLIKLINIK
           </v-toolbar-title>
         </div>
         <v-card>

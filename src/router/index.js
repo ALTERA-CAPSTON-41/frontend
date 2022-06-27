@@ -4,6 +4,7 @@ import Sidebar from "../components/SideBar.vue";
 import Poliklinik from "../views/Poliklinik.vue";
 import DetailPoliklinik from "../views/DetailPoliklinik.vue";
 import TambahPoliklinik from "../views/TambahPoliklinik.vue";
+import EditPoliklinik from "../views/EditPoliklinik.vue";
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,11 @@ const routes = [
         path: "/TambahPoliklinik",
         name: "Tambah Poliklinik",
         component: TambahPoliklinik,
+      },
+      {
+        path: "/EditPoliklinik",
+        name: "Edit Poliklinik",
+        component: EditPoliklinik,
       },
     ],
   },
