@@ -5,7 +5,7 @@
       <v-container fluid>
         <div class="my-4">
           <v-toolbar-title class="font-weight-medium">
-            TAMBAH DOKTER
+            EDIT DOKTER
           </v-toolbar-title>
         </div>
         <v-form>
@@ -52,7 +52,7 @@
             </v-row>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn right class="mr-4" @click="submit"> Tambah </v-btn>
+              <v-btn right class="mr-4" @click="submit"> Simpan </v-btn>
               <v-btn @click="clear"> batal </v-btn>
             </v-card-actions>
           </v-container>
