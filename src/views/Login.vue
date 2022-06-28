@@ -71,7 +71,7 @@ export default {
     }
   }),
   methods:{
-  async login(){
+ async login(){
       let result = await axios.post(
         'https://virtserver.swaggerhub.com/capstone-41/clinic-api/1.0.0/login'
       )
