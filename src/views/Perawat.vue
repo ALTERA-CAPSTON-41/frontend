@@ -1,62 +1,71 @@
 <template>
-  <v-app>
-    <SidebarPage />
-    <v-main>
       <v-container fluid>
         <v-card height="800px">
           <v-card-title>
             <div>
               <br />
-            </div>
-            <v-btn href="/AddPas" height="53px" color="grey" left>
-              <v-icon>mdi-plus </v-icon>
-              <p class="my-5">Tambah Pasien</p>
-            </v-btn>
-
-            <v-spacer></v-spacer>
-            <div class="text-right">
-              <v-container>
-                <v-btn height="50px" color="grey">
-                  <v-icon> mdi-filter-variant </v-icon>
-                </v-btn>
+              <v-container id="dropdown-example-3">
+                <v-overflow-btn
+                  :items="dropdown_edit"
+                  label="FILTER"
+                  item-value="text"
+                  outlined
+                ></v-overflow-btn>
               </v-container>
             </div>
+            <v-btn href="/AddPerawat" height="53px" color="grey" left>
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+            <v-dialog v-model="dialog" max-width="500px">
+              <v-card>
+                <v-card-text>
+                  <v-text-field label="Nama Dokter"></v-text-field>
+
+                  <small class="grey--text"
+                    >* This doesn't actually save.</small
+                  >
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+
+                  <v-btn text color="primary" @click="dialog = false">
+                    Input
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+
+            <v-spacer></v-spacer>
             <div class="text-right">
               <v-btn height="50px">
                 <v-text-field
                   v-model="search"
                   append-icon="mdi-magnify"
-                  label="Pencarian"
+                  label="Search"
+                  single-line
                   hide-details
                 ></v-text-field>
               </v-btn>
             </div>
           </v-card-title>
-          <v-card href="/DetailPas">
-            <v-data-table
-              :headers="headers"
-              :items="desserts"
-              :search="search"
-            ></v-data-table>
-          </v-card>
+          <v-data-table
+            :headers="headers"
+            :items="desserts"
+            :search="search"
+          ></v-data-table>
         </v-card>
         <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
-    </v-main>
-    <v-footer app> </v-footer>
-  </v-app>
 </template>
 
 <script>
-import SidebarPage from "../components/SidebarPage.vue";
 export default {
   name: "App",
-  components: {
-    SidebarPage,
-  },
   data() {
     return {
+      dialog: false,
       search: "",
       headers: [
         {
@@ -66,18 +75,18 @@ export default {
           value: "no",
         },
         { text: "Nama", value: "nama" },
-        { text: "NIK", value: "nik" },
-        { text: "Jenis Kelamin", value: "jk" },
-        { text: "Golongan Darah", value: "golda" },
+        { text: "NIP", value: "nip" },
+        { text: "SIP", value: "sip" },
+        { text: "Poliklinik", value: "poliklinik" },
         { text: "Aksi", value: "aksi" },
       ],
       desserts: [
         {
           no: "1",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icon: "mdi-account-details" },
             { icon: "mdi-Pencil" },
@@ -87,11 +96,11 @@ export default {
         {
           no: "2",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
-            { Icons: "mdi-account-details" },
+            { icon: "mdi-account-details" },
             { icons: "mdi-Pencil" },
             { icons: "mdi-Delete" },
           ],
@@ -99,9 +108,9 @@ export default {
         {
           no: "3",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -111,9 +120,9 @@ export default {
         {
           no: "4",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -123,9 +132,9 @@ export default {
         {
           no: "5",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -135,9 +144,9 @@ export default {
         {
           no: "6",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -147,9 +156,9 @@ export default {
         {
           no: "7",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -159,13 +168,13 @@ export default {
         {
           no: "8",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
-            { Icons: "mdi-account-details" },
-            { icons: "mdi-Pencil" },
-            { icons: "mdi-Delete" },
+            { icon: "mdi-account-details" },
+            { icon: "mdi-pencil" },
+            { icon: "mdi-Delete" },
           ],
         },
       ],
@@ -173,4 +182,3 @@ export default {
   },
 };
 </script>
-
