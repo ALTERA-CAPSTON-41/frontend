@@ -21,15 +21,18 @@
               </v-col>
             </v-row>
             <v-text-field v-model="alamat" label="Alamat" filled></v-text-field>
-            <v-text-field
-              v-model="jk"
-              label="Jenis Kelamin"
-              filled
-            ></v-text-field>
+            <v-container fluid>
+              <p>Jenis Kelamin</p>
+              <v-radio-group v-model="row" row>
+                <v-radio label="Perempuan" value="radio-1"></v-radio>
+                <v-radio label="Laki-Laki" value="radio-2"></v-radio>
+              </v-radio-group>
+            </v-container>
             <v-text-field
               v-model="tgl"
               label="Tanggal Lahir"
               filled
+              icon="mdi-calendar-text"
             ></v-text-field>
             <v-text-field v-model="pk" label="Poliklinik" filled></v-text-field>
             <v-text-field v-model="email" label="Email" filled></v-text-field>
@@ -52,8 +55,9 @@
             </v-row>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn right class="mr-4" @click="submit"> Tambah </v-btn>
+
               <v-btn @click="clear"> batal </v-btn>
+              <v-btn right class="mr-4" @click="submit"> Tambah </v-btn>
             </v-card-actions>
           </v-container>
         </v-form>
@@ -70,16 +74,16 @@ export default {
     SidebarPage,
   },
   data: () => ({
-    nama: "Lorem ipsum Dolor",
-    nip: "Lorem ipsum Dolor",
-    sip: "Lorem ipsum Dolor",
-    alamat: "Lorem ipsum Dolor",
-    jk: "Lorem ipsum Dolor",
-    tgl: "Lorem ipsum Dolor",
-    pk: "Lorem ipsum Dolor",
-    email: "Lorem ipsum Dolor",
-    pw: "Lorem ipsum Dolor",
-    cpw: "Lorem ipsum Dolor",
+    nama: "",
+    nip: "",
+    sip: "",
+    alamat: "",
+    tgl: "",
+    pk: "",
+    email: "",
+    pw: "",
+    cpw: "",
+    row: null,
   }),
 };
 </script>
