@@ -132,7 +132,7 @@
 export default {
   data: () => ({
     group: null,
-
+    page: "Dokter",
     selectedItem: 0,
     items: [
       { icon: "mdi-view-dashboard", text: "Beranda", route: "/" },

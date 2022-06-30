@@ -1,50 +1,47 @@
 <template>
   <v-app>
     <SidebarPage />
-    <v-main>
-      <v-container fluid>
-        <v-card height="800px">
-          <v-card-title>
-            <div>
-              <br />
-              <v-container id="dropdown-example-3">
-                <v-overflow-btn
-                  :items="dropdown_edit"
-                  label="FILTER"
-                  item-value="text"
-                  outlined
-                ></v-overflow-btn>
-              </v-container>
-            </div>
-            <v-btn href="/AddDok" height="53px" color="grey" left>
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
+    <v-container fluid>
+      <v-card height="800px">
+        <v-card-title>
+          <div>
+            <br />
+          </div>
+          <v-btn href="/AddDok" height="53px" color="grey" left>
+            <v-icon>mdi-plus </v-icon>
+            <p class="my-5">Tambah Dokter</p>
+          </v-btn>
 
-            <v-spacer></v-spacer>
-            <div class="text-right">
-              <v-btn height="50px">
-                <v-text-field
-                  v-model="search"
-                  append-icon="mdi-magnify"
-                  label="Pencarian"
-                  single-line
-                  hide-details
-                ></v-text-field>
+          <v-spacer></v-spacer>
+          <div class="text-right">
+            <v-container>
+              <v-btn height="50px" color="grey">
+                <v-icon> mdi-filter-variant </v-icon>
               </v-btn>
-            </div>
-          </v-card-title>
-          <v-card href="/DetailDok">
-            <v-data-table
-              :headers="headers"
-              :items="desserts"
-              :search="search"
-            ></v-data-table>
-          </v-card>
+            </v-container>
+          </div>
+          <div class="text-right">
+            <v-btn height="50px">
+              <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Pencarian"
+                hide-details
+              ></v-text-field>
+            </v-btn>
+          </div>
+        </v-card-title>
+        <v-card href="/DetailDok">
+          <v-data-table
+            :headers="headers"
+            :items="desserts"
+            :search="search"
+          ></v-data-table>
         </v-card>
-        <!-- If using vue-router -->
-        <router-view></router-view>
-      </v-container>
-    </v-main>
+      </v-card>
+      <!-- If using vue-router -->
+      <router-view></router-view>
+    </v-container>
     <v-footer app> </v-footer>
   </v-app>
 </template>
