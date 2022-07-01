@@ -13,6 +13,9 @@ import AddPerawat from "../views/AddPerawat.vue";
 import DetailPerawat from "../views/DetailPerawat.vue";
 import DetailDok from "../views/DetailDok.vue";
 import AddDok from "../views/AddDok.vue";
+import DetailAdmin from "../views/DetailAdmin.vue";
+import AddAdmin from "../views/AddAdmin.vue";
+import EditAdmin from "../views/EditAdmin.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -73,7 +76,22 @@ const routes = [
         path: "/AddDok",
         name: "AddDok",
         component: AddDok,
-      },
+    },
+    {
+        path: "/DetailAdmin",
+        name: "DetailAdmin",
+        component: DetailAdmin,
+    },
+    {
+        path: "/AddAdmin",
+        name: "AddAdmin",
+        component: AddAdmin,
+    },
+    {
+        path: "/EditAdmin",
+        name: "EditAdmin",
+        component: EditAdmin,
+    },
     ]
 },
 {
