@@ -77,7 +77,7 @@ export default {
     SidebarPage,
   },
   data: () => ({
-    nama: "Lorem ipsum Dolor",
+    nama: "Lorem ipsum Dolor sit amet",
     nip: "Lorem ipsum Dolor",
     sip: "Lorem ipsum Dolor",
     alamat: "Lorem ipsum Dolor",
