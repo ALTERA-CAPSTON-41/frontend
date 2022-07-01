@@ -1,7 +1,4 @@
 <template>
-  <v-app>
-    <SidebarPage />
-    <v-main>
       <v-container fluid>
         <div class="my-4">
           <v-toolbar-title class="font-weight-medium">
@@ -58,17 +55,11 @@
           </v-container>
         </v-form>
       </v-container>
-    </v-main>
-  </v-app>
 </template>
 
 <script>
-import SidebarPage from "../components/SidebarPage.vue";
 export default {
   name: "App",
-  components: {
-    SidebarPage,
-  },
   data: () => ({
     nama: "Lorem ipsum Dolor",
     nip: "Lorem ipsum Dolor",

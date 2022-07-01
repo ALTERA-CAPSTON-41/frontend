@@ -12,6 +12,7 @@ import Poliklinik from "../views/Poliklinik.vue";
 import AddPerawat from "../views/AddPerawat.vue";
 import DetailPerawat from "../views/DetailPerawat.vue";
 import DetailDok from "../views/DetailDok.vue";
+import AddDok from "../views/AddDok.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -68,6 +69,11 @@ const routes = [
       name: "DetailDok",
       component: DetailDok,
     },
+    {
+        path: "/AddDok",
+        name: "AddDok",
+        component: AddDok,
+      },
     ]
 },
 {

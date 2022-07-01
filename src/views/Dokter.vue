@@ -1,7 +1,4 @@
 <template>
-  <v-app>
-    <SidebarPage />
-    <v-main>
       <v-container fluid>
         <v-card height="800px">
           <v-card-title>
@@ -44,18 +41,11 @@
         <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
-    </v-main>
-    <v-footer app> </v-footer>
-  </v-app>
 </template>
 
 <script>
-import SidebarPage from "../components/SidebarPage.vue";
 export default {
   name: "App",
-  components: {
-    SidebarPage,
-  },
   data() {
     return {
       search: "",
