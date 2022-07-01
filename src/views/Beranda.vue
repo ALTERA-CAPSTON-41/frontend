@@ -98,6 +98,14 @@
   </v-row>
 </template>
 
+<script>
+
+export default ({
+  name: 'BerandaPage'
+})
+</script>
+
+
 <style>
 p {
   font-weight: 400;

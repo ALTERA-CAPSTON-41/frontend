@@ -63,7 +63,7 @@
 import axios from 'axios'
 
 export default {
-  name: "Login",
+  name: "LoginPage",
   data:() => ({
     return : {
       email: '',

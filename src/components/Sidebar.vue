@@ -144,6 +144,7 @@
 <script>
 
 export default {
+    name: "SidebarPage",
     data: () => ({
       group: null,
       page: "Beranda",
