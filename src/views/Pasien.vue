@@ -1,45 +1,50 @@
 <template>
-      <v-container fluid>
-        <v-card height="800px">
-          <v-card-title>
-            <div>
-              <br />
-            </div>
-            <v-btn href="/AddPas" height="53px" color="grey" left>
-              <v-icon>mdi-plus </v-icon>
-              <p class="my-5">Tambah Pasien</p>
-            </v-btn>
+  <v-container fluid>
+    <div class="my-4">
+      <v-toolbar-title class="font-weight-medium">
+        DAFTAR PASIEN
+      </v-toolbar-title>
+    </div>
+    <v-card height="800px">
+      <v-card-title>
+        <div>
+          <br />
+        </div>
+        <v-btn href="/AddPas" height="53px" color="grey" left>
+          <v-icon>mdi-plus </v-icon>
+          <p class="my-5">Tambah Pasien</p>
+        </v-btn>
 
-            <v-spacer></v-spacer>
-            <div class="text-right">
-              <v-container>
-                <v-btn height="50px" color="grey">
-                  <v-icon> mdi-filter-variant </v-icon>
-                </v-btn>
-              </v-container>
-            </div>
-            <div class="text-right">
-              <v-btn height="50px">
-                <v-text-field
-                  v-model="search"
-                  append-icon="mdi-magnify"
-                  label="Pencarian"
-                  hide-details
-                ></v-text-field>
-              </v-btn>
-            </div>
-          </v-card-title>
-          <v-card href="/DetailPas">
-            <v-data-table
-              :headers="headers"
-              :items="desserts"
-              :search="search"
-            ></v-data-table>
-          </v-card>
-        </v-card>
-        <!-- If using vue-router -->
-        <router-view></router-view>
-      </v-container>
+        <v-spacer></v-spacer>
+        <div class="text-right">
+          <v-container>
+            <v-btn height="50px" color="grey">
+              <v-icon> mdi-filter-variant </v-icon>
+            </v-btn>
+          </v-container>
+        </div>
+        <div class="text-right">
+          <v-btn height="50px">
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Pencarian"
+              hide-details
+            ></v-text-field>
+          </v-btn>
+        </div>
+      </v-card-title>
+      <v-card href="/DetailPas">
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          :search="search"
+        ></v-data-table>
+      </v-card>
+    </v-card>
+    <!-- If using vue-router -->
+    <router-view></router-view>
+  </v-container>
 </template>
 
 <script>
@@ -163,4 +168,3 @@ export default {
   },
 };
 </script>
-

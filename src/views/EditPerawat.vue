@@ -2,7 +2,7 @@
   <v-container fluid>
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
-        TAMBAH PERAWAT
+        EDIT PERAWAT
       </v-toolbar-title>
     </div>
     <v-form>
@@ -18,6 +18,7 @@
           </v-col>
         </v-row>
         <v-text-field v-model="alamat" label="Alamat" filled></v-text-field>
+        <v-text-field v-model="tgl" label="Tanggal Lahir" filled></v-text-field>
         <v-container fluid>
           <p>Jenis Kelamin</p>
           <v-radio-group v-model="row" row>
@@ -25,32 +26,14 @@
             <v-radio label="Laki-Laki" value="radio-2"></v-radio>
           </v-radio-group>
         </v-container>
-        <v-text-field
-          v-model="tgl"
-          label="Tanggal Lahir"
-          filled
-          icon="mdi-calendar-text"
-        ></v-text-field>
-        <v-text-field v-model="pk" label="Poliklinik" filled></v-text-field>
-        <v-text-field v-model="email" label="Email" filled></v-text-field>
-        <v-row>
-          <v-col cols="12" sm="6">
-            <v-text-field v-model="pw" label="Password" filled></v-text-field>
-          </v-col>
 
-          <v-col cols="12" sm="6">
-            <v-text-field
-              v-model="cpw"
-              label="Confirm Pasword"
-              filled
-            ></v-text-field>
-          </v-col>
-        </v-row>
+        <v-text-field v-model="pk" label="Poliklinik" filled></v-text-field>
+
         <v-card-actions>
           <v-spacer></v-spacer>
 
           <v-btn @click="clear"> batal </v-btn>
-          <v-btn right class="mr-4" @click="submit"> Tambah </v-btn>
+          <v-btn right class="mr-4" @click="submit"> Simpan </v-btn>
         </v-card-actions>
       </v-container>
     </v-form>
@@ -61,15 +44,12 @@
 export default {
   name: "App",
   data: () => ({
-    nama: "",
-    nip: "",
-    sip: "",
-    alamat: "",
-    tgl: "",
-    pk: "",
-    email: "",
-    pw: "",
-    cpw: "",
+    nama: "Lorem ipsum Dolor",
+    nip: "Lorem ipsum Dolor",
+    sip: "Lorem ipsum Dolor",
+    alamat: "Lorem ipsum Dolor",
+    tgl: "24 Juni 2022",
+    pk: "Lorem ipsum Dolor",
     row: null,
   }),
 };

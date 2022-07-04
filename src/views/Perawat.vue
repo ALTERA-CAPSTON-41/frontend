@@ -1,63 +1,50 @@
 <template>
-      <v-container fluid>
-        <v-card height="800px">
-          <v-card-title>
-            <div>
-              <br />
-              <v-container id="dropdown-example-3">
-                <v-overflow-btn
-                  :items="dropdown_edit"
-                  label="FILTER"
-                  item-value="text"
-                  outlined
-                ></v-overflow-btn>
-              </v-container>
-            </div>
-            <v-btn href="/AddPerawat" height="53px" color="grey" left>
-              <v-icon>mdi-plus</v-icon>
+  <v-container fluid>
+    <div class="my-4">
+      <v-toolbar-title class="font-weight-medium">
+        DAFTAR PERAWAT
+      </v-toolbar-title>
+    </div>
+    <v-card height="800px">
+      <v-card-title>
+        <div>
+          <br />
+        </div>
+        <v-btn href="/AddPerawat" height="53px" color="grey" left>
+          <v-icon>mdi-plus </v-icon>
+          <p class="my-5">Tambah Perawat</p>
+        </v-btn>
+
+        <v-spacer></v-spacer>
+        <div class="text-right">
+          <v-container>
+            <v-btn height="50px" color="grey">
+              <v-icon> mdi-filter-variant </v-icon>
             </v-btn>
-            <v-dialog v-model="dialog" max-width="500px">
-              <v-card>
-                <v-card-text>
-                  <v-text-field label="Nama Dokter"></v-text-field>
-
-                  <small class="grey--text"
-                    >* This doesn't actually save.</small
-                  >
-                </v-card-text>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-
-                  <v-btn text color="primary" @click="dialog = false">
-                    Input
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-
-            <v-spacer></v-spacer>
-            <div class="text-right">
-              <v-btn height="50px">
-                <v-text-field
-                  v-model="search"
-                  append-icon="mdi-magnify"
-                  label="Search"
-                  single-line
-                  hide-details
-                ></v-text-field>
-              </v-btn>
-            </div>
-          </v-card-title>
-          <v-data-table
-            :headers="headers"
-            :items="desserts"
-            :search="search"
-          ></v-data-table>
-        </v-card>
-        <!-- If using vue-router -->
-        <router-view></router-view>
-      </v-container>
+          </v-container>
+        </div>
+        <div class="text-right">
+          <v-btn height="50px">
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Pencarian"
+              hide-details
+            ></v-text-field>
+          </v-btn>
+        </div>
+      </v-card-title>
+      <v-card href="/DetailPerawat">
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          :search="search"
+        ></v-data-table>
+      </v-card>
+    </v-card>
+    <!-- If using vue-router -->
+    <router-view></router-view>
+  </v-container>
 </template>
 
 <script>
@@ -65,7 +52,6 @@ export default {
   name: "App",
   data() {
     return {
-      dialog: false,
       search: "",
       headers: [
         {
@@ -100,7 +86,7 @@ export default {
           sip: 18742917,
           poliklinik: "Lorem Ipsum",
           aksi: [
-            { icon: "mdi-account-details" },
+            { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
             { icons: "mdi-Delete" },
           ],
@@ -172,9 +158,9 @@ export default {
           sip: 18742917,
           poliklinik: "Lorem Ipsum",
           aksi: [
-            { icon: "mdi-account-details" },
-            { icon: "mdi-pencil" },
-            { icon: "mdi-Delete" },
+            { Icons: "mdi-account-details" },
+            { icons: "mdi-Pencil" },
+            { icons: "mdi-Delete" },
           ],
         },
       ],
