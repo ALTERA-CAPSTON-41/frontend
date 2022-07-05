@@ -2,60 +2,40 @@
   <v-container fluid>
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
-        DAFTAR ANTREAN
+        CARI PASIEN
       </v-toolbar-title>
     </div>
-    <v-card height="800px">
-      <v-card-title>
-        <div>
-          <br />
-        </div>
-        <v-btn href="/AddAntrean" height="53px" color="grey" left>
-          <v-icon>mdi-plus </v-icon>
-          <p class="my-5">Tambah Antrian</p>
-        </v-btn>
-
-        <v-spacer></v-spacer>
-        <div class="text-right">
-          <v-container>
-            <v-btn height="50px" color="grey">
-              <v-icon> mdi-filter-variant </v-icon>
-            </v-btn>
-          </v-container>
-        </div>
-        <div class="text-right">
-          <v-btn height="50px">
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Pencarian"
-              hide-details
-            ></v-text-field>
-          </v-btn>
-        </div>
-      </v-card-title>
-      <v-card href="/DetailAntrean">
-        <v-data-table
-          :headers="headers"
-          :items="desserts"
-          :search="search"
-        ></v-data-table>
-        <CariPas />
-      </v-card>
+    <br />
+    <v-btn height="50px" width="1000px">
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search Paien By NIK"
+        hide-details
+      ></v-text-field>
+    </v-btn>
+    <br />
+    <br />
+    <div class="my-4">
+      <v-toolbar-title class="font-weight-medium">
+        DAFTAR PASIEN
+      </v-toolbar-title>
+    </div>
+    <v-card href="/DetailPas" height="800px">
+      <v-data-table
+        :headers="headers"
+        :items="desserts"
+        :search="search"
+      ></v-data-table>
     </v-card>
-
     <!-- If using vue-router -->
     <router-view></router-view>
   </v-container>
 </template>
 
 <script>
-import CariPas from "../components/CariPas.vue";
 export default {
   name: "App",
-  components: {
-    CariPas,
-  },
   data() {
     return {
       search: "",
@@ -66,19 +46,19 @@ export default {
           sortable: false,
           value: "no",
         },
-        { text: "Tanggal", value: "tgl" },
         { text: "Nama", value: "nama" },
-        { text: "Poliklinik", value: "pk" },
-        { text: "Nomor Antrean", value: "nomer" },
+        { text: "NIK", value: "nik" },
+        { text: "Jenis Kelamin", value: "jk" },
+        { text: "Golongan Darah", value: "golda" },
         { text: "Aksi", value: "aksi" },
       ],
       desserts: [
         {
           no: "1",
-          tgl: "1 Juli 2022",
           nama: "Lorem Ipsum",
-          pk: "Lorem Ipsum",
-          nomer: 10,
+          nik: 274748971,
+          jk: "Lorem",
+          golda: "Lorem Ipsum",
           aksi: [
             { Icon: "mdi-account-details" },
             { icon: "mdi-Pencil" },
@@ -87,10 +67,10 @@ export default {
         },
         {
           no: "2",
-          tgl: "1 Juli 2022",
           nama: "Lorem Ipsum",
-          pk: "Lorem Ipsum",
-          nomer: 10,
+          nik: 274748971,
+          jk: "Lorem",
+          golda: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -99,10 +79,10 @@ export default {
         },
         {
           no: "3",
-          tgl: "1 Juli 2022",
           nama: "Lorem Ipsum",
-          pk: "Lorem Ipsum",
-          nomer: 10,
+          nik: 274748971,
+          jk: "Lorem",
+          golda: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -111,10 +91,10 @@ export default {
         },
         {
           no: "4",
-          tgl: "1 Juli 2022",
           nama: "Lorem Ipsum",
-          pk: "Lorem Ipsum",
-          nomer: 10,
+          nik: 274748971,
+          jk: "Lorem",
+          golda: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -123,10 +103,10 @@ export default {
         },
         {
           no: "5",
-          tgl: "1 Juli 2022",
           nama: "Lorem Ipsum",
-          pk: "Lorem Ipsum",
-          nomer: 10,
+          nik: 274748971,
+          jk: "Lorem",
+          golda: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -135,10 +115,10 @@ export default {
         },
         {
           no: "6",
-          tgl: "1 Juli 2022",
           nama: "Lorem Ipsum",
-          pk: "Lorem Ipsum",
-          nomer: 10,
+          nik: 274748971,
+          jk: "Lorem",
+          golda: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -147,10 +127,10 @@ export default {
         },
         {
           no: "7",
-          tgl: "1 Juli 2022",
           nama: "Lorem Ipsum",
-          pk: "Lorem Ipsum",
-          nomer: 10,
+          nik: 274748971,
+          jk: "Lorem",
+          golda: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -159,10 +139,10 @@ export default {
         },
         {
           no: "8",
-          tgl: "1 Juli 2022",
           nama: "Lorem Ipsum",
-          pk: "Lorem Ipsum",
-          nomer: 10,
+          nik: 274748971,
+          jk: "Lorem",
+          golda: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },

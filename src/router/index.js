@@ -5,6 +5,9 @@ import Login from "../views/Login.vue";
 import Administrator from "../views/Administrator.vue";
 import Beranda from "../views/Beranda.vue";
 import DaftarAntrean from "../views/DaftarAntrean.vue";
+import AddAntrean from "../views/AddAntrean.vue";
+import DetailAntrean from "../views/DetailAntrean.vue";
+import EditAntrean from "../views/EditAntrean.vue";
 import Dokter from "../views/Dokter.vue";
 import Pasien from "../views/Pasien.vue";
 import Perawat from "../views/Perawat.vue";
@@ -39,6 +42,21 @@ const routes = [
         path: "/DaftarAntrean",
         name: "Daftar Antrean",
         component: DaftarAntrean,
+      },
+      {
+        path: "/DetailAntrean",
+        name: "Detail Antrean",
+        component: DetailAntrean,
+      },
+      {
+        path: "/EditAntrean",
+        name: "Edit Antrean",
+        component: EditAntrean,
+      },
+      {
+        path: "/AddAntrean",
+        name: "Tambah Antrean",
+        component: AddAntrean,
       },
       {
         path: "/Pasien",
