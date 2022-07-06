@@ -77,17 +77,21 @@ export default {
     }
   }),
   methods:{
- async login(){
-      const result = await axios.post(
-        'https://virtserver.swaggerhub.com/capstone-41/clinic-api/1.0.0/login'
-      )
-       .then(() => 
-       {
-          this.$router.push({ path: "/" });
-        })
-      console.log("login berhasil", result)
-      console.warn(result)
-    }
+    async login(){
+          const result = await axios.post(
+            'https://api.capstone.thisham.my.id/login',
+            {
+              "email": "master.admincp@example.com",
+              "password": "thestrongestpassword"
+            }
+          )
+          .then(() => 
+          {
+              this.$router.push({ path: "/" });
+          })
+          console.log("login berhasil", result)
+          console.warn(result)
+        }
   },
   props: {
     source: String
