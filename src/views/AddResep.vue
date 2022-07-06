@@ -2,27 +2,28 @@
   <v-container fluid>
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
-        TAMBAH ADMINISTRATOR
+        TAMBAH RESEP OBAT
       </v-toolbar-title>
     </div>
     <v-form>
       <v-container>
-        <v-text-field v-model="nama" label="Nama" filled></v-text-field>
-        <v-text-field v-model="nip" label="NIP" filled></v-text-field>
-        <v-text-field v-model="email" label="Email" filled></v-text-field>
+        <v-text-field v-model="nama" label="Nama Obat" filled></v-text-field>
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="pw" label="Password" filled></v-text-field>
+            <v-text-field v-model="jml" label="Jumlah" filled></v-text-field>
           </v-col>
 
           <v-col cols="12" sm="6">
-            <v-text-field
-              v-model="cpw"
-              label="Confirm Pasword"
-              filled
-            ></v-text-field>
+            <v-text-field v-model="dosis" label="Dosis" filled></v-text-field>
           </v-col>
         </v-row>
+        <v-text-field
+          v-model="prepar"
+          label="Preparatory"
+          filled
+        ></v-text-field>
+        <br />
+        <v-btn> Add More </v-btn>
         <v-card-actions>
           <v-spacer></v-spacer>
 
@@ -39,15 +40,9 @@ export default {
   name: "App",
   data: () => ({
     nama: "",
-    nip: "",
-    sip: "",
-    alamat: "",
-    tgl: "",
-    pk: "",
-    email: "",
-    pw: "",
-    cpw: "",
-    row: null,
+    jml: "",
+    dosis: "",
+    prepar: "",
   }),
 };
 </script>

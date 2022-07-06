@@ -56,16 +56,18 @@ export default {
           value: "no",
         },
         { text: "Nama", value: "nama" },
-        { text: "NIP", value: "nik" },
+        { text: "NIP", value: "nip" },
+        { text: "SIP", value: "sip" },
+        { text: "Poliklinik", value: "poliklinik" },
         { text: "Aksi", value: "aksi" },
       ],
       desserts: [
         {
           no: "1",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icon: "mdi-account-details" },
             { icon: "mdi-Pencil" },
@@ -75,9 +77,9 @@ export default {
         {
           no: "2",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -87,9 +89,9 @@ export default {
         {
           no: "3",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -99,9 +101,9 @@ export default {
         {
           no: "4",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -111,9 +113,9 @@ export default {
         {
           no: "5",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -123,9 +125,9 @@ export default {
         {
           no: "6",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -135,9 +137,9 @@ export default {
         {
           no: "7",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },
@@ -147,9 +149,9 @@ export default {
         {
           no: "8",
           nama: "Lorem Ipsum",
-          nik: 274748971,
-          jk: "Lorem",
-          golda: "Lorem Ipsum",
+          nip: 274748971,
+          sip: 18742917,
+          poliklinik: "Lorem Ipsum",
           aksi: [
             { Icons: "mdi-account-details" },
             { icons: "mdi-Pencil" },

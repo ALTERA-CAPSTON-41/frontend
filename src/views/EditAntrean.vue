@@ -2,16 +2,13 @@
   <v-container fluid>
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
-        DETAIL DOKTER
+        EDIT ANTREAN
       </v-toolbar-title>
     </div>
     <v-container>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-card justify="space-around">
-            <v-card-title> Biodata </v-card-title>
-            <br />
-
+          <v-card justify="space-around" height="800px">
             <v-list-item-title class="mx-5">Nama</v-list-item-title>
             <v-list-item>
               <v-list-item-action>
@@ -25,16 +22,14 @@
               </v-list-item-content>
             </v-list-item>
             <br />
-            <v-list-item-title class="mx-5">Email</v-list-item-title>
+            <v-list-item-title class="mx-5">Nomor Telepon</v-list-item-title>
             <v-list-item>
               <v-list-item-action>
-                <v-icon>mdi-email</v-icon>
+                <v-icon>mdi-cellphone</v-icon>
               </v-list-item-action>
 
               <v-list-item-content>
-                <v-list-item-title color="grey"
-                  >Lorem ipsum dolor</v-list-item-title
-                >
+                <v-list-item-title color="grey">08212345678</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <br />
@@ -65,7 +60,6 @@
             </v-list-item>
             <br />
             <v-list-item-title class="mx-5">Jenis Kelamin</v-list-item-title>
-
             <v-list-item>
               <v-list-item-action>
                 <v-icon>mdi-gender-male-female</v-icon>
@@ -77,59 +71,45 @@
                 >
               </v-list-item-content>
             </v-list-item>
+            <br />
+            <v-list-item-title class="mx-5">Golongan Darah</v-list-item-title>
+
+            <v-list-item>
+              <v-list-item-action>
+                <v-icon>mdi-water-outline</v-icon>
+              </v-list-item-action>
+
+              <v-list-item-content>
+                <v-list-item-title color="grey">O</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <br />
           </v-card>
         </v-col>
 
         <v-col cols="12" sm="6">
           <v-card>
-            <v-card-title> Data Dokter </v-card-title>
-            <br />
-
-            <v-list-item-title class="mx-5">NIP</v-list-item-title>
-            <v-list-item>
-              <v-list-item-action>
-                <v-icon>mdi-smart-card-outline</v-icon>
-              </v-list-item-action>
-
-              <v-list-item-content>
-                <v-list-item-title color="grey"
-                  >Lorem ipsum dolor</v-list-item-title
-                >
-              </v-list-item-content>
-            </v-list-item>
-            <br />
-            <v-list-item-title class="mx-5">SIP</v-list-item-title>
-            <v-list-item>
-              <v-list-item-action>
-                <v-icon>mdi-card-account-details-outline</v-icon>
-              </v-list-item-action>
-
-              <v-list-item-content>
-                <v-list-item-title color="grey"
-                  >Lorem ipsum dolor</v-list-item-title
-                >
-              </v-list-item-content>
-            </v-list-item>
-            <br />
-            <v-list-item-title class="mx-5">Poliklinik</v-list-item-title>
-
-            <v-list-item>
-              <v-list-item-action>
-                <v-icon>mdi-hospital-building</v-icon>
-              </v-list-item-action>
-
-              <v-list-item-content>
-                <v-list-item-title color="grey"
-                  >Poliklinik penyakit dalam</v-list-item-title
-                >
-              </v-list-item-content>
-            </v-list-item>
-            <br />
+            <v-container fluid>
+              <br />
+              <br />
+              <v-textarea
+                height="10px"
+                autocomplete="pk"
+                label="Poliklinik"
+              ></v-textarea>
+              <br />
+              <v-select
+                v-model="select"
+                :items="items"
+                label="Status Pasien"
+              ></v-select>
+            </v-container>
           </v-card>
+          <br />
           <v-card-actions>
             <v-spacer></v-spacer>
-
-            <v-btn href="/"> Kembali </v-btn>
+            <v-btn> Batal </v-btn>
+            <v-btn> Simpan </v-btn>
           </v-card-actions>
         </v-col>
       </v-row>
@@ -140,5 +120,9 @@
 <script>
 export default {
   name: "App",
+  data: () => ({
+    select: null,
+    items: ["Aktif", "Tidak Aktif"],
+  }),
 };
 </script>
