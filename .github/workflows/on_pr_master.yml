@@ -1,0 +1,77 @@
+name: lint and build
+
+on: 
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint:
+    name: lint source code
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node: [ 14 ]
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: setup node
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+
+      - name: check node env dirpath
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm cache dir)"
+
+      - name: install dependencies
+        run: npm install
+
+      - name: lint src
+        run: npm run lint
+
+  build-test:
+    name: build test
+    runs-on: ${{ matrix.os }}
+
+    permissions:
+      packages: write
+      contents: read
+
+    needs:
+      - lint
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node: [ 14 ]
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: setup node
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+
+      - name: check node env dirpath
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm cache dir)"
+
+      - name: write .env
+        env:
+          ENV_FILE: ${{ secrets.ENV_FILE }}
+        run: echo $ENV_FILE >> .env
+
+      - name: install dependencies
+        run: npm install
+
+      - name: build source code
+        run: npm run build
