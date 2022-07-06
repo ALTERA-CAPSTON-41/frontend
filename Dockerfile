@@ -4,8 +4,10 @@ COPY . .
 RUN npm install && npm run lint && npm run build
 
 # runner -- automatically exposed at 3000
-FROM abhin4v/hastatic:latest
-COPY --from=builder /app/dist /opt/dist
-WORKDIR /opt/dist
+FROM node:14.19-alpine3.14
+RUN npm install -g serve
+COPY --from=builder /app/dist /app
+WORKDIR /app
+EXPOSE 5000
 
-CMD [ "usr/bin/hastatic" ]
+CMD [ "serve", "-s", "." ]
