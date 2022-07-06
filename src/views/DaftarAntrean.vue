@@ -34,7 +34,7 @@
           </v-btn>
         </div>
       </v-card-title>
-      <v-card href="/DetailAntrean">
+      <v-card>
         <v-data-table
           :headers="headers"
           :items="desserts"

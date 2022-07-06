@@ -80,18 +80,6 @@
             </template>  
         </v-list>
 
-        <v-btn
-            justify-center
-            color="#827e7e"
-            class="antrean-bwh white--text ma-6"
-            rounded
-        >
-            <v-icon left>
-                mdi-plus
-            </v-icon>
-            Tambah Antrean
-        </v-btn>
-
         </v-navigation-drawer>
 
         <v-app-bar
