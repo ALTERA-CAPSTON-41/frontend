@@ -10,7 +10,7 @@
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Search Paien By NIK"
+        label="Search Pasien by NIK"
         hide-details
       ></v-text-field>
     </v-btn>

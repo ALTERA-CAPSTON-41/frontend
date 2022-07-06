@@ -84,6 +84,10 @@
           </v-list-item-content>
         </v-list-item>
       </v-card>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn class="white--text" href="/Pasien" color="#741935"> Kembali </v-btn>
+          </v-card-actions>
     </v-container>
     <div class="my-8 text-left">
       <h2 class="font-weight-medium">REKAM MEDIS</h2>
