@@ -79,7 +79,7 @@ jobs:
         run: ssh development '
           sudo docker rm -f $(docker ps -aqf "name=clinic-frontend") || true &&
           sudo docker pull ghcr.io/altera-capston-41/frontend:latest &&
-          sudo docker run -dp 19000:8000 --name clinic-frontend ghcr.io/altera-capston-41/frontend:latest'
+          sudo docker run -dp 19030:8000 --name clinic-frontend ghcr.io/altera-capston-41/frontend:latest'
 
       - name: restart container
         run: ssh development '
