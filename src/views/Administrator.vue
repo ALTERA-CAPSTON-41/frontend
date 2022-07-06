@@ -5,25 +5,25 @@
             <div>
               <br />
             </div>
-            <v-btn href="/AddAdmin" height="53px" color="grey" left>
+            <v-btn class="white--text" href="/AddAdmin" height="53px" color="#0D987A" left>
               <v-icon>mdi-plus </v-icon>
-              <p class="my-5">Tambah Admin</p>
+              <p class="my-5 "> Tambah Administrator</p>
             </v-btn>
 
             <v-spacer></v-spacer>
             <div class="text-right">
               <v-container>
-                <v-btn height="50px" color="grey">
+                <v-btn height="50px" color="#0D987A">
                   <v-icon> mdi-filter-variant </v-icon>
                 </v-btn>
               </v-container>
             </div>
-            <div class="text-right">
+            <div class="text-left">
               <v-btn height="50px">
                 <v-text-field
                   v-model="search"
                   append-icon="mdi-magnify"
-                  label="Pencarian"
+                  label="Search"
                   hide-details
                 ></v-text-field>
               </v-btn>
@@ -31,7 +31,7 @@
           </v-card-title>
           <v-card href="/DetailAdmin">
             <v-data-table
-              :headers="headers"
+              :headers="headers" class="header"
               :items="desserts"
               :search="search"
             ></v-data-table>
@@ -162,3 +162,8 @@ export default {
 };
 </script>
 
+<style>
+.header {
+  background-color: aqua;
+}
+</style>

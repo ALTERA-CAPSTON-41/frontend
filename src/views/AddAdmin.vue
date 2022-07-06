@@ -5,8 +5,15 @@
           TAMBAH ADMINISTRATOR
         </v-toolbar-title>
       </div>
-      <v-form>
+      <v-form >
         <v-container>
+          Nama
+          <v-text-field
+            label="Enter Name"
+            solo
+            color="warning"
+            v-model="nama"
+          ></v-text-field>
           <v-text-field v-model="nama" label="Nama" filled></v-text-field>
           <v-text-field v-model="alamat" label="NIP" filled></v-text-field>
           <v-text-field v-model="alamat" label="Email" filled></v-text-field>

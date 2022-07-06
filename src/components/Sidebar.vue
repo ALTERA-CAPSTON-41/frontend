@@ -39,13 +39,13 @@
                 active-class="orange--text"
             >
                 <template v-slot:activator>
-                <v-list-item-content class="grey--text">
+                <v-list-item-content class="black--text">
                     <v-list-item-title >
                     {{ item.text }}
                     </v-list-item-title>
                 </v-list-item-content>
                 </template>
-                <v-list-item class="grey--text"
+                <v-list-item class="black--text"
                 v-for="(child, i) in item.children"
                 :key="i"
                 route :to="child.route"
@@ -61,7 +61,7 @@
                 </v-list-item-content>
                 </v-list-item>
             </v-list-group>
-            <v-list-item class="grey--text"
+            <v-list-item class="black--text"
                 v-else
                 :key="item.text"
                 active-class="orange--text"
@@ -79,18 +79,6 @@
             </v-list-item>
             </template>  
         </v-list>
-
-        <v-btn
-            justify-center
-            color="#827e7e"
-            class="antrean-bwh white--text ma-6"
-            rounded
-        >
-            <v-icon left>
-                mdi-plus
-            </v-icon>
-            Tambah Antrean
-        </v-btn>
 
         </v-navigation-drawer>
 
@@ -112,25 +100,25 @@
             <v-btn text
             v-bind="attrs"
             v-on="on">
-                <v-icon color="##757475" class="mdi-36px">mdi-account-circle</v-icon>
-                <v-icon color="##757475" class="mdi-36px">mdi-chevron-down</v-icon>
+                <v-icon color="#0B715B" class="mdi-36px">mdi-account-circle</v-icon>
+                <v-icon color="#0B715B" class="mdi-36px">mdi-chevron-down</v-icon>
             </v-btn>
             </template>
             
-            <v-list class="d-flex justify px-3">
+            <v-list class="d-flex justify px-4">
             <v-list-item-content class="justify">
                 <div class="d-flex">
-                <v-icon color="#7c797a" class="px-3">mdi-account</v-icon>
-                <v-list-item-title class="order-2">ADMIN</v-list-item-title>
+                <v-icon color="#56CCF2" class="px-4">mdi-account</v-icon>
+                <v-list-item-title class="order-2">Admin</v-list-item-title>
                 </div>
             </v-list-item-content>
             </v-list>
 
-            <v-list class="d-flex justify px-3">
+            <v-list class="d-flex justify px-4">
             <v-list-item-content class="buttonLogout justify">
                 <div class="d-flex" @click="logout">
-                <v-icon color="#7c797a" class="px-3">mdi-logout</v-icon>
-                <v-list-item-title class="order-2">Log Out</v-list-item-title>
+                <v-icon color="#F10000" class="px-4">mdi-logout</v-icon>
+                <v-list-item-title class="order-2">Keluar</v-list-item-title>
                 </div>
             </v-list-item-content>
             </v-list>
@@ -181,17 +169,13 @@ export default {
 
 <style>
 .buttonLogout:hover{
-    background-color: #dfbc91;
+    background-color: #E0F8F2;
     cursor: pointer;
 }
 
-.iconLogout{
-    color: #757475;
-}
-
 .v-application .orange--text {
-    color: #8a5537 !important;
-    caret-color: #b4aea6 !important;
+    color: #0D987A !important;
+    caret-color: #000000 !important;
     background-repeat: repeat-x;
 }
 
