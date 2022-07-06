@@ -1,50 +1,45 @@
 <template>
-  <v-container fluid>
-    <div class="my-4">
-      <v-toolbar-title class="font-weight-medium">
-        DAFTAR ADMINISTRATOR
-      </v-toolbar-title>
-    </div>
-    <v-card height="800px">
-      <v-card-title>
-        <div>
-          <br />
-        </div>
-        <v-btn href="/AddAdmin" height="53px" color="grey" left>
-          <v-icon>mdi-plus </v-icon>
-          <p class="my-5">Tambah Administrator</p>
-        </v-btn>
-
-        <v-spacer></v-spacer>
-        <div class="text-right">
-          <v-container>
-            <v-btn height="50px" color="grey">
-              <v-icon> mdi-filter-variant </v-icon>
+      <v-container fluid>
+        <v-card height="800px">
+          <v-card-title>
+            <div>
+              <br />
+            </div>
+            <v-btn class="white--text" href="/AddAdmin" height="53px" color="#0D987A" left>
+              <v-icon>mdi-plus </v-icon>
+              <p class="my-5 "> Tambah Administrator</p>
             </v-btn>
-          </v-container>
-        </div>
-        <div class="text-right">
-          <v-btn height="50px">
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Pencarian"
-              hide-details
-            ></v-text-field>
-          </v-btn>
-        </div>
-      </v-card-title>
-      <v-card href="/DetailAdmin">
-        <v-data-table
-          :headers="headers"
-          :items="desserts"
-          :search="search"
-        ></v-data-table>
-      </v-card>
-    </v-card>
-    <!-- If using vue-router -->
-    <router-view></router-view>
-  </v-container>
+
+            <v-spacer></v-spacer>
+            <div class="text-right">
+              <v-container>
+                <v-btn height="50px" color="#0D987A">
+                  <v-icon> mdi-filter-variant </v-icon>
+                </v-btn>
+              </v-container>
+            </div>
+            <div class="text-left">
+              <v-btn height="50px">
+                <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Search"
+                  hide-details
+                ></v-text-field>
+              </v-btn>
+            </div>
+          </v-card-title>
+          <v-card href="/DetailAdmin">
+            <v-data-table
+              :headers="headers" class="header"
+              :items="desserts"
+              :search="search"
+            ></v-data-table>
+          </v-card>
+        </v-card>
+        <!-- If using vue-router -->
+        <router-view></router-view>
+      </v-container>
 </template>
 
 <script>
@@ -168,3 +163,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.header {
+  background-color: aqua;
+}
+</style>

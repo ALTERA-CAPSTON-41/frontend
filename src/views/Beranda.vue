@@ -2,14 +2,14 @@
 <v-row>
     <v-col cols="12" md="11" class="mx-auto">
     <br><br>
-      <div class="pa-5 grey lighten-2 text-no-wrap rounded-xl mx-auto">
-        <h1>Selamat Datang, Lorem ipsum dolor !</h1><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lectus orci diam  congue<br>ultrices at gravida.</p>
+      <div class="pa-5 teal lighten-5 text-no-wrap rounded-xl mx-auto">
+        <h1>Selamat Datang, Admin Klinik Sehat !</h1><br>
+        <p>Berikan layanan terbaik dan tetap prioritaskan kesehatan pasien</p>
       <v-btn
       justify-center
-      color="#999999"
-      class="btn-antrean black--text"
-      rounded-lg
+      color="#0D987A"
+      class="btn-antrean white--text"
+      rounded-pill
       >
       Daftar Antrean
       </v-btn>
@@ -20,31 +20,31 @@
         <h1>Informasi</h1>
         <br>
           <v-row justify="left d-flex">
-            <v-col cols="12" md="4">
-              <div class="mb-2 pa-4 text-left rounded-xl grey lighten-2">
+            <v-col cols="12" md="4" color="#EDFFFA">
+              <div class="card mb-2 pa-4 text-left rounded-xl">
                 Jumlah Dokter <br>
                 10
               </div>
               
-              <div class="pa-4 text-left rounded-xl grey lighten-2">
+              <div class="card pa-4 text-left rounded-xl">
                 Jumlah Poliklinik <br>
                 10
               </div>
             </v-col>
 
             <v-col cols="12" md="4">
-              <div class="mb-2 pa-4 text-left rounded-xl grey lighten-2">
+              <div class="card mb-2 pa-4 text-left rounded-xl">
                 Jumlah Perawat <br>
                 10
               </div>
-              <div class="pa-4 text-left rounded-xl grey lighten-2">
+              <div class="card pa-4 text-left rounded-xl">
                 Jumlah Pasien <br>
                 10
               </div>
             </v-col>
 
             <v-col cols="12" md="4">
-              <div class="antrean ms-3 pa-4 text-center rounded-xl grey lighten-2">
+              <div class="antrean ms-3 pa-4 text-center rounded-xl">
                 Jumlah Antrean <br>
                 10
               </div>
@@ -57,14 +57,14 @@
         <h1>Daftar Pasien</h1>
         <br>
           <v-row>
-            <v-col cols="12" md="6">
+            <v-col cols="12" md="6" >
               <div class="kotak pa-4 text-center grey lighten-2 text-no-wrap rounded-xl">
-                Pasien Lama
-                <br><br>
+                <h2>Pasien Lama</h2>
+                <br>
                 <v-btn
                 justify-center
-                color="#999999"
-                class="btn-antrean black--text"
+                color="#0B715B"
+                class="btn-antrean white--text"
                 rounded-lg
                 >
                 <v-icon left>
@@ -77,12 +77,12 @@
 
             <v-col cols="12" md="6">
               <div class="kotak pa-4 text-center grey lighten-2 text-no-wrap rounded-xl">
-                Pasien Baru
-                <br><br>
+                <h2>Pasien Baru</h2>
+                <br>
                 <v-btn
                 justify-center
-                color="#999999"
-                class="btn-antrean black--text"
+                color="#0B715B"
+                class="btn-antrean white--text"
                 rounded-lg
                 >
                 <v-icon left>
@@ -131,10 +131,15 @@ letter-spacing: 0.0025em;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: #A6EBD9;
 }
 
 .btn-antrean {
-  width: 300px;
+  width: 200px;
   height: 43px !important;
+}
+
+.card {
+  background-color: #E0F8F2 !important;
 }
 </style>

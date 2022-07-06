@@ -1,50 +1,45 @@
 <template>
-  <v-container fluid>
-    <div class="my-4">
-      <v-toolbar-title class="font-weight-medium">
-        DAFTAR DOKTER
-      </v-toolbar-title>
-    </div>
-    <v-card height="800px">
-      <v-card-title>
-        <div>
-          <br />
-        </div>
-        <v-btn href="/AddDok" height="53px" color="grey" left>
-          <v-icon>mdi-plus </v-icon>
-          <p class="my-5">Tambah Dokter</p>
-        </v-btn>
-
-        <v-spacer></v-spacer>
-        <div class="text-right">
-          <v-container>
-            <v-btn height="50px" color="grey">
-              <v-icon> mdi-filter-variant </v-icon>
-            </v-btn>
-          </v-container>
-        </div>
-        <div class="text-right">
-          <v-btn height="50px">
-            <v-text-field
-              v-model="search"
-              append-icon="mdi-magnify"
-              label="Pencarian"
-              hide-details
-            ></v-text-field>
+    <v-container fluid>
+      <v-card height="800px">
+        <v-card-title>
+          <div>
+            <br />
+          </div>
+          <v-btn href="/AddDok" height="53px" color="grey" left>
+            <v-icon>mdi-plus </v-icon>
+            <p class="my-5">Tambah Dokter</p>
           </v-btn>
-        </div>
-      </v-card-title>
-      <v-card href="/DetailDok">
-        <v-data-table
-          :headers="headers"
-          :items="desserts"
-          :search="search"
-        ></v-data-table>
+
+          <v-spacer></v-spacer>
+          <div class="text-right">
+            <v-container>
+              <v-btn height="50px" color="grey">
+                <v-icon> mdi-filter-variant </v-icon>
+              </v-btn>
+            </v-container>
+          </div>
+          <div class="text-right">
+            <v-btn height="50px">
+              <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Pencarian"
+                hide-details
+              ></v-text-field>
+            </v-btn>
+          </div>
+        </v-card-title>
+        <v-card href="/DetailDok">
+          <v-data-table
+            :headers="headers"
+            :items="desserts"
+            :search="search"
+          ></v-data-table>
+        </v-card>
       </v-card>
-    </v-card>
-    <!-- If using vue-router -->
-    <router-view></router-view>
-  </v-container>
+      <!-- If using vue-router -->
+      <router-view></router-view>
+    </v-container>
 </template>
 
 <script>

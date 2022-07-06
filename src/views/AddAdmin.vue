@@ -40,9 +40,14 @@ export default {
   data: () => ({
     nama: "",
     nip: "",
+    sip: "",
+    alamat: "",
+    tgl: "",
+    pk: "",
     email: "",
     pw: "",
     cpw: "",
+    row: null,
   }),
 };
 </script>
