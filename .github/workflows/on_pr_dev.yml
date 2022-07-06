@@ -1,0 +1,90 @@
+name: lint and build
+
+on: 
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  lint:
+    name: lint source code
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node: [ 14 ]
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: setup node
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+
+      - name: check node env dirpath
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm cache dir)"
+
+      - name: cache node_modules
+        uses: actions/cache@v2.1.4
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-json.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: install dependencies
+        run: npm install
+
+      - name: lint src
+        run: npm run lint
+
+  build-test:
+    name: build test
+    runs-on: ${{ matrix.os }}
+
+    permissions:
+      packages: write
+      contents: read
+
+    needs:
+      - lint
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node: [ 14 ]
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: setup node
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+
+      - name: check node env dirpath
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm cache dir)"
+
+      - name: cache node_modules
+        uses: actions/cache@v2.1.4
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-json.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: install dependencies
+        run: npm install
+
+      - name: build source code
+        run: npm run build
