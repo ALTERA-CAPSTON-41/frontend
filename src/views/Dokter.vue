@@ -1,11 +1,16 @@
 <template>
     <v-container fluid>
+      <div class="my-4">
+          <v-toolbar-title class="font-weight-medium">
+            DAFTAR DOKTER
+          </v-toolbar-title>
+        </div>
       <v-card height="800px">
         <v-card-title>
           <div>
             <br />
           </div>
-          <v-btn href="/AddDok" height="53px" color="grey" left>
+          <v-btn href="/AddDok" height="53px" color="#741935" class="white--text" left>
             <v-icon>mdi-plus </v-icon>
             <p class="my-5">Tambah Dokter</p>
           </v-btn>
@@ -13,7 +18,7 @@
           <v-spacer></v-spacer>
           <div class="text-right">
             <v-container>
-              <v-btn height="50px" color="grey">
+              <v-btn class="white--text" height="50px" color="#0D987A">
                 <v-icon> mdi-filter-variant </v-icon>
               </v-btn>
             </v-container>
@@ -23,7 +28,7 @@
               <v-text-field
                 v-model="search"
                 append-icon="mdi-magnify"
-                label="Pencarian"
+                label="Search"
                 hide-details
               ></v-text-field>
             </v-btn>

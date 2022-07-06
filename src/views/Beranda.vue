@@ -4,12 +4,13 @@
     <br><br>
       <div class="pa-5 teal lighten-5 text-no-wrap rounded-xl mx-auto">
         <h1>Selamat Datang, Admin Klinik Sehat !</h1><br>
-        <p>Berikan layanan terbaik dan tetap prioritaskan kesehatan pasien</p>
+        <p>Berikan layanan terbaik dan tetap prioritaskan kesehatan pasien.</p>
       <v-btn
       justify-center
-      color="#0D987A"
+      color="#741935"
       class="btn-antrean white--text"
       rounded-pill
+      href="/DaftarAntrean"
       >
       Daftar Antrean
       </v-btn>
@@ -58,14 +59,15 @@
         <br>
           <v-row>
             <v-col cols="12" md="6" >
-              <div class="kotak pa-4 text-center grey lighten-2 text-no-wrap rounded-xl">
+              <div class="kotak pa-4 text-center  text-no-wrap rounded-xl">
                 <h2>Pasien Lama</h2>
                 <br>
                 <v-btn
                 justify-center
-                color="#0B715B"
+                color="#741935"
                 class="btn-antrean white--text"
                 rounded-lg
+                href="/AddAntrean"
                 >
                 <v-icon left>
                   mdi-plus
@@ -76,14 +78,15 @@
             </v-col>
 
             <v-col cols="12" md="6">
-              <div class="kotak pa-4 text-center grey lighten-2 text-no-wrap rounded-xl">
+              <div class="kotak pa-4 text-center text-no-wrap rounded-xl">
                 <h2>Pasien Baru</h2>
                 <br>
                 <v-btn
                 justify-center
-                color="#0B715B"
+                color="#741935"
                 class="btn-antrean white--text"
                 rounded-lg
+                href="/AddPas"
                 >
                 <v-icon left>
                   mdi-plus
@@ -114,8 +117,16 @@ p {
   letter-spacing: 0.0015em;
 }
 
+.kotak {
+  border-style: solid;
+  border-color: #A6EBD9;
+  border-radius: 20px;
+}
+
 h1 {
-  font-weight: 400;
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400 !important;
 font-size: 34px;
 line-height: 41px;
 /* identical to box height */

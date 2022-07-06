@@ -8,7 +8,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-card justify="space-around">
+          <v-card justify="space-around" color="#EDFFFA">
             <v-card-title> Biodata </v-card-title>
             <br />
 
@@ -81,7 +81,7 @@
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-card>
+          <v-card color="#EDFFFA">
             <v-card-title> Data Perawat </v-card-title>
             <br />
 
@@ -129,7 +129,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
 
-            <v-btn href="/"> Kembali </v-btn>
+            <v-btn class="white--text" href="/Perawat" color="#741935"> Kembali </v-btn>
           </v-card-actions>
         </v-col>
       </v-row>

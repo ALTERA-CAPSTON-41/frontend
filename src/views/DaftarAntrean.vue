@@ -10,15 +10,15 @@
         <div>
           <br />
         </div>
-        <v-btn href="/AddAntrean" height="53px" color="grey" left>
+        <v-btn class="white--text" href="/AddAntrean" height="53px" color="#741935" left>
           <v-icon>mdi-plus </v-icon>
-          <p class="my-5">Tambah Antrian</p>
+          <p class="my-5">Tambah Antrean</p>
         </v-btn>
 
         <v-spacer></v-spacer>
         <div class="text-right">
           <v-container>
-            <v-btn height="50px" color="grey">
+            <v-btn class="white--text" height="50px" color="#0D987A">
               <v-icon> mdi-filter-variant </v-icon>
             </v-btn>
           </v-container>
@@ -28,7 +28,7 @@
             <v-text-field
               v-model="search"
               append-icon="mdi-magnify"
-              label="Pencarian"
+              label="search"
               hide-details
             ></v-text-field>
           </v-btn>

@@ -6,7 +6,7 @@
           </v-toolbar-title>
         </div>
         <v-container>
-          <v-card justify="space-around">
+          <v-card justify="space-around" color="#EDFFFA">
             <v-card-title> Biodata </v-card-title>
             <br />
 
@@ -51,7 +51,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
 
-            <v-btn href="/Administrator"> Kembali </v-btn>
+            <v-btn class="white--text" href="/Administrator" color="#741935"> Kembali </v-btn>
           </v-card-actions>
         </v-container>
       </v-container>

@@ -1,11 +1,16 @@
 <template>
       <v-container fluid>
+        <div class="my-4">
+          <v-toolbar-title class="font-weight-medium">
+            DAFTAR ADMIN
+          </v-toolbar-title>
+        </div>
         <v-card height="800px">
           <v-card-title>
             <div>
               <br />
             </div>
-            <v-btn class="white--text" href="/AddAdmin" height="53px" color="#0D987A" left>
+            <v-btn class="white--text" href="/AddAdmin" height="53px" color="#741935" left>
               <v-icon>mdi-plus </v-icon>
               <p class="my-5 "> Tambah Administrator</p>
             </v-btn>
@@ -13,7 +18,7 @@
             <v-spacer></v-spacer>
             <div class="text-right">
               <v-container>
-                <v-btn height="50px" color="#0D987A">
+                <v-btn class="white--text" height="50px" color="#0D987A">
                   <v-icon> mdi-filter-variant </v-icon>
                 </v-btn>
               </v-container>

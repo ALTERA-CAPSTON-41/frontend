@@ -8,8 +8,8 @@
     <v-container>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-card justify="space-around">
-            <v-card-title> Biodata </v-card-title>
+          <v-card justify="space-around" color="#EDFFFA">
+            <v-card-title> <b>Biodata</b> </v-card-title>
             <br />
 
             <v-list-item-title class="mx-5">Nama</v-list-item-title>
@@ -81,8 +81,8 @@
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-card>
-            <v-card-title> Data Dokter </v-card-title>
+          <v-card color="#EDFFFA">
+            <v-card-title> <b>Data Dokter</b> </v-card-title>
             <br />
 
             <v-list-item-title class="mx-5">NIP</v-list-item-title>
@@ -129,7 +129,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
 
-            <v-btn href="/"> Kembali </v-btn>
+            <v-btn class="white--text" href="/Dokter" color="#741935"> Kembali </v-btn>
           </v-card-actions>
         </v-col>
       </v-row>

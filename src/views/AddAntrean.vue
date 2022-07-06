@@ -8,7 +8,8 @@
     <v-container>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-card justify="space-around" height="800px">
+          <v-card justify="space-around" height="800px" color="#EDFFFA">
+            <br>
             <v-list-item-title class="mx-5">Nama</v-list-item-title>
             <v-list-item>
               <v-list-item-action>
@@ -108,8 +109,8 @@
           <br />
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn> Batal </v-btn>
-            <v-btn> Tambah </v-btn>
+            <v-btn class="white--text" href="/DaftarAntrean" color="#741935"> Batal </v-btn>
+            <v-btn class="white--text" color="#0D987A"> Simpan </v-btn>
           </v-card-actions>
         </v-col>
       </v-row>

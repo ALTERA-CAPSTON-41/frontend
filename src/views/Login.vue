@@ -1,21 +1,20 @@
 <template>
   <v-app id="inspire">
     <v-main>
-      <v-container class="fill-height" fluid>
+      <v-container class="align-stretch" fluid style="padding: 0px" max-height="100"> 
         <v-row align="center" justify="center">
-          <v-col cols="12" sm="8" md="10">
-            <v-card class="elevation-5">
+          <v-col cols="12" md="9">
+            <v-card class="elevation-2">
               <v-row>
                 <v-col cols="12" md="7">
                   <br>
                 <v-img
                   class="mx-auto"
-                  height="150"
-                  width="150"
-                  src="../assets/img/loginnn.png"
+                  max-width="150"
+                  src="../assets/img/logo1.svg"
                 ></v-img>
                   <v-card-text class="mt-4">
-                    <h1>Sign In</h1><br>
+                    <h1 class="text">Sign In</h1><br>
                     <p>Enter Your Name and Password</p><br>
 
                     <v-form>
@@ -46,10 +45,17 @@
                     </v-form>
                   </v-card-text>
                   <div class="text-center mt-5">
-                    <v-btn v-on:click="login" width="300px" height="45px" rounded color="#819c76" dark>SIGN IN</v-btn>
+                    <v-btn v-on:click="login" width="300px" height="45px" rounded color="#0D987A" dark>SIGN IN</v-btn>
                   </div>
                 </v-col>
-                <v-col cols="12" md="5" class="green lighten-3"></v-col>
+                <v-col cols="12" md="5">
+                  <v-img
+                  class="mx-auto"
+                  height="609"
+                  width="1000"
+                  src="../assets/img/imglogin.jpg"
+                ></v-img>
+                </v-col>
              </v-row>
             </v-card>
           </v-col>
@@ -73,7 +79,7 @@ export default {
   methods:{
  async login(){
       const result = await axios.post(
-        'https://api.capstone.thisham.my.id/login'
+        'https://virtserver.swaggerhub.com/capstone-41/clinic-api/1.0.0/login'
       )
        .then(() => 
        {
@@ -88,3 +94,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.text {
+  font-weight: 600 !important;
+}
+</style>

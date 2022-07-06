@@ -32,8 +32,8 @@
         <v-card-actions>
           <v-spacer></v-spacer>
 
-          <v-btn @click="clear"> batal </v-btn>
-          <v-btn right class="mr-4" @click="submit"> Simpan </v-btn>
+          <v-btn class="white--text" color="#741935" @click="clear"> batal </v-btn>
+          <v-btn right class="mr-4 white--text" @click="submit" color="#0D987A"> Simpan </v-btn>
         </v-card-actions>
       </v-container>
     </v-form>

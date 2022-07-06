@@ -2,19 +2,18 @@
     <div>
         <v-navigation-drawer
         permanent
-        color="#FEFEFE"
+        color="#0d6653"
         app
         >
-
+<br>
         <div class="title">
         <v-img
             class="mx-auto"
-            max-height="350"
-            max-width="120"
+            max-width="110"
             justify-center
-            src="../assets/img/lego.png"
+            src="../assets/img/logo1.svg"
         ></v-img>
-        <span>Hai, Admin</span>
+        <span class="white--text">ADMIN</span>
         </div>
 
         <v-list-item class="px-2 pt-1">
@@ -39,19 +38,19 @@
                 active-class="orange--text"
             >
                 <template v-slot:activator>
-                <v-list-item-content class="black--text">
+                <v-list-item-content class="white--text">
                     <v-list-item-title >
                     {{ item.text }}
                     </v-list-item-title>
                 </v-list-item-content>
                 </template>
-                <v-list-item class="black--text"
+                <v-list-item class="white--text"
                 v-for="(child, i) in item.children"
                 :key="i"
                 route :to="child.route"
                 active-class="orange--text"
                 >
-                <v-list-item-action v-if="child.icon">
+                <v-list-item-action v-if="child.icon" >
                     <v-icon>{{ child.icon }}</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
@@ -61,7 +60,7 @@
                 </v-list-item-content>
                 </v-list-item>
             </v-list-group>
-            <v-list-item class="black--text"
+            <v-list-item class="white--text"
                 v-else
                 :key="item.text"
                 active-class="orange--text"
@@ -69,7 +68,7 @@
                 @click="press(item.text)"
             >
                 <v-list-item-action>
-                <v-icon>{{ item.icon }}</v-icon>
+                <v-icon color="#E0F8F2">{{ item.icon }}</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                 <v-list-item-title>
@@ -174,7 +173,7 @@ export default {
 }
 
 .v-application .orange--text {
-    color: #0D987A !important;
+    color: #E0F8F2 !important;
     caret-color: #000000 !important;
     background-repeat: repeat-x;
 }

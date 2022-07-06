@@ -3,7 +3,7 @@
       <v-container fluid style="padding: 0px">
         <v-card height="auto" style="padding: 30px">
           <v-card-title>
-            <v-btn color="grey" left @click="dialog = !dialog">
+            <v-btn class="white--text" color="#741935" left @click="dialog = !dialog">
               <v-icon>mdi-plus</v-icon>
             </v-btn>
             <v-dialog v-model="dialog" max-width="500px">
