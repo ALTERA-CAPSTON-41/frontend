@@ -83,6 +83,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-npm-
 
+      - name: write .env
+        env:
+          ENV_FILE: ${{ secrets.ENV_FILE }}
+        run: echo $ENV_FILE >> .env
+
       - name: install dependencies
         run: npm install
 
