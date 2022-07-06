@@ -29,15 +29,6 @@ jobs:
         id: npm-cache-dir-path
         run: echo "::set-output name=dir::$(npm cache dir)"
 
-      - name: cache node_modules
-        uses: actions/cache@v2.1.4
-        id: npm-cache
-        with:
-          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-json.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
-
       - name: install dependencies
         run: npm install
 
@@ -73,15 +64,6 @@ jobs:
       - name: check node env dirpath
         id: npm-cache-dir-path
         run: echo "::set-output name=dir::$(npm cache dir)"
-
-      - name: cache node_modules
-        uses: actions/cache@v2.1.4
-        id: npm-cache
-        with:
-          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-json.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
 
       - name: write .env
         env:
