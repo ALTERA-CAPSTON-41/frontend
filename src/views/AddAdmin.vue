@@ -26,7 +26,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
 
-          <v-btn class="white--text" color="#741935" href="/Administrator"> batal </v-btn>
+          <v-btn class="white--text" color="#DB5248" href="/Administrator"> batal </v-btn>
           <v-btn right class="mr-4 white--text" @click="submit" color="#0D987A"> Simpan </v-btn>
         </v-card-actions>
       </v-container>

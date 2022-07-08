@@ -10,7 +10,7 @@
           <div>
             <br />
           </div>
-          <v-btn href="/AddDok" height="53px" color="#741935" class="white--text" left>
+          <v-btn href="/AddDok" height="53px" color="#0D987A" class="white--text" left>
             <v-icon>mdi-plus </v-icon>
             <p class="my-5">Tambah Dokter</p>
           </v-btn>
