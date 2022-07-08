@@ -5,12 +5,12 @@
         DAFTAR ANTREAN
       </v-toolbar-title>
     </div>
-    <v-card height="800px">
+    <v-card height="800px" color="#F9FFFB">
       <v-card-title>
         <div>
           <br />
         </div>
-        <v-btn class="white--text" href="/AddAntrean" height="53px" color="#741935" left>
+        <v-btn class="white--text" href="/AddAntrean" height="53px" color="#0D987A" left>
           <v-icon>mdi-plus </v-icon>
           <p class="my-5">Tambah Antrean</p>
         </v-btn>

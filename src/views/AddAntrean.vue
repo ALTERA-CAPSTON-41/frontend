@@ -109,7 +109,7 @@
           <br />
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn class="white--text" href="/DaftarAntrean" color="#741935"> Batal </v-btn>
+            <v-btn class="white--text" href="/DaftarAntrean" color="#DB5248"> Batal </v-btn>
             <v-btn class="white--text" color="#0D987A"> Simpan </v-btn>
           </v-card-actions>
         </v-col>

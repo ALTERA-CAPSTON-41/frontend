@@ -2,7 +2,7 @@
     <div>
         <v-navigation-drawer
         permanent
-        color="#0d6653"
+        color="#E5F5F2"
         app
         >
 <br>
@@ -13,7 +13,7 @@
             justify-center
             src="../assets/img/logo1.svg"
         ></v-img>
-        <span class="white--text">ADMIN</span>
+        <span class="black--text">KLINIK SEHAT</span>
         </div>
 
         <v-list-item class="px-2 pt-1">
@@ -38,13 +38,13 @@
                 active-class="orange--text"
             >
                 <template v-slot:activator>
-                <v-list-item-content class="white--text">
+                <v-list-item-content class="black--text">
                     <v-list-item-title >
                     {{ item.text }}
                     </v-list-item-title>
                 </v-list-item-content>
                 </template>
-                <v-list-item class="white--text"
+                <v-list-item class="black--text"
                 v-for="(child, i) in item.children"
                 :key="i"
                 route :to="child.route"
@@ -60,7 +60,7 @@
                 </v-list-item-content>
                 </v-list-item>
             </v-list-group>
-            <v-list-item class="white--text"
+            <v-list-item class="black--text"
                 v-else
                 :key="item.text"
                 active-class="orange--text"
@@ -68,7 +68,7 @@
                 @click="press(item.text)"
             >
                 <v-list-item-action>
-                <v-icon color="#E0F8F2">{{ item.icon }}</v-icon>
+                <v-icon class="icon rounded-lg" color="#000000">{{ item.icon }}</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                 <v-list-item-title>
@@ -173,7 +173,7 @@ export default {
 }
 
 .v-application .orange--text {
-    color: #E0F8F2 !important;
+    color: #085344 !important;
     caret-color: #000000 !important;
     background-repeat: repeat-x;
 }
@@ -210,4 +210,9 @@ export default {
     position: absolute !important;
 }
 
+.icon {
+    background-color: #FBFEFD;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
 </style>
