@@ -5,7 +5,7 @@
         <b>TAMBAH PASIEN</b>
       </v-toolbar-title>
     </div>
-    <v-card height="850px" color="#F9FFFB">
+    <v-card class="rounded-xl" height="840px" color="#F9FFFB">
     <v-form>
       <v-container>
         <p>Nama</p>
@@ -16,8 +16,48 @@
         <v-text-field class="form" v-model="nmrtelepon" label="Masukkan Nomor Telepon" solo></v-text-field><br>
         <p>Alamat</p>
         <v-text-field class="form" v-model="alamat" label="Masukkan Alamat" solo></v-text-field><br>
+        <!-- Form Date Time -->
         <p>Tanggal Lahir</p>
-        <v-text-field class="form" v-model="tgllahir" label="Masukkan Tanggal Lahir" solo></v-text-field><br>
+        <v-dialog
+        ref="dialog"
+        v-model="modal"
+        :return-value.sync="date"
+        persistent
+        width="290px"
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-text-field
+            class="form"
+            append-icon="mdi-calendar"
+            v-model="date"
+            label="Masukkan Tanggal Lahir"
+            readonly
+            solo
+            v-bind="attrs"
+            v-on="on"
+          ></v-text-field>
+        </template>
+        <v-date-picker
+          v-model="date"
+          scrollable
+        >
+          <v-spacer></v-spacer>
+          <v-btn
+            text
+            color="primary"
+            @click="modal = false"
+          >
+            Cancel
+          </v-btn>
+          <v-btn
+            text
+            color="primary"
+            @click="$refs.dialog.save(date)"
+          >
+            OK
+          </v-btn>
+        </v-date-picker>
+      </v-dialog><br>
 
           <p>Jenis Kelamin</p>
           <v-radio-group v-model="kelamin" row>
@@ -31,12 +71,12 @@
             <v-radio label="A" value="radio-2"></v-radio>
             <v-radio label="AB+" value="radio-3"></v-radio>
             <v-radio label="AB-" value="radio-4"></v-radio>
-            <v-radio label="B+" value="radio-1"></v-radio>
-            <v-radio label="B-" value="radio-2"></v-radio>
-            <v-radio label="O+" value="radio-3"></v-radio>
-            <v-radio label="O-" value="radio-4"></v-radio>
+            <v-radio label="B+" value="radio-5"></v-radio>
+            <v-radio label="B-" value="radio-6"></v-radio>
+            <v-radio label="O+" value="radio-7"></v-radio>
+            <v-radio label="O-" value="radio-8"></v-radio>
           </v-radio-group>
-        <br><br>
+        <br>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn large class="btn white--text" color="#DB5248" href="/Pasien"> batal </v-btn>
@@ -58,6 +98,10 @@ export default {
     alamat: "",
     tgl: "",
     row: null,
+      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      menu: false,
+      modal: false,
+      menu2: false,
   }),
 };
 </script>
