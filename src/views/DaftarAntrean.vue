@@ -1,11 +1,7 @@
 <template>
-  <v-container fluid>
-    <div class="my-4">
-      <v-toolbar-title class="font-weight-medium">
-        DAFTAR ANTREAN
-      </v-toolbar-title>
-    </div>
-    <v-card height="800px" color="#F9FFFB">
+  <v-container fluid style="padding: 30px">
+
+    <v-card class="rounded-xl" height="800px" color="#F9FFFB">
       <v-card-title>
         <div>
           <br />
@@ -24,14 +20,14 @@
           </v-container>
         </div>
         <div class="text-right">
-          <v-btn height="50px">
-            <v-text-field
+          <v-text-field
               v-model="search"
-              append-icon="mdi-magnify"
-              label="search"
+              prepend-inner-icon="mdi-magnify"
+              label="Search Here"
+              solo
+              class="form"
               hide-details
             ></v-text-field>
-          </v-btn>
         </div>
       </v-card-title>
       <v-card>

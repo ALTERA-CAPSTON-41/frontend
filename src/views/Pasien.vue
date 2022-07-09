@@ -1,11 +1,11 @@
 <template>
-  <v-container fluid>
+  <v-container fluid style="padding: 30px">
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
-        DAFTAR PASIEN
+        <b>DAFTAR PASIEN</b>
       </v-toolbar-title>
     </div>
-    <v-card height="800px" color="#F9FFFB">
+    <v-card class="rounded-xl" height="700px" color="#F9FFFB">
       <v-card-title>
         <div>
           <br />
@@ -24,14 +24,14 @@
           </v-container>
         </div>
         <div class="text-right">
-          <v-btn height="50px">
             <v-text-field
               v-model="search"
-              append-icon="mdi-magnify"
-              label="search"
+              prepend-inner-icon="mdi-magnify"
+              label="Search Here"
+              solo
+              class="form"
               hide-details
             ></v-text-field>
-          </v-btn>
         </div>
       </v-card-title>
       <v-card href="/DetailPas">

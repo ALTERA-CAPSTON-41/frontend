@@ -20,9 +20,11 @@ import EditDok from "../views/EditDok.vue";
 import EditPas from "../views/EditPas.vue";
 import DetailPas from "../views/DetailPas.vue";
 import AddPas from "../views/AddPas.vue";
+import AddPoli from "../views/AddPoli.vue";
 import AddRemdis from "../views/AddRemdis";
 import AddResep from "../views/AddResep.vue";
 import EditRes from "../views/EditRes.vue";
+import EditPoli from "../views/EditPoli.vue";
 import AddAdmin from "../views/AddAdmin.vue";
 import EditAdmin from "../views/EditAdmin.vue";
 import DetailAdmin from "../views/DetailAdmin.vue";
@@ -102,6 +104,16 @@ const routes = [
         path: "/AddAdmin",
         name: "AddAdmin",
         component: AddAdmin,
+      },
+      {
+        path: "/AddPoli",
+        name: "AddPoli",
+        component: AddPoli,
+      },
+      {
+        path: "/EditPoli",
+        name: "EditPoli",
+        component: EditPoli,
       },
       {
         path: "/EditAdmin",
