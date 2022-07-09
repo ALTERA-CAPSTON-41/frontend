@@ -27,7 +27,9 @@ import EditRes from "../views/EditRes.vue";
 import EditPoli from "../views/EditPoli.vue";
 import AddAdmin from "../views/AddAdmin.vue";
 import EditAdmin from "../views/EditAdmin.vue";
+import ProfilAdmin from "../views/ProfilAdmin.vue";
 import DetailAdmin from "../views/DetailAdmin.vue";
+import UbahPassword from "../views/UbahPassword.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -121,6 +123,11 @@ const routes = [
         component: EditAdmin,
       },
       {
+        path: "/ProfileAdministrator",
+        name: "ProfilAdmin",
+        component: ProfilAdmin,
+      },
+      {
         path: "/DetailPerawat",
         name: "DetailPerawat",
         component: DetailPerawat,
@@ -169,6 +176,11 @@ const routes = [
         path: "/EditPas",
         name: "EditPas",
         component: EditPas,
+      },
+      {
+        path: "/UbahPassword",
+        name: "UbahPassword",
+        component: UbahPassword,
       },
     ],
   },

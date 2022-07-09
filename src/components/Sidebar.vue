@@ -5,7 +5,7 @@
         color="#E5F5F2"
         app
         >
-<br>
+        <br>
         <div class="title">
         <v-img
             class="mx-auto"
@@ -104,20 +104,29 @@
             </v-btn>
             </template>
             
-            <v-list class="d-flex justify px-4">
-            <v-list-item-content class="justify">
+            <v-list class="d-flex justify px-3">
+            <v-list-item-content class="buttonLogout justify">
                 <div class="d-flex">
-                <v-icon color="#56CCF2" class="px-4">mdi-account</v-icon>
-                <v-list-item-title class="order-2">Admin</v-list-item-title>
+                <v-icon color="#56CCF2" class="px-1" @click="ubah">mdi-account-box-outline</v-icon>
+                <v-list-item-title class="txt-opsi order-2">PROFILE</v-list-item-title>
                 </div>
             </v-list-item-content>
             </v-list>
 
-            <v-list class="d-flex justify px-4">
+            <v-list class="d-flex justify px-3">
             <v-list-item-content class="buttonLogout justify">
                 <div class="d-flex" @click="logout">
-                <v-icon color="#F10000" class="px-4">mdi-logout</v-icon>
-                <v-list-item-title class="order-2">Keluar</v-list-item-title>
+                <v-icon color="#F2C94C" class="px-1">mdi-lock-outline</v-icon>
+                <v-list-item-title class="txt-opsi order-2">UBAH PASSWORD</v-list-item-title>
+                </div>
+            </v-list-item-content>
+            </v-list>
+
+            <v-list class="d-flex justify px-3">
+            <v-list-item-content class="buttonLogout justify">
+                <div class="d-flex" @click="logout">
+                <v-icon color="#F10000" class="px-1">mdi-logout</v-icon>
+                <v-list-item-title class="txt-opsi order-2">KELUAR</v-list-item-title>
                 </div>
             </v-list-item-content>
             </v-list>
@@ -170,6 +179,7 @@ export default {
 .buttonLogout:hover{
     background-color: #E0F8F2;
     cursor: pointer;
+    display: block;
 }
 
 .v-application .orange--text {
@@ -214,5 +224,17 @@ export default {
     background-color: #FBFEFD;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+}
+
+.txt-opsi {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 14px;
+    line-height: 17px;
+    color: #212121;
+    /* identical to box height */
+
+    letter-spacing: 0.0125em;
 }
 </style>
