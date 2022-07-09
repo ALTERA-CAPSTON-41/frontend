@@ -1,23 +1,28 @@
 <template>
-  <v-container fluid>
+  <v-container fluid style="padding: 30px">
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
-        TAMBAH DOKTER
+        <b>TAMBAH DOKTER</b>
       </v-toolbar-title>
     </div>
+    <v-card height="850px" color="#F9FFFB">
     <v-form>
       <v-container>
-        <v-text-field v-model="nama" label="Nama" filled></v-text-field>
+        <p>Nama</p>
+        <v-text-field class="form" v-model="nama" label="Masukkan Nama" solo></v-text-field><br>
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="nip" label="NIP" filled></v-text-field>
+            <p>NIP</p>
+            <v-text-field class="form" v-model="nip" label="Masukkan NIP" solo></v-text-field><br>
           </v-col>
 
           <v-col cols="12" sm="6">
-            <v-text-field v-model="sip" label="SIP" filled></v-text-field>
+            <p>SIP</p>
+            <v-text-field class="form" v-model="sip" label="Masukkan SIP" solo></v-text-field><br>
           </v-col>
         </v-row>
-        <v-text-field v-model="alamat" label="Alamat" filled></v-text-field>
+            <p>Alamat</p>
+            <v-text-field class="form" v-model="alamat" label="Masukkan Alamat" solo></v-text-field><br>
         <v-container fluid>
           <p>Jenis Kelamin</p>
           <v-radio-group v-model="row" row>
@@ -54,6 +59,7 @@
         </v-card-actions>
       </v-container>
     </v-form>
+    </v-card>
   </v-container>
 </template>
 
