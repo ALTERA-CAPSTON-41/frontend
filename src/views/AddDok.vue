@@ -5,7 +5,7 @@
         <b>TAMBAH DOKTER</b>
       </v-toolbar-title>
     </div>
-    <v-card height="850px" color="#F9FFFB">
+    <v-card class="rounded-xl" height="940px" color="#F9FFFB">
     <v-form>
       <v-container>
         <p>Nama</p>
@@ -23,39 +23,91 @@
         </v-row>
             <p>Alamat</p>
             <v-text-field class="form" v-model="alamat" label="Masukkan Alamat" solo></v-text-field><br>
-        <v-container fluid>
+
           <p>Jenis Kelamin</p>
           <v-radio-group v-model="row" row>
             <v-radio label="Perempuan" value="radio-1"></v-radio>
             <v-radio label="Laki-Laki" value="radio-2"></v-radio>
           </v-radio-group>
-        </v-container>
-        <v-text-field
-          v-model="tgl"
-          label="Tanggal Lahir"
-          filled
-          icon="mdi-calendar-text"
-        ></v-text-field>
-        <v-text-field v-model="pk" label="Poliklinik" filled></v-text-field>
-        <v-text-field v-model="email" label="Email" filled></v-text-field>
+        <!-- Form Date Time -->
+        <p>Tanggal Lahir</p>
+        <v-dialog
+        ref="dialog"
+        v-model="modal"
+        :return-value.sync="date"
+        persistent
+        width="290px"
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-text-field
+            class="form"
+            append-icon="mdi-calendar"
+            v-model="date"
+            label="Masukkan Tanggal Lahir"
+            readonly
+            solo
+            v-bind="attrs"
+            v-on="on"
+          ></v-text-field>
+        </template>
+        <v-date-picker
+          v-model="date"
+          scrollable
+        >
+          <v-spacer></v-spacer>
+          <v-btn
+            text
+            color="primary"
+            @click="modal = false"
+          >
+            Cancel
+          </v-btn>
+          <v-btn
+            text
+            color="primary"
+            @click="$refs.dialog.save(date)"
+          >
+            OK
+          </v-btn>
+        </v-date-picker>
+      </v-dialog><br>
+        <p>Poliklinik</p>
+        <v-text-field class="form" v-model="poliklinik" label="Masukkan Poliklinik" solo></v-text-field><br>
+        <p>Email</p>
+        <v-text-field class="form" v-model="email" label="Masukkan Email" solo></v-text-field><br>
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field v-model="pw" label="Password" filled></v-text-field>
+            <p>Password</p>
+            <v-text-field
+            :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="show3 ? 'text' : 'password'"
+            name="input-10-2"
+            label="Masukkan Password"
+            class="form input-group--focused"
+            @click:append="show3 = !show3"
+            solo
+          ></v-text-field>
           </v-col>
 
           <v-col cols="12" sm="6">
+            <p>Confirm Password</p>
             <v-text-field
-              v-model="cpw"
-              label="Confirm Pasword"
-              filled
-            ></v-text-field>
+            :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="show3 ? 'text' : 'password'"
+            name="input-10-2"
+            label="Masukkan Password Kembali"
+            class="form input-group--focused"
+            @click:append="show3 = !show3"
+            solo
+          ></v-text-field>
           </v-col>
         </v-row>
+        <br>
         <v-card-actions>
           <v-spacer></v-spacer>
 
-          <v-btn class="white--text" color="#DB5248" href="/Dokter"> batal </v-btn>
-          <v-btn right class="mr-4 white--text" @click="submit" color="#0D987A"> Simpan </v-btn>
+          <v-btn large class="btn white--text" color="#DB5248" href="/Dokter"> batal </v-btn>
+          <v-btn large right class="btn mr-4 white--text" @click="submit" color="#0D987A"> Simpan </v-btn>
         </v-card-actions>
       </v-container>
     </v-form>
@@ -77,6 +129,34 @@ export default {
     pw: "",
     cpw: "",
     row: null,
+        show1: false,
+        show2: true,
+        show3: false,
+        show4: false,
+        password: 'Password',
+        rules: {
+          required: value => !!value || 'Required.',
+          emailMatch: () => (`The email and password you entered don't match`),
+        },
+      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      menu: false,
+      modal: false,
+      menu2: false,
   }),
 };
 </script>
+
+<style>
+.btn {
+  height: 80px;
+  width: 135px;
+  border-radius: 15px;
+}
+.form {
+  border-style: ridge;
+  border-color: #0B715B;
+  border-width: 1.5px;
+  border-radius: 10px;
+  height: 51px;
+}
+</style>
