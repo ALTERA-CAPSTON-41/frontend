@@ -6,6 +6,7 @@
       </v-toolbar-title>
     </div>
     <v-card class="rounded-xl" height="700px" color="#F9FFFB">
+      <br>
       <v-card-title>
         <div>
           <br />
@@ -16,9 +17,6 @@
         </v-btn>
 
         <v-spacer></v-spacer>
-        <div class="text-right">
-
-        </div>
         <div class="text-right">
             <v-text-field
               v-model="search"
@@ -74,8 +72,8 @@
                             <template v-slot:[`item.actions`]="{ item }">
                                 <v-btn
                                   class="aksi mx-2"
-                                  height="35px"
-                                  width="35px"
+                                  height="33px"
+                                  width="27px"
                                   dark
                                   x-small
                                   href="/DetailPas"
@@ -85,8 +83,8 @@
                                 </v-btn>
                                 <v-btn
                                   class="aksi mx-2"
-                                  height="35px"
-                                  width="35px"
+                                  height="33px"
+                                  width="27px"
                                   dark
                                   x-small
                                   href="/EditPas"
@@ -98,12 +96,12 @@
                                   color="#F10000"
                                   dark
                                   class="aksi mx-2"
-                                  height="35px"
-                                  width="35px"
+                                  height="33px"
+                                  width="27px"
                                   x-small
                                   @click="deleteItem(item)"
                               >
-                                <v-icon>mdi-close</v-icon>
+                                <v-icon>mdi-delete</v-icon>
                               </v-btn>
                             </template>
                           </v-data-table>

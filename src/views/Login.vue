@@ -22,6 +22,7 @@
                       <v-text-field
                         prepend-inner-icon="mdi-account"
                         label="Enter Your Username"
+                        v-model="email"
                         name="Email"
                         type="text"
                         color="teal accent-3"
@@ -35,6 +36,7 @@
                         id="password"
                         label="Enter Your Password"
                         name="password"
+                        v-model="password"
                         type="password"
                         color="teal accent-3"
                         append-icon="mdi-eye-off"
@@ -66,7 +68,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 
 export default {
   name: "LoginPage",
@@ -78,19 +80,10 @@ export default {
   }),
   methods:{
     async login(){
-          const result = await axios.post(
-            'https://api.capstone.thisham.my.id/login',
-            {
-              "email": "master.admincp@example.com",
-              "password": "thestrongestpassword"
-            }
-          )
-          .then(() => 
-          {
-              this.$router.push({ path: "/" });
-          })
-          console.log("login berhasil", result)
-          console.warn(result)
+            this.$store.dispatch('fetchLogin', {
+              email: this.email,
+              password: this.password
+            })
         }
   },
   props: {
