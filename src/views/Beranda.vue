@@ -2,12 +2,12 @@
 <v-row>
     <v-col cols="12" md="11" class="mx-auto">
     <br><br>
-      <div class="pa-5 teal lighten-5 text-no-wrap rounded-xl mx-auto">
+      <div class="hero pa-5 text-no-wrap rounded-xl mx-auto">
         <h1>Selamat Datang, Admin Klinik Sehat !</h1><br>
         <p>Berikan layanan terbaik dan tetap prioritaskan kesehatan pasien.</p>
       <v-btn
       justify-center
-      color="#741935"
+      color="#0D987A"
       class="btn-antrean white--text"
       rounded-pill
       href="/DaftarAntrean"
@@ -64,7 +64,7 @@
                 <br>
                 <v-btn
                 justify-center
-                color="#741935"
+                color="#0D987A"
                 class="btn-antrean white--text"
                 rounded-lg
                 href="/AddAntrean"
@@ -83,7 +83,7 @@
                 <br>
                 <v-btn
                 justify-center
-                color="#741935"
+                color="#0D987A"
                 class="btn-antrean white--text"
                 rounded-lg
                 href="/AddPas"
@@ -142,7 +142,9 @@ letter-spacing: 0.0025em;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #A6EBD9;
+    background-color: #EDFFFA;
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 
 .btn-antrean {
@@ -151,6 +153,12 @@ letter-spacing: 0.0025em;
 }
 
 .card {
-  background-color: #E0F8F2 !important;
+  background-color: #EDFFFA !important;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.hero {
+  background-color: #E0F8F2;
 }
 </style>

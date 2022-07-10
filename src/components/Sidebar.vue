@@ -2,10 +2,10 @@
     <div>
         <v-navigation-drawer
         permanent
-        color="#0d6653"
+        color="#E5F5F2"
         app
         >
-<br>
+        <br>
         <div class="title">
         <v-img
             class="mx-auto"
@@ -13,7 +13,7 @@
             justify-center
             src="../assets/img/logo1.svg"
         ></v-img>
-        <span class="white--text">ADMIN</span>
+        <span class="black--text">KLINIK SEHAT</span>
         </div>
 
         <v-list-item class="px-2 pt-1">
@@ -38,13 +38,13 @@
                 active-class="orange--text"
             >
                 <template v-slot:activator>
-                <v-list-item-content class="white--text">
+                <v-list-item-content class="black--text">
                     <v-list-item-title >
                     {{ item.text }}
                     </v-list-item-title>
                 </v-list-item-content>
                 </template>
-                <v-list-item class="white--text"
+                <v-list-item class="black--text"
                 v-for="(child, i) in item.children"
                 :key="i"
                 route :to="child.route"
@@ -60,7 +60,7 @@
                 </v-list-item-content>
                 </v-list-item>
             </v-list-group>
-            <v-list-item class="white--text"
+            <v-list-item class="black--text"
                 v-else
                 :key="item.text"
                 active-class="orange--text"
@@ -68,7 +68,7 @@
                 @click="press(item.text)"
             >
                 <v-list-item-action>
-                <v-icon color="#E0F8F2">{{ item.icon }}</v-icon>
+                <v-icon class="icon rounded-lg" color="#000000">{{ item.icon }}</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                 <v-list-item-title>
@@ -104,20 +104,29 @@
             </v-btn>
             </template>
             
-            <v-list class="d-flex justify px-4">
-            <v-list-item-content class="justify">
+            <v-list class="d-flex justify px-3">
+            <v-list-item-content class="buttonLogout justify">
                 <div class="d-flex">
-                <v-icon color="#56CCF2" class="px-4">mdi-account</v-icon>
-                <v-list-item-title class="order-2">Admin</v-list-item-title>
+                <v-icon color="#56CCF2" class="px-1" @click="ubah">mdi-account-box-outline</v-icon>
+                <v-list-item-title class="txt-opsi order-2">PROFILE</v-list-item-title>
                 </div>
             </v-list-item-content>
             </v-list>
 
-            <v-list class="d-flex justify px-4">
+            <v-list class="d-flex justify px-3">
             <v-list-item-content class="buttonLogout justify">
                 <div class="d-flex" @click="logout">
-                <v-icon color="#F10000" class="px-4">mdi-logout</v-icon>
-                <v-list-item-title class="order-2">Keluar</v-list-item-title>
+                <v-icon color="#F2C94C" class="px-1">mdi-lock-outline</v-icon>
+                <v-list-item-title class="txt-opsi order-2">UBAH PASSWORD</v-list-item-title>
+                </div>
+            </v-list-item-content>
+            </v-list>
+
+            <v-list class="d-flex justify px-3">
+            <v-list-item-content class="buttonLogout justify">
+                <div class="d-flex" @click="logout">
+                <v-icon color="#F10000" class="px-1">mdi-logout</v-icon>
+                <v-list-item-title class="txt-opsi order-2">KELUAR</v-list-item-title>
                 </div>
             </v-list-item-content>
             </v-list>
@@ -170,10 +179,11 @@ export default {
 .buttonLogout:hover{
     background-color: #E0F8F2;
     cursor: pointer;
+    display: block;
 }
 
 .v-application .orange--text {
-    color: #E0F8F2 !important;
+    color: #085344 !important;
     caret-color: #000000 !important;
     background-repeat: repeat-x;
 }
@@ -210,4 +220,21 @@ export default {
     position: absolute !important;
 }
 
+.icon {
+    background-color: #FBFEFD;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.txt-opsi {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 14px;
+    line-height: 17px;
+    color: #212121;
+    /* identical to box height */
+
+    letter-spacing: 0.0125em;
+}
 </style>

@@ -20,15 +20,24 @@ import EditDok from "../views/EditDok.vue";
 import EditPas from "../views/EditPas.vue";
 import DetailPas from "../views/DetailPas.vue";
 import AddPas from "../views/AddPas.vue";
+import AddPoli from "../views/AddPoli.vue";
 import AddRemdis from "../views/AddRemdis";
 import AddResep from "../views/AddResep.vue";
 import EditRes from "../views/EditRes.vue";
+import EditPoli from "../views/EditPoli.vue";
 import AddAdmin from "../views/AddAdmin.vue";
 import EditAdmin from "../views/EditAdmin.vue";
+import ProfilAdmin from "../views/ProfilAdmin.vue";
 import DetailAdmin from "../views/DetailAdmin.vue";
+import UbahPassword from "../views/UbahPassword.vue";
 
 Vue.use(VueRouter);
 const routes = [
+  {
+    path: "/Login",
+    name: "Login",
+    component: Login,
+  },
   {
     path: "/",
     component: Sidebar,
@@ -104,9 +113,24 @@ const routes = [
         component: AddAdmin,
       },
       {
+        path: "/AddPoli",
+        name: "AddPoli",
+        component: AddPoli,
+      },
+      {
+        path: "/EditPoli",
+        name: "EditPoli",
+        component: EditPoli,
+      },
+      {
         path: "/EditAdmin",
         name: "EditAdmin",
         component: EditAdmin,
+      },
+      {
+        path: "/ProfileAdministrator",
+        name: "ProfilAdmin",
+        component: ProfilAdmin,
       },
       {
         path: "/DetailPerawat",
@@ -158,13 +182,12 @@ const routes = [
         name: "EditPas",
         component: EditPas,
       },
+      {
+        path: "/UbahPassword",
+        name: "UbahPassword",
+        component: UbahPassword,
+      },
     ],
-  },
-  {
-    path: "/Login",
-    name: "Login",
-    component: Login,
-    children: [],
   },
 ];
 const router = new VueRouter({

@@ -1,12 +1,12 @@
 <template>
-  <v-container fluid>
+  <v-container fluid style="padding: 30px">
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
         DETAIL ANTREAN
       </v-toolbar-title>
     </div>
     <v-container>
-      <v-card justify="space-around">
+      <v-card  justify="space-around">
         <br />
 
         <v-list-item-title class="mx-5">Nama</v-list-item-title>
