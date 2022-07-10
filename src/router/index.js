@@ -34,6 +34,11 @@ import UbahPassword from "../views/UbahPassword.vue";
 Vue.use(VueRouter);
 const routes = [
   {
+    path: "/Login",
+    name: "Login",
+    component: Login,
+  },
+  {
     path: "/",
     component: Sidebar,
     children: [
@@ -183,12 +188,6 @@ const routes = [
         component: UbahPassword,
       },
     ],
-  },
-  {
-    path: "/Login",
-    name: "Login",
-    component: Login,
-    children: [],
   },
 ];
 const router = new VueRouter({
