@@ -78,8 +78,8 @@
                             <template v-slot:[`item.actions`]="{ item }">
                                 <v-btn
                                   class="aksi mx-2"
-                                  height="35px"
-                                  width="35px"
+                                  height="33px"
+                                  width="27px"
                                   dark
                                   x-small
                                   href="/DetailDok"
@@ -89,8 +89,8 @@
                                 </v-btn>
                                 <v-btn
                                   class="aksi mx-2"
-                                  height="35px"
-                                  width="35px"
+                                  height="33px"
+                                  width="27px"
                                   dark
                                   x-small
                                   href="/EditDok"
@@ -102,8 +102,8 @@
                                   color="#F10000"
                                   dark
                                   class="aksi mx-2"
-                                  height="35px"
-                                  width="35px"
+                                  height="33px"
+                                  width="27px"
                                   x-small
                                   @click="deleteItem(item)"
                               >
