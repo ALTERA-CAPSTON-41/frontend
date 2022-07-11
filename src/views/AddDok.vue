@@ -107,7 +107,7 @@
           <v-spacer></v-spacer>
 
           <v-btn large class="btn white--text" color="#DB5248" href="/Dokter"> batal </v-btn>
-          <v-btn large right class="btn mr-4 white--text" @click="submit" color="#0D987A"> Simpan </v-btn>
+          <v-btn large right class="btn mr-4 white--text" @click="submit" color="#0D987A"> Tambah </v-btn>
         </v-card-actions>
       </v-container>
     </v-form>
