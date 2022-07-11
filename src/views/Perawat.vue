@@ -83,7 +83,7 @@
                                   dark
                                   x-small
                                   href="/DetailPerawat"
-                                  color="#F2994A"
+                                  color="#56CCF2"
                                 >
                                   <v-icon>mdi-card-account-details-outline</v-icon>
                                 </v-btn>
@@ -93,8 +93,8 @@
                                   width="27px"
                                   dark
                                   x-small
-                                  href="/EditDok"
-                                  color="#56CCF2"
+                                  href="/EditPerawat"
+                                  color="#F2994A"
                                 >
                                   <v-icon>mdi-pencil</v-icon>
                                 </v-btn>

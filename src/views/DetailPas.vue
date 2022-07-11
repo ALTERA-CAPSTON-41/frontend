@@ -84,10 +84,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-card>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn class="btn white--text" href="/Pasien" color="#0D987A"> Kembali </v-btn>
-          </v-card-actions>
+
     </v-container>
     <div class="my-8 text-left">
       <v-toolbar-title class="font-weight-medium">
@@ -165,7 +162,7 @@
                                   dark
                                   x-small
                                   href="/DetailRekam"
-                                  color="#F2994A"
+                                  color="#56CCF2"
                                 >
                                   <v-icon>mdi-card-account-details-outline</v-icon>
                                 </v-btn>
@@ -201,6 +198,10 @@
       <!-- bates code -->
 
       </v-card>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn large class="btn white--text" color="#0D987A" href="/Pasien"> Kembali </v-btn>
+          </v-card-actions>
   </v-container>
 </template>
 
@@ -359,5 +360,10 @@ export default {
 
 .aksi {
   border-radius: 10px;
+}
+.btn {
+  height: 80px;
+  width: 135px;
+  border-radius: 15px;
 }
 </style>

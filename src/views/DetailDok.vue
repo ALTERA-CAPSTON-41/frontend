@@ -129,7 +129,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
 
-            <v-btn class="btn white--text" href="/Dokter" color="#0D987A"> Kembali </v-btn>
+            <v-btn large class="btn white--text" href="/Dokter" color="#0D987A"> Kembali </v-btn>
           </v-card-actions>
         </v-col>
       </v-row>

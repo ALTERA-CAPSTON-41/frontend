@@ -66,7 +66,7 @@
                 </div>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">Jumlah Poli</span><br>
-                  <span class="number">10</span>
+                  <span class="number">4</span>
                 </div>
               </div>
               <!-- text row -->
@@ -86,7 +86,7 @@
                 </div>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">JumlahPerawat</span> <br>
-                  <span class="number">10</span>
+                  <span class="number">14</span>
                 </div>
               </div>
               <!-- text row -->
@@ -104,7 +104,7 @@
                 </div>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">Jumlah Pasien</span> <br>
-                  <span class="number">10</span>
+                  <span class="number">21</span>
                 </div>
               </div>
               <!-- text row -->
@@ -113,10 +113,10 @@
 
             <v-col cols="12" md="4">
               <div class="antrean ms-3 pa-4 text-center rounded-xl">
-                <img src="../assets/img/icon-antrean.svg" width="80" /><br>
+                <img src="../assets/img/icon-antrean.svg" width="90" /><br>
                 <div>
-                <span class="txt-jumlah">Jumlah Antrean</span> <br>
-                <span class="number">10</span>
+                <span class="txt-jumlah">Jumlah Antrean</span> <br><br>
+                <span class="number-big">8</span>
                 </div>
               </div>
             </v-col>
@@ -137,7 +137,7 @@
                 color="#0D987A"
                 class="btn-tambah white--text"
                 rounded-lg
-                href="/AddAntrean"
+                href="/DaftarAntrean"
                 >
                 <v-icon left>
                   mdi-plus
@@ -188,8 +188,9 @@ p {
 }
 
 .kotak {
-  border-style: solid;
-  border-color: #A6EBD9;
+  border-style: groove;
+  border-color: #0D987A;
+  border-width: 2px;
   border-radius: 20px;
 }
 
@@ -237,7 +238,7 @@ letter-spacing: 0.0025em;
 
 .hero {
   background-color: #E0F8F2;
-  height: 250px;
+  height: 230px;
 }
 .txt-jumlah {
   font-family: 'Lato';
@@ -253,6 +254,22 @@ font-style: normal;
 font-weight: 700;
 font-size: 26px;
 line-height: 29px;
+
+/* identical to box height */
+
+letter-spacing: 0.0015em;
+
+/* color 7 */
+
+color: #212121;
+}
+.number-big {
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+line-height: 29px;
+
 /* identical to box height */
 
 letter-spacing: 0.0015em;

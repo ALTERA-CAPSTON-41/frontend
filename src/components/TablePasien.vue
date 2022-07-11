@@ -56,7 +56,7 @@
                                   dark
                                   x-small
                                   href="/DetailAntrean"
-                                  color="#F2994A"
+                                  color="#56CCF2"
                                 >
                                   <v-icon>mdi-card-account-details-outline</v-icon>
                                 </v-btn>

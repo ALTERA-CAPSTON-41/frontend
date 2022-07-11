@@ -83,7 +83,7 @@
                                   dark
                                   x-small
                                   href="/DetailDok"
-                                  color="#F2994A"
+                                  color="#56CCF2"
                                 >
                                   <v-icon>mdi-card-account-details-outline</v-icon>
                                 </v-btn>
@@ -94,7 +94,7 @@
                                   dark
                                   x-small
                                   href="/EditDok"
-                                  color="#56CCF2"
+                                  color="#F2994A"
                                 >
                                   <v-icon>mdi-pencil</v-icon>
                                 </v-btn>

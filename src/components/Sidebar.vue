@@ -106,8 +106,8 @@
             
             <v-list class="d-flex justify px-3">
             <v-list-item-content class="buttonLogout justify">
-                <div class="d-flex">
-                <v-icon color="#56CCF2" class="px-1" @click="ubah">mdi-account-box-outline</v-icon>
+                <div class="d-flex" @click="profil">
+                <v-icon color="#56CCF2" class="px-1">mdi-account-box-outline</v-icon>
                 <v-list-item-title class="txt-opsi order-2">PROFILE</v-list-item-title>
                 </div>
             </v-list-item-content>
@@ -115,7 +115,7 @@
 
             <v-list class="d-flex justify px-3">
             <v-list-item-content class="buttonLogout justify">
-                <div class="d-flex" @click="logout">
+                <div class="d-flex" @click="ubah">
                 <v-icon color="#F2C94C" class="px-1">mdi-lock-outline</v-icon>
                 <v-list-item-title class="txt-opsi order-2">UBAH PASSWORD</v-list-item-title>
                 </div>
@@ -170,6 +170,12 @@ export default {
             localStorage.setItem("authenticated", false);
             this.$router.push({name: "Login" })
         },
+        profil(){
+            this.$router.push({name: "ProfilAdmin"})
+        },
+        ubah(){
+            this.$router.push({name: "UbahPassword"})
+        }
   },
   }
 
