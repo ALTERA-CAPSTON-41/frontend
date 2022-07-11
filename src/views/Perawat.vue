@@ -82,7 +82,7 @@
                                   width="27px"
                                   dark
                                   x-small
-                                  href="/DetailDok"
+                                  href="/DetailPerawat"
                                   color="#F2994A"
                                 >
                                   <v-icon>mdi-card-account-details-outline</v-icon>

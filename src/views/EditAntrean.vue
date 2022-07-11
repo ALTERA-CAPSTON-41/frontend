@@ -1,14 +1,15 @@
 <template>
-  <v-container fluid>
+  <v-container fluid style="padding: 30px">
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
-        EDIT ANTREAN
+        <b>EDIT ANTREAN</b>
       </v-toolbar-title>
     </div>
     <v-container>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-card justify="space-around" height="800px">
+          <v-card justify="space-around" height="600px" color="#EDFFFA">
+            <br>
             <v-list-item-title class="mx-5">Nama</v-list-item-title>
             <v-list-item>
               <v-list-item-action>
@@ -88,28 +89,27 @@
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-card>
+          <v-card color="#EDFFFA">
             <v-container fluid>
+              <p>Poliklinik</p>
+              <v-text-field class="form" v-model="poliklinik" label="Masukkan Poliklinik" solo></v-text-field><br>
               <br />
-              <br />
-              <v-textarea
-                height="10px"
-                autocomplete="pk"
-                label="Poliklinik"
-              ></v-textarea>
-              <br />
+              <p>Status Pasien</p>
               <v-select
+                class="form"
                 v-model="select"
                 :items="items"
-                label="Status Pasien"
+                solo
+                label="Masukkan Status Pasien"
               ></v-select>
+              <br>
             </v-container>
           </v-card>
           <br />
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn> Batal </v-btn>
-            <v-btn> Simpan </v-btn>
+            <v-btn class="btn white--text" href="/DaftarAntrean" color="#DB5248"> Batal </v-btn>
+            <v-btn class="btn white--text" color="#0D987A"> Simpan </v-btn>
           </v-card-actions>
         </v-col>
       </v-row>
@@ -122,7 +122,22 @@ export default {
   name: "App",
   data: () => ({
     select: null,
-    items: ["Aktif", "Tidak Aktif"],
+    items: ["Rawat Jalan", "Rawat Inap"],
   }),
 };
 </script>
+
+<style>
+.btn {
+  height: 80px;
+  width: 135px;
+  border-radius: 15px;
+}
+.form {
+  border-style: ridge;
+  border-color: #0B715B;
+  border-width: 1.5px;
+  border-radius: 10px;
+  height: 51px;
+}
+</style>

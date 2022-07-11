@@ -90,7 +90,7 @@
                                   width="27px"
                                   dark
                                   x-small
-                                  href="/EditPas"
+                                  href="/EditAntrean"
                                   color="#56CCF2"
                                 >
                                   <v-icon>mdi-pencil</v-icon>

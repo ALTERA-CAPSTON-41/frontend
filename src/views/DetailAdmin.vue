@@ -1,13 +1,13 @@
 <template>
-      <v-container fluid>
+      <v-container fluid style="padding: 30px">
         <div class="my-4">
           <v-toolbar-title class="font-weight-medium">
-            DETAIL ADMINISTRATOR
+            <b>DETAIL ADMINISTRATOR</b>
           </v-toolbar-title>
         </div>
         <v-container>
-          <v-card justify="space-around" color="#EDFFFA">
-            <v-card-title> Biodata </v-card-title>
+          <v-card class="rounded-xl" justify="space-around" color="#EDFFFA">
+            <v-card-title> <b>Biodata</b> </v-card-title>
             <br />
 
             <v-list-item-title class="mx-5">Nama</v-list-item-title>
@@ -51,7 +51,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
 
-            <v-btn class="white--text" href="/Administrator" color="#741935"> Kembali </v-btn>
+            <v-btn class="btn white--text" href="/Administrator" color="#0D987A"> Kembali </v-btn>
           </v-card-actions>
         </v-container>
       </v-container>
@@ -63,3 +63,11 @@ export default {
   name: "App",
 };
 </script>
+
+<style>
+.btn {
+  height: 80px;
+  width: 135px;
+  border-radius: 15px;
+}
+</style>
