@@ -1,36 +1,12 @@
 <template>
-  <v-container fluid style="padding: 30px">
-    <br>
-    <v-card class="rounded-xl" height="700px" color="#F9FFFB">
+  <v-container fluid >
+    <div class="my-4">
+      <v-toolbar-title class="font-weight-medium">
+        <b>DAFTAR PASIEN</b>
+      </v-toolbar-title>
+    </div>
+    <v-card class="rounded-xl" height="580px" color="#F9FFFB">
       <br>
-      <v-card-title>
-        <div>
-          <br />
-        </div>
-        <v-btn class="white--text" href="/AddAntrean" height="53px" color="#0D987A" left>
-          <v-icon>mdi-plus </v-icon>
-          <p class="my-5">Tambah Antrean</p>
-        </v-btn>
-
-        <v-spacer></v-spacer>
-        <div class="text-right">
-          <v-container>
-            <v-btn class="white--text" height="50px" color="#0D987A">
-              <v-icon> mdi-filter-variant </v-icon>
-            </v-btn>
-          </v-container>
-        </div>
-        <div class="text-right">
-          <v-text-field
-              v-model="search"
-              prepend-inner-icon="mdi-magnify"
-              label="Search Here"
-              solo
-              class="form"
-              hide-details
-            ></v-text-field>
-        </div>
-      </v-card-title>
 
       <!-- code table -->
             <v-sheet :color="`white ${theme.isDark ? 'darken-2' : 'lighten-4'}`">
@@ -72,7 +48,7 @@
                                 </v-card>
                               </v-dialog>
                             </template>
-                            <template v-slot:[`item.actions`]="{ item }">
+                            <template v-slot:[`item.actions`]="">
                                 <v-btn
                                   class="aksi mx-2"
                                   height="33px"
@@ -90,22 +66,11 @@
                                   width="27px"
                                   dark
                                   x-small
-                                  href="/EditAntrean"
-                                  color="#56CCF2"
+                                  href="/AddAntreanPoli"
+                                  color="#0D987A"
                                 >
-                                  <v-icon>mdi-pencil</v-icon>
+                                  <v-icon>mdi-plus</v-icon>
                                 </v-btn>
-                              <v-btn
-                                  color="#F10000"
-                                  dark
-                                  class="aksi mx-2"
-                                  height="33px"
-                                  width="27px"
-                                  x-small
-                                  @click="deleteItem(item)"
-                              >
-                                <v-icon>mdi-close</v-icon>
-                              </v-btn>
                             </template>
                           </v-data-table>
                         </v-col>
@@ -137,7 +102,6 @@
             </v-sheet>
       <!-- bates code -->
     </v-card>
-
     <!-- If using vue-router -->
     <router-view></router-view>
   </v-container>
