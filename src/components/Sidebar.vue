@@ -183,7 +183,7 @@ export default {
 }
 
 .v-application .orange--text {
-    color: #085344 !important;
+    color: #285e50 !important;
     caret-color: #000000 !important;
     background-repeat: repeat-x;
 }
@@ -221,7 +221,7 @@ export default {
 }
 
 .icon {
-    background-color: #FBFEFD;
+    background-color: #8BCEBC;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
 }

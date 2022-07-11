@@ -2,7 +2,7 @@
   <v-container fluid style="padding: 30px">
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
-        <b>EDIT ANTREAN</b>
+        <b>TAMBAH ANTREAN</b>
       </v-toolbar-title>
     </div>
     <v-container>
@@ -109,7 +109,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn class="btn white--text" href="/DaftarAntrean" color="#DB5248"> Batal </v-btn>
-            <v-btn class="btn white--text" color="#0D987A"> Simpan </v-btn>
+            <v-btn class="btn white--text" color="#0D987A"> Tambah </v-btn>
           </v-card-actions>
         </v-col>
       </v-row>

@@ -2,20 +2,34 @@
 <v-row>
     <v-col cols="12" md="11" class="mx-auto">
     <br><br>
-      <div class="hero pa-5 text-no-wrap rounded-xl mx-auto">
-        <h1>Selamat Datang, Admin Klinik Sehat !</h1><br>
-        <p>Berikan layanan terbaik dan tetap prioritaskan kesehatan pasien.</p>
-      <v-btn
-      justify-center
-      color="#0D987A"
-      class="btn-antrean white--text"
-      rounded-pill
-      href="/DaftarAntrean"
-      >
-      Daftar Antrean
-      </v-btn>
+
+    <div class="hero pa-5 text-no-wrap rounded-xl mx-auto">
+      <div class="txt row">
+        <div class="col-md-6">
+          <div class="d-flex">
+            <div class="bav justify-content-center align-self-center">
+              <h1>Selamat Datang, Admin Klinik Sehat !</h1><br>
+              <p>Berikan layanan terbaik dan tetap prioritaskan kesehatan pasien.</p><br>
+              <v-btn
+              justify-center
+              color="#0D987A"
+              class="btn-antrean white--text"
+              rounded-pill
+              href="/DaftarAntrean"
+              >
+              Daftar Antrean
+              </v-btn>
+            </div>
+          </div>
+        </div>
+        <div class="text-right col-md-6">
+          <img src="../assets/img/img-hero.svg" width="270" />
+        </div>
       </div>
+    </div>
+
       <br>
+
       <section>
         <br>
         <h1>Informasi</h1>
@@ -23,31 +37,87 @@
           <v-row justify="left d-flex">
             <v-col cols="12" md="4" color="#EDFFFA">
               <div class="card mb-2 pa-4 text-left rounded-xl">
-                Jumlah Dokter <br>
-                10
+              <!-- text row -->
+              <div class="txt row">
+                <div class="col-md-4">
+                  <div class="d-flex">
+                    <div class="bav justify-content-center align-self-center">
+                      <img src="../assets/img/icon-doc.svg" width="50" />
+                    </div>
+                  </div>
+                </div>
+                <div class="text-left col-md-5">
+                  <span class="txt-jumlah">Jumlah Dokter</span> <br>
+                  <span class="number">10</span>
+                </div>
               </div>
-              
+              <!-- text row -->
+              </div>
+              <br>
               <div class="card pa-4 text-left rounded-xl">
-                Jumlah Poliklinik <br>
-                10
+              <!-- text row -->
+              <div class="txt row">
+                <div class="col-md-4">
+                  <div class="d-flex">
+                    <div class="bav justify-content-center align-self-center">
+                      <img src="../assets/img/icon-poli.svg" width="50" />
+                    </div>
+                  </div>
+                </div>
+                <div class="text-left col-md-5">
+                  <span class="txt-jumlah">Jumlah Poli</span><br>
+                  <span class="number">10</span>
+                </div>
+              </div>
+              <!-- text row -->
               </div>
             </v-col>
 
             <v-col cols="12" md="4">
               <div class="card mb-2 pa-4 text-left rounded-xl">
-                Jumlah Perawat <br>
-                10
+              <!-- text row -->
+              <div class="txt row">
+                <div class="col-md-4">
+                  <div class="d-flex">
+                    <div class="bav justify-content-center align-self-center">
+                      <img src="../assets/img/icon-perawat.svg" width="50" />
+                    </div>
+                  </div>
+                </div>
+                <div class="text-left col-md-5">
+                  <span class="txt-jumlah">JumlahPerawat</span> <br>
+                  <span class="number">10</span>
+                </div>
               </div>
+              <!-- text row -->
+              </div>
+              <br>
               <div class="card pa-4 text-left rounded-xl">
-                Jumlah Pasien <br>
-                10
+              <!-- text row -->
+              <div class="txt row">
+                <div class="col-md-4">
+                  <div class="d-flex">
+                    <div class="bav justify-content-center align-self-center">
+                      <img src="../assets/img/icon-pasien.svg" width="50" />
+                    </div>
+                  </div>
+                </div>
+                <div class="text-left col-md-5">
+                  <span class="txt-jumlah">Jumlah Pasien</span> <br>
+                  <span class="number">10</span>
+                </div>
+              </div>
+              <!-- text row -->
               </div>
             </v-col>
 
             <v-col cols="12" md="4">
               <div class="antrean ms-3 pa-4 text-center rounded-xl">
-                Jumlah Antrean <br>
-                10
+                <img src="../assets/img/icon-antrean.svg" width="80" /><br>
+                <div>
+                <span class="txt-jumlah">Jumlah Antrean</span> <br>
+                <span class="number">10</span>
+                </div>
               </div>
             </v-col>
           </v-row>
@@ -65,7 +135,7 @@
                 <v-btn
                 justify-center
                 color="#0D987A"
-                class="btn-antrean white--text"
+                class="btn-tambah white--text"
                 rounded-lg
                 href="/AddAntrean"
                 >
@@ -84,7 +154,7 @@
                 <v-btn
                 justify-center
                 color="#0D987A"
-                class="btn-antrean white--text"
+                class="btn-tambah white--text"
                 rounded-lg
                 href="/AddPas"
                 >
@@ -148,8 +218,15 @@ letter-spacing: 0.0025em;
 }
 
 .btn-antrean {
-  width: 200px;
-  height: 43px !important;
+  width: 230px;
+  height: 50px !important;
+  border-radius: 10px;
+}
+
+.btn-tambah {
+  width: 330px;
+  height: 45px !important;
+  border-radius: 10px;
 }
 
 .card {
@@ -160,5 +237,31 @@ letter-spacing: 0.0025em;
 
 .hero {
   background-color: #E0F8F2;
+  height: 250px;
+}
+.txt-jumlah {
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+letter-spacing: 0.0015em;
+}
+.number {
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 26px;
+line-height: 29px;
+/* identical to box height */
+
+letter-spacing: 0.0015em;
+
+/* color 7 */
+
+color: #212121;
+}
+.bawah {
+  position: absolute;
 }
 </style>

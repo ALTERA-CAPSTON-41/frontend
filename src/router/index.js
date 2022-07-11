@@ -5,7 +5,7 @@ import Login from "../views/Login.vue";
 import Administrator from "../views/Administrator.vue";
 import Beranda from "../views/Beranda.vue";
 import DaftarAntrean from "../views/DaftarAntrean.vue";
-import AddAntrean from "../views/AddAntrean.vue";
+import AntreanPoli from "../views/AntreanPoli.vue";
 import DetailAntrean from "../views/DetailAntrean.vue";
 import EditAntrean from "../views/EditAntrean.vue";
 import Dokter from "../views/Dokter.vue";
@@ -30,6 +30,7 @@ import EditAdmin from "../views/EditAdmin.vue";
 import ProfilAdmin from "../views/ProfilAdmin.vue";
 import DetailAdmin from "../views/DetailAdmin.vue";
 import UbahPassword from "../views/UbahPassword.vue";
+import AddAntrean from "../views/AddAntrean.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -64,8 +65,13 @@ const routes = [
       },
       {
         path: "/AddAntrean",
-        name: "Tambah Antrean",
+        name: "Add Antrean",
         component: AddAntrean,
+      },
+      {
+        path: "/AddAntreanPoli",
+        name: "Antrean Poli",
+        component: AntreanPoli,
       },
       {
         path: "/Pasien",
