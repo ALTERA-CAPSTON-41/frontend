@@ -29,6 +29,7 @@ import AddAdmin from "../views/AddAdmin.vue";
 import EditAdmin from "../views/EditAdmin.vue";
 import ProfilAdmin from "../views/ProfilAdmin.vue";
 import DetailAdmin from "../views/DetailAdmin.vue";
+import DetailRekam from "../views/DetailRekam.vue";
 import UbahPassword from "../views/UbahPassword.vue";
 import AddAntrean from "../views/AddAntrean.vue";
 import EditPerawat from "../views/EditPerawat.vue";
@@ -58,6 +59,11 @@ const routes = [
         path: "/DetailAntrean",
         name: "Detail Antrean",
         component: DetailAntrean,
+      },
+      {
+        path: "/DetailRekam",
+        name: "Detail Rekam",
+        component: DetailRekam,
       },
       {
         path: "/EditAntrean",

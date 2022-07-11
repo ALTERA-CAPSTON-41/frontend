@@ -51,7 +51,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
 
-            <v-btn class="btn white--text" href="/Administrator" color="#0D987A"> Kembali </v-btn>
+            <v-btn large class="btn white--text" href="/Administrator" color="#0D987A"> Kembali </v-btn>
           </v-card-actions>
         </v-container>
       </v-container>
