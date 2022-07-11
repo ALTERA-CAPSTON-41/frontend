@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
     <v-main>
-      <v-container class="align-stretch" fluid style="padding: 0px" max-height="100"> 
+      <v-container class="align-stretch" fluid style="padding: 0px"> 
         <v-row align="center" justify="center">
           <v-col cols="12" md="9">
             <v-card class="elevation-2">
@@ -10,10 +10,10 @@
                   <br>
                 <v-img
                   class="mx-auto"
-                  max-width="150"
+                  max-width="140"
                   src="../assets/img/logo1.svg"
                 ></v-img>
-                  <v-card-text class="mt-4">
+                  <v-card-text class="mt-1">
                     <h1 class="text">Sign In</h1><br>
                     <p>Enter Your Name and Password</p><br>
 
@@ -45,8 +45,9 @@
                         dense
                       />
                     </v-form>
+                    <p class="lupa text-right" @click="pas">Lupa Password?</p>
                   </v-card-text>
-                  <div class="text-center mt-5">
+                  <div class="text-center">
                     <v-btn v-on:click="login" width="300px" height="45px" rounded color="#0D987A" dark>SIGN IN</v-btn>
                   </div>
                 </v-col>
@@ -84,6 +85,9 @@ export default {
               email: this.email,
               password: this.password
             })
+        },
+        pas(){
+            this.$router.push({name: "UbahPassword"})
         }
   },
   props: {
@@ -95,5 +99,9 @@ export default {
 <style>
 .text {
   font-weight: 600 !important;
+  font-size: 35px;
+}
+.lupa:hover {
+  color: #0D987A;
 }
 </style>
