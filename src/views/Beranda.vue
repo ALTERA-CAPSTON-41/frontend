@@ -237,7 +237,7 @@ letter-spacing: 0.0025em;
 
 .hero {
   background-color: #E0F8F2;
-  height: 250px;
+  height: 230px;
 }
 .txt-jumlah {
   font-family: 'Lato';
