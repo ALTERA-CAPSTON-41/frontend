@@ -3,11 +3,10 @@
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
         <b>DAFTAR PASIEN</b>
-        <h3>{{ patients }}</h3>
       </v-toolbar-title>
     </div>
     <v-card class="rounded-xl" height="700px" color="#F9FFFB">
-      <br />
+      <br>
       <v-card-title>
         <div>
           <br />
@@ -306,10 +305,10 @@ export default {
 
   /* color 7 */
 
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .MyHeader {
-  background-color: #0d987a;
+  background-color: #0D987A;
 }
 /* tanya ke mentor */
 .aksi {

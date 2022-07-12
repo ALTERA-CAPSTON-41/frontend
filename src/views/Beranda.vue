@@ -48,7 +48,7 @@
                 </div>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">Jumlah Dokter</span> <br>
-                  <span class="number" v-if="feature">{{ feature.data }}</span>
+                  <span class="number">10</span>
                 </div>
               </div>
               <!-- text row -->

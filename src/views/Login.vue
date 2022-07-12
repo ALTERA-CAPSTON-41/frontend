@@ -85,7 +85,7 @@ export default {
             })
         },
         pas(){
-          alert('Untuk mengetahui password Anda silahkan tanya Admin')
+            this.$router.push({name: "UbahPassword"})
         }
   },
   props: {
