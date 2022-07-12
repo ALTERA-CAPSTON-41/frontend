@@ -1,26 +1,24 @@
 import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router from "../router/index";
 import { APILocation } from '@/constants/environment';
 import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
+const persistedDataState = createPersistedState({
+  paths: ["token"]
+})
 
 export default new Vuex.Store({
-  plugins: [
-    createPersistedState({
-      storage: window.sessionStorage,
-    }),
-  ],
+  plugins: [persistedDataState],
 
   state: {
-    token: "",
+    token: null,
     med: Object,
     sakit: '',
     total: Number,
-    role: "",
-    info: "",
+    role: null,
+    info: null,
     patients: [],
   },
 
@@ -28,8 +26,7 @@ export default new Vuex.Store({
 
   mutations: {
     setToken(state, param) {
-      state.token = param.token;
-      state.role = param.role;
+      state.token = param;
     },
     setMedRedByID(state, param) {
       state.med = param
@@ -46,15 +43,29 @@ export default new Vuex.Store({
     setPatient(state, param) {
       state.patients = param;
     },
+    setRole(state, param) {
+      state.role = param;
+    },
   },
 
   actions: {
     async fetchLogin(store, param) {
-      axios.post(APILocation + "/login", {
+      axios.post(APILocation + "login", {
           email: param.email,
           password: param.password
-      }).then(response => console.log(response))
-      router.push('/')
+      })
+      .then((response) => {
+        if (response.data.meta.status === 201) {
+          store.commit("setToken", response.data.data.token);
+          store.commit("setRole", response.data.data.role);
+          return response;
+        } else {
+          store.commit("setInfo", response.data.message);
+        }
+      })
+      .catch((error) => {
+        store.commit("setError", error);
+      });
     },
     // code integrasi get data table
     async getAllPatient(store) {
@@ -62,7 +73,7 @@ export default new Vuex.Store({
       console.log("token", store.state.token);
 
       return axios
-      .get(APILocation + "/patients", {
+      .get(APILocation + "patients", {
         headers: {
           "Content-Type":"application/json",
           Authorization: "Bearer " + store.state.token,

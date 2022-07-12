@@ -147,6 +147,11 @@
               </div>
             </v-col>
           </v-row>
+          <ul id="example-1">
+          <li v-for="data in patients" :key="data.index">
+            {{ data.name }}
+          </li>
+        </ul>
         </div>
       </v-sheet>
       <!-- bates code -->
@@ -271,11 +276,11 @@ export default {
      add(Registrasi){
        this.$router.push({name: Registrasi})
       },
-    async getAllPatient() {
-      const patients = await this.$store.dispatch("getAllPatient");
-      console.log("patients dari method: ", patients)
-      this.patients = patients
-    },
+      async getAllPatient() {
+        const patients = await this.$store.dispatch("getAllPatient");
+        console.log("patients dari method: ", patients)
+        this.patients = patients
+      },
       closeDelete(){
           this.dialogDelete = false
           this.$nextTick(() => {
@@ -290,6 +295,9 @@ export default {
           this.selectedItemIndex = this.identity.indexOf(item)
           this.dialogDelete = true
         },
+    },
+    mounted() {
+      this.getAllPatient();
     },
 }
 </script>
@@ -310,7 +318,6 @@ export default {
 .MyHeader {
   background-color: #0D987A;
 }
-/* tanya ke mentor */
 .aksi {
   border-radius: 10px;
 }

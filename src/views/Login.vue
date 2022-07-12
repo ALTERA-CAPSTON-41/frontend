@@ -83,9 +83,11 @@ export default {
               email: this.email,
               password: this.password
             })
-        },
+            localStorage.setItem("authenticated", true);
+            this.$router.push({ name: "Beranda" });
+            },
         pas(){
-            this.$router.push({name: "UbahPassword"})
+          this.$router.push({name: "UbahPassword"})
         }
   },
   props: {
