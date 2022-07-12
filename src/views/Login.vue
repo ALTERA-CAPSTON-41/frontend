@@ -15,7 +15,7 @@
                 ></v-img>
                   <v-card-text class="mt-1">
                     <h1 class="text">Sign In</h1><br>
-                    <p>Enter Your Name and Password</p><br>
+                    <p>Enter Your Username and Password</p><br>
 
                     <v-form>
                       <h4>Username</h4>
@@ -69,8 +69,6 @@
 </template>
 
 <script>
-
-
 export default {
   name: "LoginPage",
   data:() => ({
@@ -87,7 +85,7 @@ export default {
             })
         },
         pas(){
-            this.$router.push({name: "UbahPassword"})
+          alert('Untuk mengetahui password Anda silahkan tanya Admin')
         }
   },
   props: {

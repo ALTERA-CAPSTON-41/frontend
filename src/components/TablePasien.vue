@@ -55,7 +55,7 @@
                                   width="27px"
                                   dark
                                   x-small
-                                  href="/DetailAntrean"
+                                  href="/DetailPas"
                                   color="#56CCF2"
                                 >
                                   <v-icon>mdi-card-account-details-outline</v-icon>

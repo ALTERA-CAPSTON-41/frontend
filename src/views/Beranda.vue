@@ -48,7 +48,7 @@
                 </div>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">Jumlah Dokter</span> <br>
-                  <span class="number">10</span>
+                  <span class="number" v-if="feature">{{ feature.data }}</span>
                 </div>
               </div>
               <!-- text row -->
@@ -172,9 +172,27 @@
 </template>
 
 <script>
-
 export default ({
-  name: 'BerandaPage'
+  name: 'BerandaPage',
+  data:() => ({
+    return : {
+      feature: ''
+    }
+  }),
+  created() {
+    this.test = this.$store.state.token
+  },
+  methods:{
+    getFeatureData() {
+      this.$store.dispatch('fetchFeature', {
+        feature: this.feature,
+        token: this.token,
+      })
+    }
+  },
+  props: {
+    source: String
+  }
 })
 </script>
 

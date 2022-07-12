@@ -146,7 +146,7 @@
             <v-card-title> <b>Rekam Medis</b> </v-card-title>
             <br />
 
-            <v-list-item-title class="mx-5">ICD-10</v-list-item-title>
+            <v-list-item-title v-model="code" class="mx-5">ICD-10</v-list-item-title>
             <v-list-item>
               <v-list-item-content>
                 <v-list-item-title class="detail mx-1" color="grey"
