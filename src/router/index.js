@@ -33,6 +33,7 @@ import DetailRekam from "../views/DetailRekam.vue";
 import UbahPassword from "../views/UbahPassword.vue";
 import AddAntrean from "../views/AddAntrean.vue";
 import EditPerawat from "../views/EditPerawat.vue";
+import DetailPoli from "../views/DetailPoli.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -129,6 +130,11 @@ const routes = [
         path: "/AddPoli",
         name: "AddPoli",
         component: AddPoli,
+      },
+      {
+        path: "/DetailPoli",
+        name: "DetailPoli",
+        component: DetailPoli,
       },
       {
         path: "/EditPoli",
