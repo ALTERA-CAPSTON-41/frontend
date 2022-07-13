@@ -76,7 +76,7 @@ export default new Vuex.Store({
       console.log("token", store.state.token);
 
       return axios
-      .get(APILocation + "patients", {
+      .get(APILocation + "/patients", {
         headers: {
           "Content-Type":"application/json",
           Authorization: "Bearer " + store.state.token,
@@ -96,7 +96,7 @@ export default new Vuex.Store({
       console.log("token", store.state.token);
 
       return axios
-      .get(APILocation + "queues", {
+      .get(APILocation + "/queues", {
         headers: {
           "Content-Type":"application/json",
           Authorization: "Bearer " + store.state.token,
@@ -116,7 +116,7 @@ export default new Vuex.Store({
       console.log("token", store.state.token);
 
       return axios
-      .get(APILocation + "admins", {
+      .get(APILocation + "/admins", {
         headers: {
           "Content-Type":"application/json",
           Authorization: "Bearer " + store.state.token,
@@ -136,7 +136,7 @@ export default new Vuex.Store({
       console.log("token", store.state.token);
 
       return axios
-      .get(APILocation + "polyclinics", {
+      .get(APILocation + "/polyclinics", {
         headers: {
           "Content-Type":"application/json",
           Authorization: "Bearer " + store.state.token,
