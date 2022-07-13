@@ -33,6 +33,7 @@ import DetailRekam from "../views/DetailRekam.vue";
 import UbahPassword from "../views/UbahPassword.vue";
 import AddAntrean from "../views/AddAntrean.vue";
 import EditPerawat from "../views/EditPerawat.vue";
+import DetailPoli from "../views/DetailPoli.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -131,6 +132,11 @@ const routes = [
         component: AddPoli,
       },
       {
+        path: "/DetailPoli",
+        name: "DetailPoli",
+        component: DetailPoli,
+      },
+      {
         path: "/EditPoli",
         name: "EditPoli",
         component: EditPoli,
@@ -212,6 +218,13 @@ const router = new VueRouter({
   mode: "history",
   base: "/",
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = JSON.parse(localStorage.getItem("authenticated"));
+  if (to.name !== "Login" && !isAuthenticated) next({ name: "Login" });
+  if (to.name === "Login" && isAuthenticated) next({ name: "Beranda" });
+  else next();
 });
 
 export default router;

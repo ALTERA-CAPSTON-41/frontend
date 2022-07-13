@@ -55,7 +55,7 @@
                                   width="27px"
                                   dark
                                   x-small
-                                  href="/DetailAntrean"
+                                  href="/DetailPas"
                                   color="#56CCF2"
                                 >
                                   <v-icon>mdi-card-account-details-outline</v-icon>
@@ -163,26 +163,26 @@ export default {
         },
         {
           no: 2,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
+          name: 'Intan Sari',
+          nik: '3201425435233',
           jenisKelamin: 'Female',
-          golonganDarah: 'A',
+          golonganDarah: 'O',
           action: 'edit'
         },
         {
           no: 3,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
+          name: 'Hamdan Yuwafi',
+          nik: '32012636525623',
+          jenisKelamin: 'Male',
           golonganDarah: 'A',
           action: 'edit'
         },
         {
           no: 4,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
+          name: 'Adhicitta Masran',
+          nik: '320142642354236',
+          jenisKelamin: 'Male',
+          golonganDarah: 'O',
           action: 'edit'
         },
         {
