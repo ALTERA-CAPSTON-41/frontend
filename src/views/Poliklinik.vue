@@ -49,7 +49,7 @@
               <v-col>
                 <v-data-table
                   :headers="headers"
-                  :items="identity"
+                  :items="polyclinics"
                   :search="search"
                   hide-default-footer
                   :page.sync="page"
@@ -144,7 +144,7 @@
                         previous-aria-label="Prev"
                         next-aria-label="Next"
                         wrapper-aria-label
-                        :length="10"
+                        :length="4"
                         :total-visible="5"
                       ></v-pagination>
                     </div>
@@ -173,6 +173,7 @@ export default {
   },
   data() {
     return {
+      polyclinics: [],
       search: "",
       dialogDelete: false,
       selectedItemIndex: -1,
@@ -182,19 +183,19 @@ export default {
       headers: [
         {
           text: "No.",
-          value: "no",
+          value: "id",
+        },
+        {
+          text: "",
+          value: "",
         },
         {
           text: "Poliklinik",
-          value: "poli",
+          value: "name",
         },
         {
-          text: "Jumlah Dokter",
-          value: "jdr",
-        },
-        {
-          text: "Jumlah Perawat",
-          value: "jpr",
+          text: "",
+          value: "",
         },
         {
           text: "Aksi",
@@ -265,6 +266,12 @@ export default {
     add(Registrasi) {
       this.$router.push({ name: Registrasi });
     },
+    // methods integrasi get data table
+    async getAllPoliklinik() {
+      const polyclinics = await this.$store.dispatch("getAllPoliklinik");
+      console.log("all poliklinik dari method: ", polyclinics)
+      this.polyclinics = polyclinics
+    },
     closeDelete() {
       this.dialogDelete = false;
       this.$nextTick(() => {
@@ -280,6 +287,9 @@ export default {
       this.dialogDelete = true;
     },
   },
+  mounted() {
+      this.getAllPoliklinik();
+    },
 };
 </script>
 

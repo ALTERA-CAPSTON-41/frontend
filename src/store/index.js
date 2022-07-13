@@ -130,6 +130,26 @@ export default new Vuex.Store({
         store.commit("setInfo", eror);
       });
     },
+    // code integrasi get data table poliklinik
+    async getAllPoliklinik(store) {
+      console.log("store", store);
+      console.log("token", store.state.token);
+
+      return axios
+      .get(APILocation + "polyclinics", {
+        headers: {
+          "Content-Type":"application/json",
+          Authorization: "Bearer " + store.state.token,
+        },
+      })
+      .then((response) => {
+        console.log("response: ", response)
+        return response.data.data;
+      })
+      .catch((eror) => {
+        store.commit("setInfo", eror);
+      });
+    },
     async fetchMedRecordByID(store, param) {
     const config = {
       headers: {

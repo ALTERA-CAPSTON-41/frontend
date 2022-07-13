@@ -130,11 +130,6 @@
                           </div>
                         </v-col>
                       </v-row>
-                      <ul id="example-1">
-          <li v-for="data in admins" :key="data.index">
-            {{ data }}
-          </li>
-        </ul>
                 </div>
             </v-sheet>
       <!-- bates code -->
