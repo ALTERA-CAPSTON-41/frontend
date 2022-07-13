@@ -43,11 +43,14 @@
               <v-col>
                 <v-data-table
                   :headers="headers"
-                  :items="identity"
+                  :items="patients"
                   :search="search"
                   hide-default-footer
                   :page.sync="page"
-                  @page-count="pageCount = $event"
+                  @page-count="
+                    pageCount = $event;
+                    hitungPage($event);
+                  "
                   :items-per-page="itemsPerPage"
                   hide-default-header
                 >
@@ -138,7 +141,7 @@
                         previous-aria-label="Prev"
                         next-aria-label="Next"
                         wrapper-aria-label
-                        :length="10"
+                        :length="totalPage"
                         :total-visible="5"
                       ></v-pagination>
                     </div>
@@ -149,7 +152,7 @@
           </v-row>
           <ul id="example-1">
           <li v-for="data in patients" :key="data.index">
-            {{ data.name }}
+            {{ data }}
           </li>
         </ul>
         </div>
@@ -171,6 +174,7 @@ export default {
     },
     data () {
       return {
+        totalPage: null,
         search:'',
         dialogDelete: false,
         selectedItemIndex: -1,
@@ -181,7 +185,7 @@ export default {
         headers: [
         {
           text: 'No.',
-          value: 'no'
+          value: 'id',
         },
         {
           text: 'Nama',
@@ -193,11 +197,11 @@ export default {
         },
         {
           text: 'Jenis Kelamin',
-          value: 'jenisKelamin'
+          value: 'gender'
         },
         {
           text: 'Golongan Darah',
-          value: 'golonganDarah'
+          value: 'blood_type'
         },
         {
           text: 'Aksi',
@@ -276,10 +280,14 @@ export default {
      add(Registrasi){
        this.$router.push({name: Registrasi})
       },
+      // methods integrasi get data table
       async getAllPatient() {
         const patients = await this.$store.dispatch("getAllPatient");
         console.log("patients dari method: ", patients)
         this.patients = patients
+      },
+      hitungPage(totalitem) {
+        this.totalPage = totalitem;
       },
       closeDelete(){
           this.dialogDelete = false

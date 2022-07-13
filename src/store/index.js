@@ -40,6 +40,9 @@ export default new Vuex.Store({
     setInfo(state, param) {
       state.info = param;
     },
+    setAdmin(state, param) {
+      state.info = param;
+    },
     setPatient(state, param) {
       state.patients = param;
     },
@@ -67,13 +70,53 @@ export default new Vuex.Store({
         store.commit("setError", error);
       });
     },
-    // code integrasi get data table
+    // code integrasi get data table pasien
     async getAllPatient(store) {
       console.log("store", store);
       console.log("token", store.state.token);
 
       return axios
       .get(APILocation + "patients", {
+        headers: {
+          "Content-Type":"application/json",
+          Authorization: "Bearer " + store.state.token,
+        },
+      })
+      .then((response) => {
+        console.log("response: ", response)
+        return response.data.data;
+      })
+      .catch((eror) => {
+        store.commit("setInfo", eror);
+      });
+    },
+    // code integrasi get data table antrean
+    async getAllQueue(store) {
+      console.log("store", store);
+      console.log("token", store.state.token);
+
+      return axios
+      .get(APILocation + "queues", {
+        headers: {
+          "Content-Type":"application/json",
+          Authorization: "Bearer " + store.state.token,
+        },
+      })
+      .then((response) => {
+        console.log("response: ", response)
+        return response.data.data;
+      })
+      .catch((eror) => {
+        store.commit("setInfo", eror);
+      });
+    },
+    // code integrasi get data table admin
+    async getAllAdmin(store) {
+      console.log("store", store);
+      console.log("token", store.state.token);
+
+      return axios
+      .get(APILocation + "admins", {
         headers: {
           "Content-Type":"application/json",
           Authorization: "Bearer " + store.state.token,
@@ -115,7 +158,6 @@ export default new Vuex.Store({
         Authorization: `Bearer ${param.token}`,
       },
     }
-
     await axios
       .get(
         `https://api.capstone.thisham.my.id/dashboards/${param.feature}`,

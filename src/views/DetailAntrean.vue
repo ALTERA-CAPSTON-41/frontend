@@ -76,7 +76,6 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-
         <v-btn href="/AddAntrean"> Kembali </v-btn>
       </v-card-actions>
     </v-container>

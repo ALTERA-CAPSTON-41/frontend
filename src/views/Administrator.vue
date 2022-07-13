@@ -37,7 +37,7 @@
                         <v-col>
                           <v-data-table
                               :headers="headers"
-                              :items="identity"
+                              :items="admins"
                               :search="search"
                               hide-default-footer
                               :page.sync="page"
@@ -130,6 +130,11 @@
                           </div>
                         </v-col>
                       </v-row>
+                      <ul id="example-1">
+          <li v-for="data in admins" :key="data.index">
+            {{ data }}
+          </li>
+        </ul>
                 </div>
             </v-sheet>
       <!-- bates code -->
@@ -143,9 +148,6 @@
 <script>
 export default {
   name: "DataAdmin",
-    setup() {
-        
-    },
     inject: {
       theme: {
         default: { isDark: false },
@@ -153,6 +155,7 @@ export default {
     },
     data () {
       return {
+        admins: [],
         search:'',
         dialogDelete: false,
         selectedItemIndex: -1,
@@ -162,7 +165,7 @@ export default {
         headers: [
         {
           text: 'No.',
-          value: 'no'
+          value: 'id'
         },
         {
           text: '',
@@ -266,24 +269,36 @@ export default {
       }
     },
     methods :{
-     add(Registrasi){
-       this.$router.push({name: Registrasi})
-   },
-   closeDelete(){
-       this.dialogDelete = false
-       this.$nextTick(() => {
-         this.selectedItemIndex = -1
-       })
-     },
-     deleteItemConfirm(){
-       this.identity.splice(this.selectedItemIndex, 1)
-       this.closeDelete()
-     },
-     deleteItem(item){
-       this.selectedItemIndex = this.identity.indexOf(item)
-       this.dialogDelete = true
-     },
- },
+      add(Registrasi){
+        this.$router.push({name: Registrasi})
+      },
+      // methods integrasi get data table
+      async getAllAdmin() {
+        const admins = await this.$store.dispatch("getAllAdmin");
+        console.log("all admin dari method: ", admins)
+        this.admins = admins
+      },
+      hitungPage(totalitem) {
+        this.totalPage = totalitem;
+      },
+      closeDelete(){
+        this.dialogDelete = false
+        this.$nextTick(() => {
+        this.selectedItemIndex = -1
+        })
+      },
+      deleteItemConfirm(){
+        this.identity.splice(this.selectedItemIndex, 1)
+        this.closeDelete()
+      },
+      deleteItem(item){
+        this.selectedItemIndex = this.identity.indexOf(item)
+        this.dialogDelete = true
+      },
+    },
+    mounted() {
+      this.getAllAdmin();
+    },
   }
 </script>
 

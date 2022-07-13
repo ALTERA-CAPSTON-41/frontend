@@ -40,7 +40,7 @@
                         <v-col>
                           <v-data-table
                               :headers="headers"
-                              :items="identity"
+                              :items="queues"
                               :search="search"
                               hide-default-footer
                               :page.sync="page"
@@ -133,6 +133,11 @@
                           </div>
                         </v-col>
                       </v-row>
+                      <ul id="example-1">
+                      <li v-for="data in queues" :key="data.index">
+                        {{ data }}
+                      </li>
+                      </ul>
                 </div>
             </v-sheet>
       <!-- bates code -->
@@ -146,9 +151,6 @@
 <script>
 export default {
   name: "DataAdmin",
-    setup() {
-        
-    },
     inject: {
       theme: {
         default: { isDark: false },
@@ -156,16 +158,18 @@ export default {
     },
     data () {
       return {
+        totalPage: null,
         search:'',
         dialogDelete: false,
         selectedItemIndex: -1,
         pageCount: 0,
         itemsPerPage : 10,
         page: 1,
+        queues: [],
         headers: [
         {
           text: 'No.',
-          value: 'no'
+          value: 'id'
         },
         {
           text: 'Nama',
@@ -176,12 +180,12 @@ export default {
           value: 'nik'
         },
         {
-          text: 'Jenis Kelamin',
-          value: 'jenisKelamin'
+          text: 'Poliklinik',
+          value: 'polyclinic.name'
         },
         {
-          text: 'Golongan Darah',
-          value: 'golonganDarah'
+          text: 'Nomor Antrean',
+          value: 'queue_number'
         },
         {
           text: 'Aksi',
@@ -257,10 +261,19 @@ export default {
       }
     },
     methods :{
-     add(Registrasi){
+    add(Registrasi){
        this.$router.push({name: Registrasi})
-   },
-   closeDelete(){
+    },
+    // methods integrasi get data table
+    async getAllQueue() {
+      const queues = await this.$store.dispatch("getAllQueue");
+      console.log("all queue dari method: ", queues)
+      this.queues = queues
+    },
+    hitungPage(totalitem) {
+      this.totalPage = totalitem;
+    },
+    closeDelete(){
        this.dialogDelete = false
        this.$nextTick(() => {
          this.selectedItemIndex = -1
@@ -274,7 +287,10 @@ export default {
        this.selectedItemIndex = this.identity.indexOf(item)
        this.dialogDelete = true
      },
- },
+    },
+    mounted() {
+      this.getAllQueue();
+    },
   }
 </script>
 

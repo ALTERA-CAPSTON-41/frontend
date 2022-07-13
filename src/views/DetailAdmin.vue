@@ -61,6 +61,22 @@
 
 export default {
   name: "App",
+  data() {
+    return {
+      
+    }
+  },
+  methods: {
+  // methods integrasi get data table
+    async getAllAdmin() {
+      const admins = await this.$store.dispatch("getAllAdmin");
+      console.log("detail admin dari method: ", admins)
+      this.admins = admins
+    },
+  },
+  mounted() {
+      this.getAllAdmin();
+  },
 };
 </script>
 

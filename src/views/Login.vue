@@ -24,25 +24,21 @@
                         label="Enter Your Username"
                         v-model="email"
                         name="Email"
-                        type="text"
-                        color="teal accent-3"
-                        filled
-                        rounded
-                        dense
+                        class="form-login input-group--focused" 
+                        solo
                       />
                       <h4>Password</h4>
                       <v-text-field
-                      prepend-inner-icon="mdi-lock"
+                        prepend-inner-icon="mdi-lock"
                         id="password"
                         label="Enter Your Password"
                         name="password"
                         v-model="password"
-                        type="password"
-                        color="teal accent-3"
-                        append-icon="mdi-eye-off"
-                        filled
-                        rounded
-                        dense
+                        :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                        :type="show3 ? 'text' : 'password'"
+                        class="form-login input-group--focused"
+                        @click:append="show3 = !show3"
+                        solo
                       />
                     </v-form>
                     <p class="lupa text-right" @click="pas">Lupa Password?</p>
@@ -74,8 +70,18 @@ export default {
   data:() => ({
     return : {
       email: '',
-      password: ''
-    }
+      password: '',
+    },
+    row: null,
+        show1: false,
+        show2: true,
+        show3: false,
+        show4: false,
+        password: '',
+        rules: {
+          required: value => !!value || 'Required.',
+          emailMatch: () => (`The email and password you entered don't match`),
+        },
   }),
   methods:{
     async login(){
@@ -103,5 +109,12 @@ export default {
 }
 .lupa:hover {
   color: #0D987A;
+}
+.form-login {
+  border-style: solid;
+  border-color: #0B715B;
+  border-width: 2px;
+  border-radius: 20px !important;
+  height: 52px;
 }
 </style>

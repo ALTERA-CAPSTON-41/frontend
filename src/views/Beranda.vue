@@ -64,6 +64,11 @@
                     </div>
                   </div>
                 </div>
+                <ul id="example-1">
+                <li v-for="data in dashboards" :key="data.index">
+                  {{ data.total }}
+                </li>
+                </ul>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">Jumlah Poli</span><br>
                   <span class="number">4</span>
@@ -176,19 +181,22 @@ export default ({
   name: 'BerandaPage',
   data:() => ({
     return : {
-      feature: ''
+      dashboards: '',
     }
   }),
   created() {
     this.test = this.$store.state.token
   },
   methods:{
-    getFeatureData() {
-      this.$store.dispatch('fetchFeature', {
-        feature: this.feature,
-        token: this.token,
-      })
-    }
+    // methods integrasi get data table
+    async fetchFeature() {
+      const dashboards = await this.$store.dispatch("fetchFeature");
+      console.log("total dari method: ", dashboards)
+      this.dashboards = dashboards
+    },
+  },
+  mounted() {
+    this.fetchFeature();
   },
   props: {
     source: String
@@ -213,27 +221,27 @@ p {
 }
 
 h1 {
-font-family: 'Lato';
-font-style: normal;
-font-weight: 400 !important;
-font-size: 34px;
-line-height: 41px;
-/* identical to box height */
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 34px;
+  line-height: 41px;
+  /* identical to box height */
 
-letter-spacing: 0.0025em;
+  letter-spacing: 0.0025em;
 }
 
 .antrean {
-    display: flex;
-    height: 100%;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #EDFFFA;
-    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+  display: flex;
+  height: 100%;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #EDFFFA;
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
 .btn-antrean {
@@ -260,41 +268,41 @@ letter-spacing: 0.0025em;
 }
 .txt-jumlah {
   font-family: 'Lato';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 19px;
-letter-spacing: 0.0015em;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.0015em;
 }
 .number {
   font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 26px;
-line-height: 29px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
 
-/* identical to box height */
+  /* identical to box height */
 
-letter-spacing: 0.0015em;
+  letter-spacing: 0.0015em;
 
-/* color 7 */
+  /* color 7 */
 
-color: #212121;
+  color: #212121;
 }
 .number-big {
   font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 40px;
-line-height: 29px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 29px;
 
-/* identical to box height */
+  /* identical to box height */
 
-letter-spacing: 0.0015em;
+  letter-spacing: 0.0015em;
 
-/* color 7 */
+  /* color 7 */
 
-color: #212121;
+  color: #212121;
 }
 .bawah {
   position: absolute;
