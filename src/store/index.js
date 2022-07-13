@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from '@/router';
 import { APILocation } from '@/constants/environment';
 import createPersistedState from 'vuex-persistedstate'
 
@@ -61,9 +62,11 @@ export default new Vuex.Store({
         if (response.data.meta.status === 201) {
           store.commit("setToken", response.data.data.token);
           store.commit("setRole", response.data.data.role);
+          router.push("/");
           return response;
         } else {
           store.commit("setInfo", response.data.message);
+          router.push("/Login");
         }
       })
       .catch((error) => {
