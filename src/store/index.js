@@ -53,7 +53,7 @@ export default new Vuex.Store({
 
   actions: {
     async fetchLogin(store, param) {
-      axios.post(APILocation + "login", {
+      axios.post(APILocation + "/login", {
           email: param.email,
           password: param.password
       })
