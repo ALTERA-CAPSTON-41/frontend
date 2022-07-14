@@ -33,8 +33,7 @@
                                 </tr>
                               </thead>
                           </template>
-                          
-                        
+
                             <template v-slot:top>
                               <v-dialog v-model="dialogDelete" max-width="400px">
                                 <v-card>

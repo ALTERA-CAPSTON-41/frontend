@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Sidebar from "../components/Sidebar.vue";
 import Login from "../views/Login.vue";
 import Administrator from "../views/Administrator.vue";
-import Beranda from "../views/Beranda.vue";
+import BerandaPage from "../views/BerandaPage.vue";
 import DaftarAntrean from "../views/DaftarAntrean.vue";
 import AntreanPoli from "../views/AntreanPoli.vue";
 import DetailAntrean from "../views/DetailAntrean.vue";
@@ -48,8 +48,8 @@ const routes = [
     children: [
       {
         path: "/",
-        name: "Beranda",
-        component: Beranda,
+        name: "BerandaPage",
+        component: BerandaPage,
       },
       {
         path: "/DaftarAntrean",
@@ -223,7 +223,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   const isAuthenticated = JSON.parse(localStorage.getItem("authenticated"));
   if (to.name !== "Login" && !isAuthenticated) next({ name: "Login" });
-  if (to.name === "Login" && isAuthenticated) next({ name: "Beranda" });
+  if (to.name === "Login" && isAuthenticated) next({ name: "BerandaPage" });
   else next();
 });
 

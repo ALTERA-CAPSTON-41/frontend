@@ -22,7 +22,7 @@
         </div>
         <div class="text-right">
           <v-text-field
-              v-model="search"
+              v-model.number="id"
               prepend-inner-icon="mdi-magnify"
               label="Search Here"
               solo
@@ -133,11 +133,14 @@
                           </div>
                         </v-col>
                       </v-row>
-                      <ul id="example-1">
+                      <!-- <ul id="example-1">
                       <li v-for="data in queues" :key="data.index">
                         {{ data }}
                       </li>
                       </ul>
+                      <button @click="getAllQueue">TEKAN INI WOYYY</button>
+                      <p>{{id}}</p>
+                      <p>{{token}}</p> -->
                 </div>
             </v-sheet>
       <!-- bates code -->
@@ -149,6 +152,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "DataAdmin",
     inject: {
@@ -160,6 +165,9 @@ export default {
       return {
         totalPage: null,
         search:'',
+        token: '',
+        id: null,
+        waktu: new Date().toJSON().slice(0,10),
         dialogDelete: false,
         selectedItemIndex: -1,
         pageCount: 0,
@@ -265,10 +273,23 @@ export default {
        this.$router.push({name: Registrasi})
     },
     // methods integrasi get data table
-    async getAllQueue() {
-      const queues = await this.$store.dispatch("getAllQueue");
-      console.log("all queue dari method: ", queues)
-      this.queues = queues
+    getAllQueue() {
+      // const queues = await this.$store.dispatch("getAllQueue");
+      // console.log("all queue dari method: ", queues)
+      // this.queues = queues
+      const data = {
+        'polyclinic': this.id,
+        'from-date': this.waktu,
+      }
+      const config = {
+headers: { Authorization: "Bearer" + this.token ,
+"Content-Type": "application/json"}
+      }
+      axios.get('https://api.capstone.thisham.my.id/queues',{
+        params: {
+          data
+        }
+      }, config).then(response => console.log(response)).catch(error => console.log(error))
     },
     hitungPage(totalitem) {
       this.totalPage = totalitem;
@@ -290,6 +311,10 @@ export default {
     },
     mounted() {
       this.getAllQueue();
+      this.date_function()
+    },
+    created() {
+      this.token = this.$store.state.token
     },
   }
 </script>

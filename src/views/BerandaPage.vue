@@ -64,11 +64,6 @@
                     </div>
                   </div>
                 </div>
-                <ul id="example-1">
-                <li v-for="data in dashboards" :key="data.index">
-                  {{ data.total }}
-                </li>
-                </ul>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">Jumlah Poli</span><br>
                   <span class="number">4</span>

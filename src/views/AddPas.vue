@@ -24,7 +24,7 @@
         :return-value.sync="date"
         persistent
         width="290px"
-      >
+        >
         <template v-slot:activator="{ on, attrs }">
           <v-text-field
             class="form"

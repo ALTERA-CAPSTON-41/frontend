@@ -319,20 +319,20 @@ export default {
       }
     },
     methods :{
-     add(Registrasi){
+    add(Registrasi){
        this.$router.push({name: Registrasi})
-   },
-   closeDelete(){
+    },
+    closeDelete(){
        this.dialogDelete = false
        this.$nextTick(() => {
          this.selectedItemIndex = -1
        })
      },
-     deleteItemConfirm(){
+    deleteItemConfirm(){
        this.identity.splice(this.selectedItemIndex, 1)
        this.closeDelete()
      },
-     deleteItem(item){
+    deleteItem(item){
        this.selectedItemIndex = this.identity.indexOf(item)
        this.dialogDelete = true
      },

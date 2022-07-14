@@ -62,9 +62,7 @@
                           :class="h.class"
                           :key="index"
                         >
-                          <span class="white--text JudulHeader">{{
-                            h.text
-                          }}</span>
+                          <span class="white--text JudulHeader">{{h.text}}</span>
                         </th>
                       </tr>
                     </thead>
@@ -90,13 +88,13 @@
                     </v-dialog>
                   </template>
                   <template v-slot:[`item.actions`]="{ item }">
-                    <v-btn
+                    <v-btn @click.prevent="directPage(item.actions.index)"
                       class="aksi mx-2"
                       height="33px"
                       width="27px"
                       dark
                       x-small
-                      href="/DetailPas"
+                     
                       color="#56CCF2"
                     >
                       <v-icon>mdi-card-account-details-outline</v-icon>
@@ -180,7 +178,7 @@ export default {
         headers: [
         {
           text: 'No.',
-          value: 'id',
+          value: 'no',
         },
         {
           text: 'Nama',
@@ -272,6 +270,10 @@ export default {
       }
     },
     methods :{
+
+    directPage(index){
+      console.log(index)
+    },
      add(Registrasi){
        this.$router.push({name: Registrasi})
       },

@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
     <v-main>
-      <v-container class="align-stretch" fluid style="padding: 0px"> 
+      <v-container class="justify-center" fluid style="padding: 0px"> 
         <v-row align="center" justify="center">
           <v-col cols="12" md="9">
             <v-card class="elevation-2">
@@ -85,16 +85,16 @@ export default {
   }),
   methods:{
     async login(){
-            this.$store.dispatch('fetchLogin', {
-              email: this.email,
-              password: this.password
-            })
-            localStorage.setItem("authenticated", true);
-            this.$router.push({ name: "Beranda" });
-            },
-        pas(){
-          this.$router.push({name: "UbahPassword"})
-        }
+      this.$store.dispatch('fetchLogin', {
+        email: this.email,
+        password: this.password
+      });
+        localStorage.setItem("authenticated", true);
+        this.$router.push({ name: "BerandaPage" });
+    },
+      pas(){
+        this.$router.push({name: "UbahPassword"})
+      }
   },
   props: {
     source: String

@@ -1,7 +1,6 @@
 import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router from '@/router';
 import { APILocation } from '@/constants/environment';
 import createPersistedState from 'vuex-persistedstate'
 
@@ -20,6 +19,7 @@ export default new Vuex.Store({
     total: Number,
     role: null,
     info: null,
+    error: null,
     patients: [],
   },
 
@@ -50,6 +50,9 @@ export default new Vuex.Store({
     setRole(state, param) {
       state.role = param;
     },
+    setError(state, param) {
+      state.role = param;
+    },
   },
 
   actions: {
@@ -62,14 +65,14 @@ export default new Vuex.Store({
         if (response.data.meta.status === 201) {
           store.commit("setToken", response.data.data.token);
           store.commit("setRole", response.data.data.role);
-          router.push("/");
+          this.$router.push({ name: "BerandaPage" });
           return response;
         } else {
           store.commit("setInfo", response.data.message);
-          router.push("/Login");
         }
       })
       .catch((error) => {
+        store.commit("setInfo", "Email atau Password Salah");
         store.commit("setError", error);
       });
     },
@@ -77,7 +80,6 @@ export default new Vuex.Store({
     async getAllPatient(store) {
       console.log("store", store);
       console.log("token", store.state.token);
-
       return axios
       .get(APILocation + "/patients", {
         headers: {

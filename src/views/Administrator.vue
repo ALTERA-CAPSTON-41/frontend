@@ -160,7 +160,7 @@ export default {
         headers: [
         {
           text: 'No.',
-          value: 'id'
+          value: 'no'
         },
         {
           text: '',
