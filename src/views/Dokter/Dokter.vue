@@ -49,7 +49,7 @@
               <v-col>
                 <v-data-table
                   :headers="headers"
-                  :items="identity"
+                  :items="doctors"
                   :search="search"
                   hide-default-footer
                   :page.sync="page"
@@ -92,6 +92,11 @@
                       </v-card>
                     </v-dialog>
                   </template>
+                  <!-- buat nomor -->
+                  <template v-slot:[`item.no`]="{ item }">
+                    {{ doctors.indexOf(item) + 1 }}
+                  </template>
+                  <!-- atas ini buat nomor -->
                   <template v-slot:[`item.actions`]="{ item }">
                     <v-btn
                       class="aksi mx-2"
@@ -122,7 +127,7 @@
                       height="33px"
                       width="27px"
                       x-small
-                      @click="deleteItem(item)"
+                      @click="deleteItem(item, item.id)"
                     >
                       <v-icon>mdi-delete</v-icon>
                     </v-btn>
@@ -174,6 +179,8 @@ export default {
   data() {
     return {
       search: "",
+      getid: null, // buat delete by id
+      doctors: [],
       dialogDelete: false,
       selectedItemIndex: -1,
       pageCount: 0,
@@ -182,7 +189,7 @@ export default {
       headers: [
         {
           text: "No.",
-          value: "no",
+          value: "no", // value harus no buat nomor by index
         },
         {
           text: "Nama",
@@ -196,10 +203,7 @@ export default {
           text: "SIP",
           value: "sip",
         },
-        {
-          text: "Poliklinik",
-          value: "poliklinik",
-        },
+
         {
           text: "Aksi",
           value: "actions",
@@ -283,7 +287,7 @@ export default {
     // methods integrasi get data table
     async getAllDoctors() {
       const doctors = await this.$store.dispatch("getAllDoctors");
-      console.log("patients dari method: ", doctors);
+      console.log("doctor dari method: ", doctors);
       this.doctors = doctors;
     },
     hitungPage(totalitem) {
@@ -292,16 +296,18 @@ export default {
     closeDelete() {
       this.dialogDelete = false;
       this.$nextTick(() => {
-        this.selectedItemIndex = -1;
+      this.selectedItemIndex = -1;
       });
     },
-    deleteItemConfirm() {
-      this.identity.splice(this.selectedItemIndex, 1);
-      this.closeDelete();
+    deleteItemConfirm(){
+        this.$store.dispatch("deleteDoctors", this.getid);
+        this.doctors.splice(this.selectedItemIndex, 1)
+        this.closeDelete()
     },
-    deleteItem(item) {
-      this.selectedItemIndex = this.identity.indexOf(item);
-      this.dialogDelete = true;
+    deleteItem(item, id){
+      this.getid = id
+      this.selectedItemIndex = this.identity.indexOf(item)
+      this.dialogDelete = true
     },
   },
   mounted() {

@@ -107,6 +107,7 @@
                 :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
                 :type="show3 ? 'text' : 'password'"
                 name="input-10-2"
+                v-model="pas"
                 label="Masukkan Password"
                 class="form input-group--focused"
                 @click:append="show3 = !show3"
@@ -119,6 +120,7 @@
               <v-text-field
                 :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
                 :type="show3 ? 'text' : 'password'"
+                v-model="confirmpas"
                 name="input-10-2"
                 label="Masukkan Password Kembali"
                 class="form input-group--focused"
@@ -158,10 +160,10 @@ export default {
     nip: "",
     sip: "",
     alamat: "",
-    poliklinik: "",
+    poliklinik: null,
     email: "",
-    pw: "",
-    cpw: "",
+    pas: "",
+    confirmpas: "",
     row: null,
     show1: false,
     show2: true,
@@ -185,11 +187,12 @@ export default {
         name: this.nama,
         nip: this.nip,
         sip: this.sip,
-        polyclinics: this.poliklinik,
+        polyclinics_id: this.poliklinik,
         address: this.alamat,
         gender: this.kelamin,
         dob: this.date,
         email: this.email,
+        pas: this.password,
       };
       this.$store.dispatch("addDoctors", payload);
       this.$router.push("/Dokter");
