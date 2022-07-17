@@ -99,7 +99,7 @@
               large
               right
               class="btn mr-4 white--text"
-              @click="addPatient"
+              @click="addPatients"
               color="#0D987A"
             >
               Tambah
@@ -129,7 +129,7 @@ export default {
     menu2: false,
   }),
   methods: {
-    addPatient() {
+    addPatients() {
       const payload = {
         name: this.nama,
         nik: this.nik,
@@ -139,7 +139,7 @@ export default {
         gender: this.kelamin,
         blood_type: this.blood,
       };
-      this.$store.dispatch("addPatient", payload);
+      this.$store.dispatch("addPatients", payload);
       this.$router.push("/Pasien");
     },
   },
