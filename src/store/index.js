@@ -139,6 +139,42 @@ export default new Vuex.Store({
         store.commit("setInfo", eror);
       });
     },
+    async addAdmin(store, param) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + store.state.token,
+        },
+      };
+      axios.post(APILocation + "admins", param, config).then((response) => {
+        console.log(response);
+      });
+    },
+    async deleteAdmin(store, id) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + store.state.token,
+        },
+      };
+      axios
+        .delete(APILocation + "admins/" + id, config)
+        .then((response) => {
+          console.log('buat hapus ',response);
+        });
+        axios
+        .get(APILocation + "/admins", {
+          headers: {
+            "Content-Type":"application/json",
+            Authorization: "Bearer " + store.state.token,
+          },
+        })
+        .then((response) => {
+          console.log("response: ", response)
+          return response.data.data;
+        })
+        .catch((eror) => {
+          store.commit("setInfo", eror);
+        });
+    },
     // code integrasi get data table poliklinik
     async getAllPoliklinik(store) {
       console.log("store", store);

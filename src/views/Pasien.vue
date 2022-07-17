@@ -94,7 +94,6 @@
                       width="27px"
                       dark
                       x-small
-                     
                       color="#56CCF2"
                     >
                       <v-icon>mdi-card-account-details-outline</v-icon>
@@ -296,31 +295,14 @@ export default {
             this.selectedItemIndex = -1
           })
         },
-        deleteItemConfirm(){
-          this.identity.splice(this.selectedItemIndex, 1)
-          this.closeDelete()
-        },
-        deleteItem(item){
-          this.selectedItemIndex = this.identity.indexOf(item)
-          this.dialogDelete = true
-        },
-    },
-    hitungPage(totalitem) {
-      this.totalPage = totalitem;
-    },
-    closeDelete() {
-      this.dialogDelete = false;
-      this.$nextTick(() => {
-        this.selectedItemIndex = -1;
-      });
-    },
-    deleteItemConfirm() {
-      this.identity.splice(this.selectedItemIndex, 1);
-      this.closeDelete();
-    },
-    deleteItem(item) {
-      this.selectedItemIndex = this.identity.indexOf(item);
-      this.dialogDelete = true;
+      deleteItemConfirm(){
+        this.identity.splice(this.selectedItemIndex, 1)
+        this.closeDelete()
+      },
+      deleteItem(item){
+        this.selectedItemIndex = this.identity.indexOf(item)
+        this.dialogDelete = true
+      },
     },
   },
   mounted() {

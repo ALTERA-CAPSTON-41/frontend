@@ -1,9 +1,9 @@
 <template>
   <v-app id="inspire">
     <v-main>
-      <v-container class="align-stretch" fluid style="padding: 0px">
+      <v-container class="justify-center fill-height" fluid style="padding: 0px">
         <v-row align="center" justify="center">
-          <v-col cols="12" md="9">
+          <v-col cols="12" sm="10" md="9">
             <v-card class="elevation-2">
               <v-row>
                 <v-col cols="12" md="7">
@@ -109,6 +109,10 @@ export default {
 .text {
   font-weight: 600 !important;
   font-size: 35px;
+}
+#inspire {
+  align-content: center !important;
+  display: flex !important;
 }
 .lupa:hover {
   color: #0d987a;
