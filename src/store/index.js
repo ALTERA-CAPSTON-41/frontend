@@ -228,6 +228,60 @@ export default new Vuex.Store({
           store.commit("setInfo", eror);
         });
     },
+    // code integrasi get data table nurse
+    async getAllNurses(store) {
+      console.log("store", store);
+      console.log("token", store.state.token);
+
+      return axios
+        .get(APILocation + "/nurses", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + store.state.token,
+          },
+        })
+        .then((response) => {
+          console.log("response: ", response);
+          return response.data.data;
+        })
+        .catch((eror) => {
+          store.commit("setInfo", eror);
+        });
+    },
+    async addNurses(store, param) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + store.state.token,
+        },
+      };
+      axios.post(APILocation + "nurses", param, config).then((response) => {
+        console.log(response);
+      });
+    },
+    async deleteNurses(store, id) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + store.state.token,
+        },
+      };
+      axios.delete(APILocation + "nurses/" + id, config).then((response) => {
+        console.log("buat hapus ", response);
+      });
+      axios
+        .get(APILocation + "/nurses", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + store.state.token,
+          },
+        })
+        .then((response) => {
+          console.log("response: ", response);
+          return response.data.data;
+        })
+        .catch((eror) => {
+          store.commit("setInfo", eror);
+        });
+    },
     // code integrasi get data table poliklinik
     async getAllPoliklinik(store) {
       console.log("store", store);
