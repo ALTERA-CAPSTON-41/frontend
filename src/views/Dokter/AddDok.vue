@@ -6,111 +6,146 @@
       </v-toolbar-title>
     </div>
     <v-card class="rounded-xl" height="940px" color="#F9FFFB">
-    <v-form>
-      <v-container>
-        <p>Nama</p>
-        <v-text-field class="form" v-model="nama" label="Masukkan Nama" solo></v-text-field><br>
-        <v-row>
-          <v-col cols="12" sm="6">
-            <p>NIP</p>
-            <v-text-field class="form" v-model="nip" label="Masukkan NIP" solo></v-text-field><br>
-          </v-col>
-
-          <v-col cols="12" sm="6">
-            <p>SIP</p>
-            <v-text-field class="form" v-model="sip" label="Masukkan SIP" solo></v-text-field><br>
-          </v-col>
-        </v-row>
-            <p>Alamat</p>
-            <v-text-field class="form" v-model="alamat" label="Masukkan Alamat" solo></v-text-field><br>
-
-          <p>Jenis Kelamin</p>
-          <v-radio-group v-model="row" row>
-            <v-radio label="Perempuan" value="radio-1"></v-radio>
-            <v-radio label="Laki-Laki" value="radio-2"></v-radio>
-          </v-radio-group>
-        <!-- Form Date Time -->
-        <p>Tanggal Lahir</p>
-        <v-dialog
-        ref="dialog"
-        v-model="modal"
-        :return-value.sync="date"
-        persistent
-        width="290px"
-      >
-        <template v-slot:activator="{ on, attrs }">
+      <v-form>
+        <v-container>
+          <p>Nama</p>
           <v-text-field
             class="form"
-            append-icon="mdi-calendar"
-            v-model="date"
-            label="Masukkan Tanggal Lahir"
-            readonly
+            v-model="nama"
+            label="Masukkan Nama"
             solo
-            v-bind="attrs"
-            v-on="on"
-          ></v-text-field>
-        </template>
-        <v-date-picker
-          v-model="date"
-          scrollable
-        >
-          <v-spacer></v-spacer>
-          <v-btn
-            text
-            color="primary"
-            @click="modal = false"
-          >
-            Cancel
-          </v-btn>
-          <v-btn
-            text
-            color="primary"
-            @click="$refs.dialog.save(date)"
-          >
-            OK
-          </v-btn>
-        </v-date-picker>
-      </v-dialog><br>
-        <p>Poliklinik</p>
-        <v-text-field class="form" v-model="poliklinik" label="Masukkan Poliklinik" solo></v-text-field><br>
-        <p>Email</p>
-        <v-text-field class="form" v-model="email" label="Masukkan Email" solo></v-text-field><br>
-        <v-row>
-          <v-col cols="12" sm="6">
-            <p>Password</p>
-            <v-text-field
-            :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
-            :type="show3 ? 'text' : 'password'"
-            name="input-10-2"
-            label="Masukkan Password"
-            class="form input-group--focused"
-            @click:append="show3 = !show3"
-            solo
-          ></v-text-field>
-          </v-col>
+          ></v-text-field
+          ><br />
+          <v-row>
+            <v-col cols="12" sm="6">
+              <p>NIP</p>
+              <v-text-field
+                class="form"
+                v-model="nip"
+                label="Masukkan NIP"
+                solo
+              ></v-text-field
+              ><br />
+            </v-col>
 
-          <v-col cols="12" sm="6">
-            <p>Confirm Password</p>
-            <v-text-field
-            :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
-            :type="show3 ? 'text' : 'password'"
-            name="input-10-2"
-            label="Masukkan Password Kembali"
-            class="form input-group--focused"
-            @click:append="show3 = !show3"
+            <v-col cols="12" sm="6">
+              <p>SIP</p>
+              <v-text-field
+                class="form"
+                v-model="sip"
+                label="Masukkan SIP"
+                solo
+              ></v-text-field
+              ><br />
+            </v-col>
+          </v-row>
+          <p>Alamat</p>
+          <v-text-field
+            class="form"
+            v-model="alamat"
+            label="Masukkan Alamat"
             solo
-          ></v-text-field>
-          </v-col>
-        </v-row>
-        <br>
-        <v-card-actions>
-          <v-spacer></v-spacer>
+          ></v-text-field
+          ><br />
 
-          <v-btn large class="btn white--text" color="#DB5248" href="/Dokter"> batal </v-btn>
-          <v-btn large right class="btn mr-4 white--text" @click="submit" color="#0D987A"> Tambah </v-btn>
-        </v-card-actions>
-      </v-container>
-    </v-form>
+          <p>Jenis Kelamin</p>
+          <v-radio-group v-model="kelamin" row>
+            <v-radio label="Perempuan" value="FEMALE"></v-radio>
+            <v-radio label="Laki-Laki" value="MALE"></v-radio>
+          </v-radio-group>
+          <!-- Form Date Time -->
+          <p>Tanggal Lahir</p>
+          <v-dialog
+            ref="dialog"
+            v-model="modal"
+            :return-value.sync="date"
+            persistent
+            width="290px"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                class="form"
+                append-icon="mdi-calendar"
+                v-model="date"
+                label="Masukkan Tanggal Lahir"
+                readonly
+                solo
+                v-bind="attrs"
+                v-on="on"
+              ></v-text-field>
+            </template>
+            <v-date-picker v-model="date" scrollable>
+              <v-spacer></v-spacer>
+              <v-btn text color="primary" @click="modal = false">
+                Cancel
+              </v-btn>
+              <v-btn text color="primary" @click="$refs.dialog.save(date)">
+                OK
+              </v-btn>
+            </v-date-picker> </v-dialog
+          ><br />
+          <p>Poliklinik</p>
+          <v-text-field
+            class="form"
+            v-model="poliklinik"
+            label="Masukkan Poliklinik"
+            solo
+          ></v-text-field
+          ><br />
+          <p>Email</p>
+          <v-text-field
+            class="form"
+            v-model="email"
+            label="Masukkan Email"
+            solo
+          ></v-text-field
+          ><br />
+          <v-row>
+            <v-col cols="12" sm="6">
+              <p>Password</p>
+              <v-text-field
+                :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="show3 ? 'text' : 'password'"
+                name="input-10-2"
+                label="Masukkan Password"
+                class="form input-group--focused"
+                @click:append="show3 = !show3"
+                solo
+              ></v-text-field>
+            </v-col>
+
+            <v-col cols="12" sm="6">
+              <p>Confirm Password</p>
+              <v-text-field
+                :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="show3 ? 'text' : 'password'"
+                name="input-10-2"
+                label="Masukkan Password Kembali"
+                class="form input-group--focused"
+                @click:append="show3 = !show3"
+                solo
+              ></v-text-field>
+            </v-col>
+          </v-row>
+          <br />
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn large class="btn white--text" color="#DB5248" href="/Dokter">
+              batal
+            </v-btn>
+            <v-btn
+              large
+              right
+              class="btn mr-4 white--text"
+              @click="addDoctors"
+              color="#0D987A"
+            >
+              Tambah
+            </v-btn>
+          </v-card-actions>
+        </v-container>
+      </v-form>
     </v-card>
   </v-container>
 </template>
@@ -123,26 +158,43 @@ export default {
     nip: "",
     sip: "",
     alamat: "",
-    tgl: "",
-    pk: "",
+    poliklinik: "",
     email: "",
     pw: "",
     cpw: "",
     row: null,
-        show1: false,
-        show2: true,
-        show3: false,
-        show4: false,
-        password: 'Password',
-        rules: {
-          required: value => !!value || 'Required.',
-          emailMatch: () => (`The email and password you entered don't match`),
-        },
-      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-      menu: false,
-      modal: false,
-      menu2: false,
+    show1: false,
+    show2: true,
+    show3: false,
+    show4: false,
+    password: "Password",
+    rules: {
+      required: (value) => !!value || "Required.",
+      emailMatch: () => `The email and password you entered don't match`,
+    },
+    date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+      .toISOString()
+      .substr(0, 10),
+    menu: false,
+    modal: false,
+    menu2: false,
   }),
+  methods: {
+    addDoctors() {
+      const payload = {
+        name: this.nama,
+        nip: this.nip,
+        sip: this.sip,
+        polyclinics: this.poliklinik,
+        address: this.alamat,
+        gender: this.kelamin,
+        dob: this.date,
+        email: this.email,
+      };
+      this.$store.dispatch("addDoctors", payload);
+      this.$router.push("/Dokter");
+    },
+  },
 };
 </script>
 
@@ -154,7 +206,7 @@ export default {
 }
 .form {
   border-style: ridge;
-  border-color: #0B715B;
+  border-color: #0b715b;
   border-width: 1.5px;
   border-radius: 10px;
   height: 51px;
