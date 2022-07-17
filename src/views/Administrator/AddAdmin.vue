@@ -78,15 +78,15 @@ export default {
   }),
   methods: {
     addAdmin() {
-    const payload = {
-      name: this.nama,
-      nip: this.nip,
-      email: this.email,
-      password: this.pas,
-    };
-    this.$store.dispatch("addAdmin", payload);
-    this.$router.push("/Administrator");
-  },
+      const payload = {
+        name: this.nama,
+        nip: this.nip,
+        email: this.email,
+        password: this.pas,
+      };
+        this.$store.dispatch("addAdmin", payload);
+        this.$router.push("/Administrator");
+    },
   }
 };
 </script>
