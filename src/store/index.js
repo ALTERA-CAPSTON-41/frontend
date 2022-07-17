@@ -6,7 +6,7 @@ import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 const persistedDataState = createPersistedState({
-  paths: ["token"],
+  paths: ["token", "role"],
 });
 
 export default new Vuex.Store({
@@ -59,7 +59,7 @@ export default new Vuex.Store({
     // axios.post(url, body/payload/data, headers)
     // axios.post('/login', { email: value, password: value }, { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } })
     async fetchLogin(store, param) {
-      axios.post(APILocation + "/login", {
+      axios.post("https://api.capstone.thisham.my.id/login", {
           email: param.email,
           password: param.password
       })

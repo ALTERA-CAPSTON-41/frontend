@@ -27,7 +27,7 @@
             </v-list-item-content>
         </v-list-item>
         <v-list class="clickable">
-            <template v-for="item in items">
+            <template v-for="item in roleComputed">
             <v-list-group
                 v-if="item.children"
                 :key="item.text"
@@ -99,6 +99,10 @@
             <v-btn text
             v-bind="attrs"
             v-on="on">
+                <!-- cek role -->
+                <span v-if="cekRole !== 'ADMIN'" class="nameUser mr-2"></span>
+                <span v-if="cekRole === 'DOCTOR'" class="nameUser mr-2"></span>
+                <span v-if="cekRole === 'NURSE'" class="nameUser mr-2"></span>
                 <v-icon color="#0B715B" class="mdi-36px">mdi-account-circle</v-icon>
                 <v-icon color="#0B715B" class="mdi-36px">mdi-chevron-down</v-icon>
             </v-btn>
@@ -154,6 +158,11 @@ export default {
         { icon: 'mdi-account', text: 'Perawat', route:'/Perawat' },
         { icon: 'mdi-shield-account', text: 'Administrator', route:'/Administrator' },
       ],
+      items2: [
+        { icon: 'mdi-view-dashboard', text: 'Beranda' , route:'/'},
+        { icon: 'mdi-format-list-checks', text: 'Daftar Antrean' , route:'/DaftarAntrean'},
+        { icon: 'mdi-account-multiple', text: ' Pasien', route:'/Pasien' },
+      ],
       mini: false,
       fab: false,
     }),
@@ -177,7 +186,19 @@ export default {
         ubah(){
             this.$router.push({name: "UbahPassword"})
         }
-  },
+    },
+    computed: {
+        cekRole() {
+            return this.$store.state.role;
+            },
+            roleComputed() {
+                if (this.cekRole === "ADMIN") {
+                    return this.items;
+                } else {
+                    return this.items2;
+                }
+            },
+    },
   }
 
 </script>
