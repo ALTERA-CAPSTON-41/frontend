@@ -63,8 +63,10 @@ export default new Vuex.Store({
       })
       .then((response) => {
         if (response.data.meta.status === 201) {
+          console.log('tes token');
           store.commit("setToken", response.data.data.token);
           store.commit("setRole", response.data.data.role);
+          localStorage.setItem("authenticated", true);
           this.$router.push({ name: "BerandaPage" });
           return response;
         } else {

@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
     <v-main>
-      <v-container class="justify-center" fluid style="padding: 0px"> 
+      <v-container class="align-stretch" fluid style="padding: 0px"> 
         <v-row align="center" justify="center">
           <v-col cols="12" md="9">
             <v-card class="elevation-2">
@@ -22,8 +22,7 @@
                       <v-text-field
                         prepend-inner-icon="mdi-account"
                         label="Enter Your Username"
-                        v-model="email"
-                        name="Email"
+                        v-model="Email"
                         class="form-login input-group--focused" 
                         solo
                       />
@@ -44,7 +43,7 @@
                     <p class="lupa text-right" @click="pas">Lupa Password?</p>
                   </v-card-text>
                   <div class="text-center">
-                    <v-btn v-on:click="login" width="300px" height="45px" rounded color="#0D987A" dark>SIGN IN</v-btn>
+                    <v-btn @click="login" width="300px" height="45px" rounded color="#0D987A" dark>SIGN IN</v-btn>
                   </div>
                 </v-col>
                 <v-col cols="12" md="5">
@@ -68,16 +67,13 @@
 export default {
   name: "LoginPage",
   data:() => ({
-    return : {
-      email: '',
+      Email: '',
       password: '',
-    },
-    row: null,
+      row: null,
         show1: false,
         show2: true,
         show3: false,
         show4: false,
-        password: '',
         rules: {
           required: value => !!value || 'Required.',
           emailMatch: () => (`The email and password you entered don't match`),
@@ -85,16 +81,21 @@ export default {
   }),
   methods:{
     async login(){
-      this.$store.dispatch('fetchLogin', {
-        email: this.email,
-        password: this.password
-      });
-        localStorage.setItem("authenticated", true);
-        this.$router.push({ name: "BerandaPage" });
-    },
-      pas(){
-        this.$router.push({name: "UbahPassword"})
-      }
+        const result = await this.$store.dispatch('fetchLogin', {
+              email: this.Email,
+              password: this.password
+            });
+            if (result) {
+              localStorage.setItem("authenticated", true);
+              this.$router.push({ name: "BerandaPage" });
+            } else {
+              this.errorText = this.$store.state.info;
+            }
+            },
+
+    pas(){
+      this.$router.push({name: "UbahPassword"})
+    }
   },
   props: {
     source: String
