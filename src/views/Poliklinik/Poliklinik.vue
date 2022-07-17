@@ -125,7 +125,7 @@
                       height="33px"
                       width="27px"
                       x-small
-                      @click="deleteItem(item)"
+                      @click="deleteItem(item, item.id)"
                     >
                       <v-icon>mdi-delete</v-icon>
                     </v-btn>
@@ -178,6 +178,7 @@ export default {
     return {
       polyclinics: [],
       search: "",
+      getid: null,
       dialogDelete: false,
       selectedItemIndex: -1,
       pageCount: 0,
@@ -281,13 +282,15 @@ export default {
         this.selectedItemIndex = -1;
       });
     },
-    deleteItemConfirm() {
-      this.identity.splice(this.selectedItemIndex, 1);
-      this.closeDelete();
+    deleteItemConfirm(){
+      this.$store.dispatch("deletePoli", this.getid);
+      this.polyclinics.splice(this.selectedItemIndex, 1)
+      this.closeDelete()
     },
-    deleteItem(item) {
-      this.selectedItemIndex = this.identity.indexOf(item);
-      this.dialogDelete = true;
+    deleteItem(item, id){
+      this.getid = id
+      this.selectedItemIndex = this.identity.indexOf(item)
+      this.dialogDelete = true
     },
   },
   mounted() {
