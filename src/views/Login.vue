@@ -1,21 +1,23 @@
 <template>
   <v-app id="inspire">
     <v-main>
-      <v-container class="align-stretch" fluid style="padding: 0px"> 
+      <v-container class="align-stretch" fluid style="padding: 0px">
         <v-row align="center" justify="center">
           <v-col cols="12" md="9">
             <v-card class="elevation-2">
               <v-row>
                 <v-col cols="12" md="7">
-                  <br>
-                <v-img
-                  class="mx-auto"
-                  max-width="140"
-                  src="../assets/img/logo1.svg"
-                ></v-img>
+                  <br />
+                  <v-img
+                    class="mx-auto"
+                    max-width="140"
+                    src="../assets/img/logo1.svg"
+                  ></v-img>
                   <v-card-text class="mt-1">
-                    <h1 class="text">Sign In</h1><br>
-                    <p>Enter Your Username and Password</p><br>
+                    <h1 class="text">Sign In</h1>
+                    <br />
+                    <p>Enter Your Username and Password</p>
+                    <br />
 
                     <v-form>
                       <h4>Username</h4>
@@ -24,7 +26,7 @@
                         label="Enter Your Username"
                         v-model="email"
                         name="Email"
-                        class="form-login input-group--focused" 
+                        class="form-login input-group--focused"
                         solo
                       />
                       <h4>Password</h4>
@@ -44,18 +46,26 @@
                     <p class="lupa text-right" @click="pas">Lupa Password?</p>
                   </v-card-text>
                   <div class="text-center">
-                    <v-btn v-on:click="login" width="300px" height="45px" rounded color="#0D987A" dark>SIGN IN</v-btn>
+                    <v-btn
+                      v-on:click="login"
+                      width="300px"
+                      height="45px"
+                      rounded
+                      color="#0D987A"
+                      dark
+                      >SIGN IN</v-btn
+                    >
                   </div>
                 </v-col>
                 <v-col cols="12" md="5">
                   <v-img
-                  class="mx-auto"
-                  height="609"
-                  width="1000"
-                  src="../assets/img/imglogin.jpg"
-                ></v-img>
+                    class="mx-auto"
+                    height="609"
+                    width="1000"
+                    src="../assets/img/imglogin.jpg"
+                  ></v-img>
                 </v-col>
-             </v-row>
+              </v-row>
             </v-card>
           </v-col>
         </v-row>
@@ -67,38 +77,38 @@
 <script>
 export default {
   name: "LoginPage",
-  data:() => ({
-    return : {
-      email: '',
-      password: '',
+  data: () => ({
+    return: {
+      email: "",
+      password: "",
     },
     row: null,
-        show1: false,
-        show2: true,
-        show3: false,
-        show4: false,
-        password: '',
-        rules: {
-          required: value => !!value || 'Required.',
-          emailMatch: () => (`The email and password you entered don't match`),
-        },
+    show1: false,
+    show2: true,
+    show3: false,
+    show4: false,
+    password: "",
+    rules: {
+      required: (value) => !!value || "Required.",
+      emailMatch: () => `The email and password you entered don't match`,
+    },
   }),
-  methods:{
-    async login(){
-            this.$store.dispatch('fetchLogin', {
-              email: this.email,
-              password: this.password
-            })
-            localStorage.setItem("authenticated", true);
-            this.$router.push({ name: "Beranda" });
-            },
-        pas(){
-          this.$router.push({name: "UbahPassword"})
-        }
+  methods: {
+    async login() {
+      this.$store.dispatch("fetchLogin", {
+        email: this.email,
+        password: this.password,
+      });
+      localStorage.setItem("authenticated", true);
+      this.$router.push({ name: "Beranda" });
+    },
+    pas() {
+      this.$router.push({ name: "UbahPassword" });
+    },
   },
   props: {
-    source: String
-  }
+    source: String,
+  },
 };
 </script>
 
@@ -108,11 +118,11 @@ export default {
   font-size: 35px;
 }
 .lupa:hover {
-  color: #0D987A;
+  color: #0d987a;
 }
 .form-login {
   border-style: solid;
-  border-color: #0B715B;
+  border-color: #0b715b;
   border-width: 2px;
   border-radius: 20px !important;
   height: 52px;

@@ -6,7 +6,7 @@
       </v-toolbar-title>
     </div>
     <v-card class="rounded-xl" height="700px" color="#F9FFFB">
-      <br>
+      <br />
       <v-card-title>
         <div>
           <br />
@@ -162,147 +162,147 @@
 <script>
 export default {
   name: "DataAdmin",
-    inject: {
-      theme: {
-        default: { isDark: false },
-      },
+  inject: {
+    theme: {
+      default: { isDark: false },
     },
-    data () {
-      return {
-        totalPage: null,
-        search:'',
-        dialogDelete: false,
-        selectedItemIndex: -1,
-        pageCount: 0,
-        itemsPerPage : 10,
-        page: 1,
-        patients: [],
-        headers: [
+  },
+  data() {
+    return {
+      totalPage: null,
+      search: "",
+      dialogDelete: false,
+      selectedItemIndex: -1,
+      pageCount: 0,
+      itemsPerPage: 10,
+      page: 1,
+      patients: [],
+      headers: [
         {
-          text: 'No.',
-          value: 'id',
+          text: "No.",
+          value: "id",
         },
         {
-          text: 'Nama',
-          value: 'name'
+          text: "Nama",
+          value: "name",
         },
         {
-          text: 'NIK',
-          value: 'nik'
+          text: "NIK",
+          value: "nik",
         },
         {
-          text: 'Jenis Kelamin',
-          value: 'gender'
+          text: "Jenis Kelamin",
+          value: "gender",
         },
         {
-          text: 'Golongan Darah',
-          value: 'blood_type'
+          text: "Golongan Darah",
+          value: "blood_type",
         },
         {
-          text: 'Aksi',
-          value: 'actions'
-        }
+          text: "Aksi",
+          value: "actions",
+        },
       ],
       identity: [
         {
           no: 1,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 2,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 3,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 4,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 5,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 6,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 7,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 8,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
-      ]
-      }
+      ],
+    };
+  },
+  methods: {
+    add(Registrasi) {
+      this.$router.push({ name: Registrasi });
     },
-    methods :{
-     add(Registrasi){
-       this.$router.push({name: Registrasi})
-      },
-      // methods integrasi get data table
-      async getAllPatient() {
-        const patients = await this.$store.dispatch("getAllPatient");
-        console.log("patients dari method: ", patients)
-        this.patients = patients
-      },
-      hitungPage(totalitem) {
-        this.totalPage = totalitem;
-      },
-      closeDelete(){
-          this.dialogDelete = false
-          this.$nextTick(() => {
-            this.selectedItemIndex = -1
-          })
-        },
-        deleteItemConfirm(){
-          this.identity.splice(this.selectedItemIndex, 1)
-          this.closeDelete()
-        },
-        deleteItem(item){
-          this.selectedItemIndex = this.identity.indexOf(item)
-          this.dialogDelete = true
-        },
+    // methods integrasi get data table
+    async getAllPatient() {
+      const patients = await this.$store.dispatch("getAllPatient");
+      console.log("patients dari method: ", patients);
+      this.patients = patients;
     },
-    mounted() {
-      this.getAllPatient();
+    hitungPage(totalitem) {
+      this.totalPage = totalitem;
     },
-}
+    closeDelete() {
+      this.dialogDelete = false;
+      this.$nextTick(() => {
+        this.selectedItemIndex = -1;
+      });
+    },
+    deleteItemConfirm() {
+      this.identity.splice(this.selectedItemIndex, 1);
+      this.closeDelete();
+    },
+    deleteItem(item) {
+      this.selectedItemIndex = this.identity.indexOf(item);
+      this.dialogDelete = true;
+    },
+  },
+  mounted() {
+    this.getAllPatient();
+  },
+};
 </script>
 
 <style>
@@ -316,10 +316,10 @@ export default {
 
   /* color 7 */
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .MyHeader {
-  background-color: #0D987A;
+  background-color: #0d987a;
 }
 .aksi {
   border-radius: 10px;
