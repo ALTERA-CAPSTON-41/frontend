@@ -92,6 +92,9 @@
                       </v-card>
                     </v-dialog>
                   </template>
+                  <template v-slot:[`item.no`]="{ item }">
+                    {{ polyclinics.indexOf(item) + 1 }}
+                  </template>
                   <template v-slot:[`item.actions`]="{ item }">
                     <v-btn
                       class="aksi mx-2"
@@ -183,7 +186,7 @@ export default {
       headers: [
         {
           text: "No.",
-          value: "id",
+          value: "no",
         },
         {
           text: "",

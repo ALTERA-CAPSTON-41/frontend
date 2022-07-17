@@ -18,6 +18,7 @@
           <v-col cols="12" sm="6">
             <p>Password</p>
             <v-text-field
+            v-model="pas"
             :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
             :type="show3 ? 'text' : 'password'"
             name="input-10-2"
@@ -31,6 +32,7 @@
           <v-col cols="12" sm="6">
             <p>Confirm Password</p>
             <v-text-field
+            v-model="confirmpas"
             :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
             :type="show3 ? 'text' : 'password'"
             name="input-10-2"
@@ -46,7 +48,7 @@
           <v-spacer></v-spacer>
 
           <v-btn large class="btn white--text" color="#DB5248" href="/Administrator"> batal </v-btn>
-          <v-btn large right class="btn mr-4 white--text" @click="submit" color="#0D987A"> Tambah </v-btn>
+          <v-btn @click="addAdmin" large right class="btn mr-4 white--text" color="#0D987A"> Tambah </v-btn>
         </v-card-actions>
       </v-container>
     </v-form>
@@ -60,13 +62,9 @@ export default {
   data: () => ({
     nama: "",
     nip: "",
-    sip: "",
-    alamat: "",
-    tgl: "",
-    pk: "",
     email: "",
-    pw: "",
-    cpw: "",
+    pas: "",
+    confirmpas: "",
     row: null,
         show1: false,
         show2: true,
@@ -78,6 +76,18 @@ export default {
           emailMatch: () => (`The email and password you entered don't match`),
         },
   }),
+  methods: {
+    addAdmin() {
+    const payload = {
+      name: this.nama,
+      nip: this.nip,
+      email: this.email,
+      password: this.pas,
+    };
+    this.$store.dispatch("addAdmin", payload);
+    this.$router.push("/Administrator");
+  },
+  }
 };
 </script>
 

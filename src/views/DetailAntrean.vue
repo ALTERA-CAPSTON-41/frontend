@@ -8,7 +8,6 @@
     <v-container>
       <v-card  justify="space-around">
         <br />
-
         <v-list-item-title class="mx-5">Nama</v-list-item-title>
         <v-list-item>
           <v-list-item-action>

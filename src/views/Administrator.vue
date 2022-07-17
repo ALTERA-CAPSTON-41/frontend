@@ -69,8 +69,14 @@
                                 </v-card>
                               </v-dialog>
                             </template>
+
+                            <template v-slot:[`item.no`]="{ item }">
+                              {{ admins.indexOf(item) + 1 }}
+                            </template>
+
                             <template v-slot:[`item.actions`]="{ item }">
                                 <v-btn
+                                  @click.prevent="directPage(item.actions.index)"
                                   class="aksi mx-2"
                                   height="33px"
                                   width="27px"
@@ -99,7 +105,7 @@
                                   height="33px"
                                   width="27px"
                                   x-small
-                                  @click="deleteItem(item)"
+                                  @click="deleteItem(item, item.id)"
                               >
                                 <v-icon>mdi-delete</v-icon>
                               </v-btn>
@@ -151,6 +157,7 @@ export default {
     data () {
       return {
         admins: [],
+        getid: null,
         search:'',
         dialogDelete: false,
         selectedItemIndex: -1,
@@ -264,6 +271,9 @@ export default {
       }
     },
     methods :{
+      directPage(index){
+      console.log(index)
+      },
       add(Registrasi){
         this.$router.push({name: Registrasi})
       },
@@ -283,10 +293,12 @@ export default {
         })
       },
       deleteItemConfirm(){
-        this.identity.splice(this.selectedItemIndex, 1)
+        this.$store.dispatch("deleteAdmin", this.getid);
+        this.admins.splice(this.selectedItemIndex, 1)
         this.closeDelete()
       },
-      deleteItem(item){
+      deleteItem(item, id){
+        this.getid = id
         this.selectedItemIndex = this.identity.indexOf(item)
         this.dialogDelete = true
       },
