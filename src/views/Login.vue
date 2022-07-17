@@ -1,21 +1,23 @@
 <template>
   <v-app id="inspire">
     <v-main>
-      <v-container class="align-stretch" fluid style="padding: 0px"> 
+      <v-container class="align-stretch" fluid style="padding: 0px">
         <v-row align="center" justify="center">
           <v-col cols="12" md="9">
             <v-card class="elevation-2">
               <v-row>
                 <v-col cols="12" md="7">
-                  <br>
-                <v-img
-                  class="mx-auto"
-                  max-width="140"
-                  src="../assets/img/logo1.svg"
-                ></v-img>
+                  <br />
+                  <v-img
+                    class="mx-auto"
+                    max-width="140"
+                    src="../assets/img/logo1.svg"
+                  ></v-img>
                   <v-card-text class="mt-1">
-                    <h1 class="text">Sign In</h1><br>
-                    <p>Enter Your Username and Password</p><br>
+                    <h1 class="text">Sign In</h1>
+                    <br />
+                    <p>Enter Your Username and Password</p>
+                    <br />
 
                     <v-form>
                       <h4>Username</h4>
@@ -48,13 +50,13 @@
                 </v-col>
                 <v-col cols="12" md="5">
                   <v-img
-                  class="mx-auto"
-                  height="609"
-                  width="1000"
-                  src="../assets/img/imglogin.jpg"
-                ></v-img>
+                    class="mx-auto"
+                    height="609"
+                    width="1000"
+                    src="../assets/img/imglogin.jpg"
+                  ></v-img>
                 </v-col>
-             </v-row>
+              </v-row>
             </v-card>
           </v-col>
         </v-row>
@@ -98,8 +100,8 @@ export default {
     }
   },
   props: {
-    source: String
-  }
+    source: String,
+  },
 };
 </script>
 
@@ -109,11 +111,11 @@ export default {
   font-size: 35px;
 }
 .lupa:hover {
-  color: #0D987A;
+  color: #0d987a;
 }
 .form-login {
   border-style: solid;
-  border-color: #0B715B;
+  border-color: #0b715b;
   border-width: 2px;
   border-radius: 20px !important;
   height: 52px;
