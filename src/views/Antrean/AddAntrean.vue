@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import TablePasien from "../components/TablePasien.vue";
+import TablePasien from "../../components/TablePasien.vue";
 export default {
   name: "App",
     components: {

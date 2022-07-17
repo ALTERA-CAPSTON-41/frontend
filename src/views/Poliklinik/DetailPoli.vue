@@ -30,8 +30,9 @@
 </template>
 
 <script>
-import DaftarPoli from "../components/DaftarPoli.vue";
+import DaftarPoli from "../../components/DaftarPoli.vue";
 export default {
+  name: 'DetailPoli',
   components: {
     DaftarPoli,
   },

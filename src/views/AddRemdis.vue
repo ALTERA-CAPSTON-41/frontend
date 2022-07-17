@@ -152,6 +152,6 @@
 
 <script>
 export default {
-  name: "App",
+  name: "AddRemdis",
 };
 </script>
