@@ -195,6 +195,43 @@ export default new Vuex.Store({
         store.commit("setInfo", eror);
       });
     },
+    async addPoli(store, param) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + store.state.token,
+        },
+      };
+      axios.post(APILocation + "polyclinics", param, config).then((response) => {
+        console.log(response);
+      });
+    },
+    async deletePoli(store, id) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + store.state.token,
+        },
+      };
+      axios
+        .delete(APILocation + "polyclinics/" + id, config)
+        .then((response) => {
+          console.log('buat hapus ',response);
+        });
+        axios
+        .get(APILocation + "/polyclinics", {
+          headers: {
+            "Content-Type":"application/json",
+            Authorization: "Bearer " + store.state.token,
+          },
+        })
+        .then((response) => {
+          console.log("response: ", response)
+          return response.data.data;
+        })
+        .catch((eror) => {
+          store.commit("setInfo", eror);
+        });
+    },
+    // integrasi rekam medis
     async fetchMedRecordByID(store, param) {
       const config = {
         headers: {
