@@ -6,7 +6,7 @@ import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 const persistedDataState = createPersistedState({
-  paths: ["token", "role"],
+  paths: ["token", "role"]
 });
 
 export default new Vuex.Store({
@@ -17,13 +17,14 @@ export default new Vuex.Store({
     med: Object,
     sakit: "",
     total: Number,
-    role: null,
+    role: "",
     info: null,
     error: null,
     patients: [],
   },
 
   getters: {},
+
 
   mutations: {
     setToken(state, param) {
@@ -65,7 +66,7 @@ export default new Vuex.Store({
         })
         .then((response) => {
           if (response.data.meta.status === 201) {
-            console.log("tes token");
+            console.log("tes token", response);
             store.commit("setToken", response.data.data.token);
             store.commit("setRole", response.data.data.role);
             localStorage.setItem("authenticated", true);
