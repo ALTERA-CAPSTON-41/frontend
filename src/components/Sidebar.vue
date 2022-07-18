@@ -92,107 +92,124 @@
 
       <v-spacer></v-spacer>
 
-      <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn text v-bind="attrs" v-on="on">
-            <v-icon color="#0B715B" class="mdi-36px">mdi-account-circle</v-icon>
-            <v-icon color="#0B715B" class="mdi-36px">mdi-chevron-down</v-icon>
-          </v-btn>
-        </template>
+        <v-app-bar
+        app
+        color="#FEFEFE"
+        height="70px"
+        >
+        <div class="d-flex align-center">
+            <v-toolbar-title
+            class="judulHalaman"
+            > {{this.page}} </v-toolbar-title>
+        </div>
 
-        <v-list class="d-flex justify px-3">
-          <v-list-item-content class="buttonLogout justify">
-            <div class="d-flex" @click="profil">
-              <v-icon color="#56CCF2" class="px-1"
-                >mdi-account-box-outline</v-icon
-              >
-              <v-list-item-title class="txt-opsi order-2"
-                >PROFILE</v-list-item-title
-              >
-            </div>
-          </v-list-item-content>
-        </v-list>
+        <v-spacer></v-spacer>
 
-        <v-list class="d-flex justify px-3">
-          <v-list-item-content class="buttonLogout justify">
-            <div class="d-flex" @click="ubah">
-              <v-icon color="#F2C94C" class="px-1">mdi-lock-outline</v-icon>
-              <v-list-item-title class="txt-opsi order-2"
-                >UBAH PASSWORD</v-list-item-title
-              >
-            </div>
-          </v-list-item-content>
-        </v-list>
+        <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+            <v-btn text
+            v-bind="attrs"
+            v-on="on">
+                <!-- cek role -->
+                <!-- <span v-if="cekRole !== 'ADMIN'" class="nameUser mr-2"></span>
+                <span v-if="cekRole === 'ADMIN'" class="nameUser mr-2"></span>
+                <span v-if="cekRole === 'ADMIN'" class="nameUser mr-2"></span> -->
+                <v-icon color="#0B715B" class="mdi-36px">mdi-account-circle</v-icon>
+                <v-icon color="#0B715B" class="mdi-36px">mdi-chevron-down</v-icon>
+            </v-btn>
+            </template>
+            
+            <v-list class="d-flex justify px-3">
+            <v-list-item-content class="buttonLogout justify">
+                <div class="d-flex" @click="profil">
+                <v-icon color="#56CCF2" class="px-1">mdi-account-box-outline</v-icon>
+                <v-list-item-title class="txt-opsi order-2">PROFILE</v-list-item-title>
+                </div>
+            </v-list-item-content>
+            </v-list>
 
-        <v-list class="d-flex justify px-3">
-          <v-list-item-content class="buttonLogout justify">
-            <div class="d-flex" @click="logout">
-              <v-icon color="#F10000" class="px-1">mdi-logout</v-icon>
-              <v-list-item-title class="txt-opsi order-2"
-                >KELUAR</v-list-item-title
-              >
-            </div>
-          </v-list-item-content>
-        </v-list>
-      </v-menu>
-    </v-app-bar>
-    <router-view />
+            <v-list class="d-flex justify px-3">
+            <v-list-item-content class="buttonLogout justify">
+                <div class="d-flex" @click="ubah">
+                <v-icon color="#F2C94C" class="px-1">mdi-lock-outline</v-icon>
+                <v-list-item-title class="txt-opsi order-2">UBAH PASSWORD</v-list-item-title>
+                </div>
+            </v-list-item-content>
+            </v-list>
+
+            <v-list class="d-flex justify px-3">
+            <v-list-item-content class="buttonLogout justify">
+                <div class="d-flex" @click="logout">
+                <v-icon color="#F10000" class="px-1">mdi-logout</v-icon>
+                <v-list-item-title class="txt-opsi order-2">KELUAR</v-list-item-title>
+                </div>
+            </v-list-item-content>
+            </v-list>
+        </v-menu>
+        </v-app-bar>
+      <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: "SidebarPage",
-  data: () => ({
-    group: null,
-    page: "Beranda",
-    selectedItem: 0,
-    items: [
-      { icon: "mdi-view-dashboard", text: "Beranda", route: "/" },
-      {
-        icon: "mdi-format-list-checks",
-        text: "Daftar Antrean",
-        route: "/DaftarAntrean",
-      },
-      { icon: "mdi-account-multiple", text: " Pasien", route: "/Patient" },
-      {
-        icon: "mdi-hospital-building",
-        text: "Poliklinik",
-        route: "/Poliklinik",
-      },
-      { icon: "mdi-doctor", text: "Dokter", route: "/Dokter" },
-      { icon: "mdi-account", text: "Perawat", route: "/Perawat" },
-      {
-        icon: "mdi-shield-account",
-        text: "Administrator",
-        route: "/Administrator",
-      },
-    ],
-    mini: false,
-    fab: false,
-  }),
-  watch: {
-    group() {
-      this.drawer = false;
+    name: "SidebarPage",
+    data: () => ({
+      group: null,
+      page: "Beranda",
+      selectedItem: 0,
+      items: [
+        { icon: 'mdi-view-dashboard', text: 'Beranda' , route:'/'},
+        { icon: 'mdi-format-list-checks', text: 'Daftar Antrean' , route:'/DaftarAntrean'},
+        { icon: 'mdi-account-multiple', text: ' Pasien', route:'/Pasien' },
+        { icon: 'mdi-hospital-building', text: 'Poliklinik', route:'/Poliklinik' },
+        { icon: 'mdi-doctor', text: 'Dokter', route:'/Dokter' },
+        { icon: 'mdi-account', text: 'Perawat', route:'/Perawat' },
+        { icon: 'mdi-shield-account', text: 'Administrator', route:'/Administrator' },
+      ],
+    //   items2: [
+    //     { icon: 'mdi-view-dashboard', text: 'Beranda' , route:'/'},
+    //     { icon: 'mdi-format-list-checks', text: 'Daftar Antrean' , route:'/DaftarAntrean'},
+    //     { icon: 'mdi-account-multiple', text: ' Pasien', route:'/Pasien' },
+    //   ],
+      mini: false,
+      fab: false,
+    }),
+    watch: {
+        group() {
+        this.drawer = false;
+        }
     },
-  },
-  methods: {
-    press(title) {
-      this.page = title;
+    methods :{
+        press(title){
+            this.page = title;
+        },
+        logout(){
+            localStorage.setItem("authenticated", false);
+            this.$router.push({name: "Login" })
+            this.$store.commit("setToken", "");
+        },
+        profil(){
+            this.$router.push({name: "ProfilAdmin"})
+        },
+        ubah(){
+            this.$router.push({name: "UbahPassword"})
+        }
     },
-    logout() {
-      localStorage.setItem("authenticated", false);
-      this.$router.push({ name: "Login" });
-      this.$store.commit("setToken", "");
-    },
-    profil() {
-      this.$router.push({ name: "ProfilAdmin" });
-    },
-    ubah() {
-      this.$router.push({ name: "UbahPassword" });
-    },
-  },
-};
+    // computed: {
+    //     cekRole() {
+    //         return this.$store.state.role;
+    //         },
+    //         roleComputed() {
+    //             if (this.cekRole === "ADMIN") {
+    //                 return this.items2;
+    //             } else {
+    //                 return this.items1;
+    //             }
+    //         },
+    // },
+  }
+
 </script>
 
 <style>

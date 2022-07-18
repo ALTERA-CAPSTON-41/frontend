@@ -6,7 +6,7 @@ import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 const persistedDataState = createPersistedState({
-  paths: ["token"],
+  paths: ["token", "role"]
 });
 
 export default new Vuex.Store({
@@ -17,13 +17,14 @@ export default new Vuex.Store({
     med: Object,
     sakit: "",
     total: Number,
-    role: null,
+    role: "",
     info: null,
     error: null,
     patients: [],
   },
 
   getters: {},
+
 
   mutations: {
     setToken(state, param) {
@@ -59,14 +60,13 @@ export default new Vuex.Store({
     // axios.post(url, body/payload/data, headers)
     // axios.post('/login', { email: value, password: value }, { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } })
     async fetchLogin(store, param) {
-      axios
-        .post(APILocation + "/login", {
+      axios.post("https://api.capstone.thisham.my.id/login", {
           email: param.email,
           password: param.password,
         })
         .then((response) => {
           if (response.data.meta.status === 201) {
-            console.log("tes token");
+            console.log("tes token", response);
             store.commit("setToken", response.data.data.token);
             store.commit("setRole", response.data.data.role);
             localStorage.setItem("authenticated", true);
