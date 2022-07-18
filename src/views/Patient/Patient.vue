@@ -13,7 +13,7 @@
         </div>
         <v-btn
           class="white--text"
-          href="/AddPa"
+          href="/AddPat"
           height="53px"
           color="#0D987A"
           left
@@ -88,6 +88,9 @@
                         </v-card-actions>
                       </v-card>
                     </v-dialog>
+                  </template>
+                  <template v-slot:[`item.no`]="{ item }">
+                    {{ patients.indexOf(item) + 1 }}
                   </template>
                   <template v-slot:[`item.actions`]="{ item }">
                     <v-btn
