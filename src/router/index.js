@@ -9,7 +9,6 @@ import AntreanPoli from "../views/Antrean/AntreanPoli.vue";
 import DetailAntrean from "../views/Antrean/DetailAntrean.vue";
 import EditAntrean from "../views/Antrean/EditAntrean.vue";
 import Dokter from "../views/Dokter/Dokter.vue";
-import Pasien from "../views/Pasien/Pasien.vue";
 import Perawat from "../views/Perawat/Perawat.vue";
 import Poliklinik from "../views/Poliklinik/Poliklinik.vue";
 import AddPerawat from "../views/Perawat/AddPerawat.vue";
@@ -17,9 +16,6 @@ import DetailPerawat from "../views/Perawat/DetailPerawat.vue";
 import DetailDok from "../views/Dokter/DetailDok.vue";
 import AddDok from "../views/Dokter/AddDok.vue";
 import EditDok from "../views/Dokter/EditDok.vue";
-import EditPas from "../views/Pasien/EditPas.vue";
-import DetailPas from "../views/Pasien/DetailPas.vue";
-import AddPas from "../views/Pasien/AddPas.vue";
 import AddPoli from "../views/Poliklinik/AddPoli.vue";
 import AddRemdis from "../views/AddRemdis";
 import AddResep from "../views/AddResep.vue";
@@ -34,6 +30,10 @@ import UbahPassword from "../views/UbahPassword.vue";
 import AddAntrean from "../views/Antrean/AddAntrean.vue";
 import EditPerawat from "../views/Perawat/EditPerawat.vue";
 import DetailPoli from "../views/Poliklinik/DetailPoli.vue";
+import Patient from "../views/Patient/Patient.vue";
+import AddPat from "../views/Patient/AddPat.vue";
+import EditPat from "../views/Patient/EditPat.vue";
+import DetailPat from "../views/Patient/DetailPat.vue";
 
 Vue.use(VueRouter);
 const routes = [
@@ -81,16 +81,13 @@ const routes = [
         name: "Antrean Poli",
         component: AntreanPoli,
       },
+
       {
-        path: "/Pasien",
-        name: "Pasien",
-        component: Pasien,
+        path: "/Patient",
+        name: "Patient",
+        component: Patient,
       },
-      {
-        path: "/DetailPas",
-        name: " Detail Pasien",
-        component: DetailPas,
-      },
+
       {
         path: "/DetailAdmin",
         name: " Detail Admin",
@@ -166,20 +163,27 @@ const routes = [
         name: "DetailDok",
         component: DetailDok,
       },
-      {
-        path: "/DetailPas",
-        name: "DetailPas",
-        component: DetailPas,
-      },
+
       {
         path: "/AddDok",
         name: "AddDok",
         component: AddDok,
       },
+
       {
-        path: "/AddPas",
-        name: "AddPas",
-        component: AddPas,
+        path: "/AddPat",
+        name: "AddPat",
+        component: AddPat,
+      },
+      {
+        path: "/EditPat",
+        name: "EditPat",
+        component: EditPat,
+      },
+      {
+        path: "/DetailPat",
+        name: "DetailPat",
+        component: DetailPat,
       },
       {
         path: "/AddRemdis",
@@ -200,11 +204,6 @@ const routes = [
         path: "/EditRes",
         name: "EditRes",
         component: EditRes,
-      },
-      {
-        path: "/EditPas",
-        name: "EditPas",
-        component: EditPas,
       },
       {
         path: "/UbahPassword",

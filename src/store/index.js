@@ -81,12 +81,14 @@ export default new Vuex.Store({
           store.commit("setError", error);
         });
     },
-    // code integrasi get data table pasien
-    async getAllPatient(store) {
+
+    // code integrasi get data table antrian
+    async getAllQueue(store) {
       console.log("store", store);
       console.log("token", store.state.token);
+
       return axios
-        .get(APILocation + "/patients", {
+        .get(APILocation + "/queues", {
           headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + store.state.token,
@@ -100,12 +102,26 @@ export default new Vuex.Store({
           store.commit("setInfo", eror);
         });
     },
-    // code integrasi get data table antrean
-    async getAllQueue(store) {
-      console.log("store", store);
-      console.log("token", store.state.token);
-
-      return axios
+    async addQueue(store, param) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + store.state.token,
+        },
+      };
+      axios.post(APILocation + "queues", param, config).then((response) => {
+        console.log(response);
+      });
+    },
+    async deleteQueue(store, id) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + store.state.token,
+        },
+      };
+      axios.delete(APILocation + "queues/" + id, config).then((response) => {
+        console.log("buat hapus ", response);
+      });
+      axios
         .get(APILocation + "/queues", {
           headers: {
             "Content-Type": "application/json",
@@ -258,6 +274,16 @@ export default new Vuex.Store({
         console.log(response);
       });
     },
+    async updateNurses(store, id) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + store.state.token,
+        },
+      };
+      axios.update(APILocation + "nurses/" + id, config).then((response) => {
+        console.log(response);
+      });
+    },
     async deleteNurses(store, id) {
       const config = {
         headers: {
@@ -339,7 +365,27 @@ export default new Vuex.Store({
           store.commit("setFeature", response.data.data.total)
         );
     },
-    async addPatients(store, param) {
+    // code integrasi get data table pasien
+    async getAllPatient(store) {
+      console.log("store", store);
+      console.log("token", store.state.token);
+
+      return axios
+        .get(APILocation + "/patients", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + store.state.token,
+          },
+        })
+        .then((response) => {
+          console.log("response: ", response);
+          return response.data.data;
+        })
+        .catch((eror) => {
+          store.commit("setInfo", eror);
+        });
+    },
+    async addPatient(store, param) {
       const config = {
         headers: {
           Authorization: "Bearer " + store.state.token,
@@ -349,15 +395,39 @@ export default new Vuex.Store({
         console.log(response);
       });
     },
-    async deletePatients(store, param) {
+    async EditPatient(store, id) {
       const config = {
         headers: {
           Authorization: "Bearer " + store.state.token,
         },
       };
-      axios.delete(APILocation + "patients", param, config).then((response) => {
+      axios.put(APILocation + "patients" + id, config).then((response) => {
         console.log(response);
       });
+    },
+    async deletePatient(store, id) {
+      const config = {
+        headers: {
+          Authorization: "Bearer " + store.state.token,
+        },
+      };
+      axios.delete(APILocation + "patients/" + id, config).then((response) => {
+        console.log("buat hapus ", response);
+      });
+      axios
+        .get(APILocation + "/patients", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + store.state.token,
+          },
+        })
+        .then((response) => {
+          console.log("response: ", response);
+          return response.data.data;
+        })
+        .catch((eror) => {
+          store.commit("setInfo", eror);
+        });
     },
   },
 });

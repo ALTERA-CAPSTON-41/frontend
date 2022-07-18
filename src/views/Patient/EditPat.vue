@@ -2,7 +2,7 @@
   <v-container fluid style="padding: 30px">
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
-        <b>TAMBAH PASIEN</b>
+        <b>EDIT PASIEN</b>
       </v-toolbar-title>
     </div>
     <v-card class="rounded-xl" height="840px" color="#F9FFFB">
@@ -74,35 +74,40 @@
 
           <p>Jenis Kelamin</p>
           <v-radio-group v-model="kelamin" row>
-            <v-radio label="Perempuan" value="MALE"></v-radio>
-            <v-radio label="Laki-Laki" value="FEMALE"></v-radio>
+            <v-radio label="Perempuan" value="FEMALE"></v-radio>
+            <v-radio label="Laki-Laki" value="MALE"></v-radio>
           </v-radio-group>
 
           <p>Golongan Darah</p>
-          <v-radio-group v-model="blood" row>
-            <v-radio label="A+" value="A+"></v-radio>
-            <v-radio label="A" value="A"></v-radio>
-            <v-radio label="AB+" value="AB+"></v-radio>
-            <v-radio label="AB-" value="AB-"></v-radio>
-            <v-radio label="B+" value="B+"></v-radio>
-            <v-radio label="B-" value="B-"></v-radio>
-            <v-radio label="O+" value="O+"></v-radio>
-            <v-radio label="O-" value="O-"></v-radio>
+          <v-radio-group v-model="row" row>
+            <v-radio label="A+" value="radio-1"></v-radio>
+            <v-radio label="A" value="radio-2"></v-radio>
+            <v-radio label="AB+" value="radio-3"></v-radio>
+            <v-radio label="AB-" value="radio-4"></v-radio>
+            <v-radio label="B+" value="radio-5"></v-radio>
+            <v-radio label="B-" value="radio-6"></v-radio>
+            <v-radio label="O+" value="radio-7"></v-radio>
+            <v-radio label="O-" value="radio-8"></v-radio>
           </v-radio-group>
           <br />
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn large class="btn white--text" color="#DB5248" href="/Pasien">
+            <v-btn
+              large
+              class="btn white--text"
+              color="#DB5248"
+              href="/Patient"
+            >
               batal
             </v-btn>
             <v-btn
               large
               right
               class="btn mr-4 white--text"
-              @click="addPatients"
+              @click="EditPatient"
               color="#0D987A"
             >
-              Tambah
+              Simpan
             </v-btn>
           </v-card-actions>
         </v-container>
@@ -119,8 +124,8 @@ export default {
     nik: "",
     nt: "",
     alamat: "",
-    kelamin: "",
-    blood: null,
+    tgl: "",
+    row: null,
     date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
       .toISOString()
       .substr(0, 10),
@@ -129,7 +134,7 @@ export default {
     menu2: false,
   }),
   methods: {
-    addPatients() {
+    EditPatient() {
       const payload = {
         name: this.nama,
         nik: this.nik,
@@ -139,8 +144,8 @@ export default {
         gender: this.kelamin,
         blood_type: this.blood,
       };
-      this.$store.dispatch("addPatients", payload);
-      this.$router.push("/Pasien");
+      this.$store.dispatch("EditPatient", payload);
+      this.$router.push("/Patient");
     },
   },
 };

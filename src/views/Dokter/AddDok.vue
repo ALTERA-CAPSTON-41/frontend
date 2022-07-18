@@ -192,7 +192,7 @@ export default {
         gender: this.kelamin,
         dob: this.date,
         email: this.email,
-        pas: this.password,
+        password: this.pas,
       };
       this.$store.dispatch("addDoctors", payload);
       this.$router.push("/Dokter");
