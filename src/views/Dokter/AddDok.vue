@@ -87,7 +87,7 @@
           <p>Poliklinik</p>
           <v-text-field
             class="form"
-            v-model="poliklinik"
+            v-model.number="poliklinik"
             label="Masukkan Poliklinik"
             solo
           ></v-text-field
@@ -160,6 +160,7 @@ export default {
     nip: "",
     sip: "",
     alamat: "",
+    kelamin: "",
     poliklinik: null,
     email: "",
     pas: "",

@@ -16,7 +16,11 @@ export default new Vuex.Store({
     token: null,
     med: Object,
     sakit: "",
-    total: Number,
+    total: null,
+    totalPasien: null,
+    totalNurse: null,
+    totalPoli: null,
+    totalAntrean: null,
     role: "",
     info: null,
     error: null,
@@ -38,6 +42,18 @@ export default new Vuex.Store({
     },
     setFeature(state, param) {
       state.total = param;
+    },
+    setFeatureAntrean(state, param) {
+      state.totalAntrean = param;
+    },
+    setFeaturePasien(state, param) {
+      state.totalPasien = param;
+    },
+    setFeaturePoli(state, param) {
+      state.totalPoli = param;
+    },
+    setFeatureNurse(state, param) {
+      state.totalNurse = param;
     },
     setInfo(state, param) {
       state.info = param;
@@ -386,7 +402,7 @@ export default new Vuex.Store({
           store.commit("setPenyakit", response.data.data[0].description)
         );
     },
-
+    // integrasi beranda
     async fetchFeature(store, param) {
       const config = {
         headers: {
@@ -395,11 +411,71 @@ export default new Vuex.Store({
       };
       await axios
         .get(
-          `https://api.capstone.thisham.my.id/dashboards/${param.feature}`,
+          `https://api.capstone.thisham.my.id/dashboards/doctor`,
           config
         )
-        .then((response) =>
+        .then((response) => 
           store.commit("setFeature", response.data.data.total)
+        );
+    },
+    async fetchFeaturePasien(store, param) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${param.token}`,
+        },
+      };
+      await axios
+        .get(
+          `https://api.capstone.thisham.my.id/dashboards/patient`,
+          config
+        )
+        .then((response) => 
+          store.commit("setFeaturePasien", response.data.data.total)
+        );
+    },
+    async fetchFeaturePoli(store, param) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${param.token}`,
+        },
+      };
+      await axios
+        .get(
+          `https://api.capstone.thisham.my.id/dashboards/polyclinic`,
+          config
+        )
+        .then((response) => 
+          store.commit("setFeaturePoli", response.data.data.total)
+        );
+    },
+    async fetchFeatureNurse(store, param) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${param.token}`,
+        },
+      };
+      await axios
+        .get(
+          `https://api.capstone.thisham.my.id/dashboards/nurse`,
+          config
+        )
+        .then((response) => 
+          store.commit("setFeatureNurse", response.data.data.total)
+        );
+    },
+    async fetchFeatureAntrean(store, param) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${param.token}`,
+        },
+      };
+      await axios
+        .get(
+          `https://api.capstone.thisham.my.id/dashboards/queue`,
+          config
+        )
+        .then((response) => 
+          store.commit("setFeatureAntrean", response.data.data.total)
         );
     },
     // code integrasi get data table pasien
