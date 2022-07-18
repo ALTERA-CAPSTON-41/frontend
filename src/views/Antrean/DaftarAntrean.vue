@@ -1,13 +1,19 @@
 <template>
   <v-container fluid style="padding: 30px">
-    <br>
+    <br />
     <v-card class="rounded-xl" height="700px" color="#F9FFFB">
-      <br>
+      <br />
       <v-card-title>
         <div>
           <br />
         </div>
-        <v-btn class="white--text" href="/AddAntrean" height="53px" color="#0D987A" left>
+        <v-btn
+          class="white--text"
+          href="/AddAntrean"
+          height="53px"
+          color="#0D987A"
+          left
+        >
           <v-icon>mdi-plus </v-icon>
           <p class="my-5">Tambah Antrean</p>
         </v-btn>
@@ -22,118 +28,134 @@
         </div>
         <div class="text-right">
           <v-text-field
-              v-model.number="id"
-              prepend-inner-icon="mdi-magnify"
-              label="Search Here"
-              solo
-              class="form"
-              hide-details
-            ></v-text-field>
+            v-model.number="id"
+            prepend-inner-icon="mdi-magnify"
+            label="Search Here"
+            solo
+            class="form"
+            hide-details
+          ></v-text-field>
         </div>
       </v-card-title>
 
       <!-- code table -->
-            <v-sheet :color="`white ${theme.isDark ? 'darken-2' : 'lighten-4'}`">
-                <div>
-                    <v-sheet :color="`#F9FFFB`" class="px-5 py-0">
-                      <v-row>
-                        <v-col>
-                          <v-data-table
-                              :headers="headers"
-                              :items="queues"
-                              :search="search"
-                              hide-default-footer
-                              :page.sync="page"
-                              @page-count="pageCount = $event"
-                              :items-per-page="itemsPerPage"
-                              hide-default-header
+      <v-sheet :color="`white ${theme.isDark ? 'darken-2' : 'lighten-4'}`">
+        <div>
+          <v-sheet :color="`#F9FFFB`" class="px-5 py-0">
+            <v-row>
+              <v-col>
+                <v-data-table
+                  :headers="headers"
+                  :items="queues"
+                  :search="search"
+                  hide-default-footer
+                  :page.sync="page"
+                  @page-count="pageCount = $event"
+                  :items-per-page="itemsPerPage"
+                  hide-default-header
+                >
+                  <template v-slot:header="{ props: { headers } }">
+                    <thead class="MyHeader">
+                      <tr color="#0D987A">
+                        <th
+                          v-for="(h, index) in headers"
+                          :class="h.class"
+                          :key="index"
+                        >
+                          <span class="white--text JudulHeader">{{
+                            h.text
+                          }}</span>
+                        </th>
+                      </tr>
+                    </thead>
+                  </template>
+
+                  <template v-slot:top>
+                    <v-dialog v-model="dialogDelete" max-width="400px">
+                      <v-card>
+                        <v-card-title class="text-h5"
+                          >Yakin ingin menghapus data ini?</v-card-title
+                        >
+                        <v-card-actions>
+                          <v-spacer></v-spacer>
+                          <v-btn color="primary" text @click="closeDelete"
+                            >Cancel</v-btn
                           >
-                          <template v-slot:header="{ props: { headers } }">
-                              <thead class="MyHeader">
-                                <tr color="#0D987A">
-                                  <th v-for="(h,index) in headers" :class="h.class" :key="index" >
-                                    <span class="white--text JudulHeader">{{h.text}}</span>
-                                  </th>
-                                </tr>
-                              </thead>
-                          </template>
-                          
-                        
-                            <template v-slot:top>
-                              <v-dialog v-model="dialogDelete" max-width="400px">
-                                <v-card>
-                                  <v-card-title class="text-h5">Yakin ingin menghapus data ini?</v-card-title>
-                                  <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                    <v-btn color="primary" text @click="closeDelete">Cancel</v-btn>
-                                    <v-btn color="primary" text @click="deleteItemConfirm">OK</v-btn>
-                                    <v-spacer></v-spacer>
-                                  </v-card-actions>
-                                </v-card>
-                              </v-dialog>
-                            </template>
-                            <template v-slot:[`item.actions`]="{ item }">
-                                <v-btn
-                                  class="aksi mx-2"
-                                  height="33px"
-                                  width="27px"
-                                  dark
-                                  x-small
-                                  href="/DetailPas"
-                                  color="#56CCF2"
-                                >
-                                  <v-icon>mdi-card-account-details-outline</v-icon>
-                                </v-btn>
-                                <v-btn
-                                  class="aksi mx-2"
-                                  height="33px"
-                                  width="27px"
-                                  dark
-                                  x-small
-                                  href="/EditAntrean"
-                                  color="#F2994A"
-                                >
-                                  <v-icon>mdi-pencil</v-icon>
-                                </v-btn>
-                              <v-btn
-                                  color="#F10000"
-                                  dark
-                                  class="aksi mx-2"
-                                  height="33px"
-                                  width="27px"
-                                  x-small
-                                  @click="deleteItem(item)"
-                              >
-                                <v-icon>mdi-close</v-icon>
-                              </v-btn>
-                            </template>
-                          </v-data-table>
-                        </v-col>
-                      </v-row>
-                    </v-sheet>
-                      <v-row color="#F9FFFB">
-                        <v-col>
-                          <div class="page d-flex justify-end mt-4">
-                          <v-sheet color="#F9FFFB" class="pa-5" :rounded="'lg'">
-                            <template>
-                              <div class="page">
-                                    <v-pagination
-                                      class="page"
-                                      color="#0D987A"
-                                      v-model="page"
-                                      previous-aria-label="Prev"
-                                      next-aria-label="Next"
-                                      wrapper-aria-label
-                                      :length="10"
-                                      :total-visible="5"
-                                    ></v-pagination>
-                                </div>
-                            </template>
-                          </v-sheet>
-                          </div>
-                        </v-col>
-                      </v-row>
-                      <!-- <ul id="example-1">
+                          <v-btn color="primary" text @click="deleteItemConfirm"
+                            >OK</v-btn
+                          >
+                          <v-spacer></v-spacer>
+                        </v-card-actions>
+                      </v-card>
+                    </v-dialog>
+                  </template>
+                  <!-- buat nomor -->
+                  <template v-slot:[`item.no`]="{ item }">
+                    {{ nurses.indexOf(item) + 1 }}
+                  </template>
+                  <!-- atas ini buat nomor -->
+                  <template v-slot:[`item.actions`]="{ item }">
+                    <v-btn
+                      class="aksi mx-2"
+                      height="33px"
+                      width="27px"
+                      dark
+                      x-small
+                      href="/DetailPas"
+                      color="#56CCF2"
+                    >
+                      <v-icon>mdi-card-account-details-outline</v-icon>
+                    </v-btn>
+                    <v-btn
+                      class="aksi mx-2"
+                      height="33px"
+                      width="27px"
+                      dark
+                      x-small
+                      href="/EditAntrean"
+                      color="#F2994A"
+                    >
+                      <v-icon>mdi-pencil</v-icon>
+                    </v-btn>
+                    <v-btn
+                      color="#F10000"
+                      dark
+                      class="aksi mx-2"
+                      height="33px"
+                      width="27px"
+                      x-small
+                      @click="deleteItem(item, item.id)"
+                    >
+                      <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                  </template>
+                </v-data-table>
+              </v-col>
+            </v-row>
+          </v-sheet>
+          <v-row color="#F9FFFB">
+            <v-col>
+              <div class="page d-flex justify-end mt-4">
+                <v-sheet color="#F9FFFB" class="pa-5" :rounded="'lg'">
+                  <template>
+                    <div class="page">
+                      <v-pagination
+                        class="page"
+                        color="#0D987A"
+                        v-model="page"
+                        previous-aria-label="Prev"
+                        next-aria-label="Next"
+                        wrapper-aria-label
+                        :length="10"
+                        :total-visible="5"
+                      ></v-pagination>
+                    </div>
+                  </template>
+                </v-sheet>
+              </div>
+            </v-col>
+          </v-row>
+          <!-- <ul id="example-1">
                       <li v-for="data in queues" :key="data.index">
                         {{ data }}
                       </li>
@@ -141,8 +163,8 @@
                       <button @click="getAllQueue">TEKAN INI WOYYY</button>
                       <p>{{id}}</p>
                       <p>{{token}}</p> -->
-                </div>
-            </v-sheet>
+        </div>
+      </v-sheet>
       <!-- bates code -->
     </v-card>
 
@@ -152,176 +174,160 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "DataAdmin",
-    inject: {
-      theme: {
-        default: { isDark: false },
-      },
+  inject: {
+    theme: {
+      default: { isDark: false },
     },
-    data () {
-      return {
-        totalPage: null,
-        search:'',
-        token: '',
-        id: null,
-        waktu: new Date().toJSON().slice(0,10),
-        dialogDelete: false,
-        selectedItemIndex: -1,
-        pageCount: 0,
-        itemsPerPage : 10,
-        page: 1,
-        queues: [],
-        headers: [
+  },
+  data() {
+    return {
+      totalPage: null,
+      search: "",
+      token: "",
+      getid: null,
+      id: null,
+      waktu: new Date().toJSON().slice(0, 10),
+      dialogDelete: false,
+      selectedItemIndex: -1,
+      pageCount: 0,
+      itemsPerPage: 10,
+      page: 1,
+      queues: [],
+      headers: [
         {
-          text: 'No.',
-          value: 'id'
+          text: "No.",
+          value: "id",
         },
         {
-          text: 'Nama',
-          value: 'name'
+          text: "Nama",
+          value: "name",
         },
         {
-          text: 'NIK',
-          value: 'nik'
+          text: "NIK",
+          value: "nik",
         },
         {
-          text: 'Poliklinik',
-          value: 'polyclinic.name'
+          text: "Poliklinik",
+          value: "polyclinic.name",
         },
         {
-          text: 'Nomor Antrean',
-          value: 'queue_number'
+          text: "Nomor Antrean",
+          value: "queue_number",
         },
         {
-          text: 'Aksi',
-          value: 'actions'
-        }
+          text: "Aksi",
+          value: "actions",
+        },
       ],
       identity: [
         {
           no: 1,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 2,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 3,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 4,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 5,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 6,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 7,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
         {
           no: 8,
-          name: 'Beby Avilla',
-          nik: '32016832687693',
-          jenisKelamin: 'Female',
-          golonganDarah: 'A',
-          action: 'edit'
+          name: "Beby Avilla",
+          nik: "32016832687693",
+          jenisKelamin: "Female",
+          golonganDarah: "A",
+          action: "edit",
         },
-      ]
-      }
-    },
-    methods :{
-    add(Registrasi){
-       this.$router.push({name: Registrasi})
+      ],
+    };
+  },
+  methods: {
+    add(Registrasi) {
+      this.$router.push({ name: Registrasi });
     },
     // methods integrasi get data table
-    getAllQueue() {
-      // const queues = await this.$store.dispatch("getAllQueue");
-      // console.log("all queue dari method: ", queues)
-      // this.queues = queues
-      const data = {
-        'polyclinic': this.id,
-        'from-date': this.waktu,
-      }
-      const config = {
-headers: { Authorization: "Bearer" + this.token ,
-"Content-Type": "application/json"}
-      }
-      axios.get('https://api.capstone.thisham.my.id/queues',{
-        params: {
-          data
-        }
-      }, config).then(response => console.log(response)).catch(error => console.log(error))
+    async getAllQueue() {
+      const queues = await this.$store.dispatch("getAllQueues");
+      console.log("antrian dari method: ", queues);
+      this.queues = queues;
     },
     hitungPage(totalitem) {
       this.totalPage = totalitem;
     },
-    closeDelete(){
-       this.dialogDelete = false
-       this.$nextTick(() => {
-         this.selectedItemIndex = -1
-       })
-     },
-     deleteItemConfirm(){
-       this.identity.splice(this.selectedItemIndex, 1)
-       this.closeDelete()
-     },
-     deleteItem(item){
-       this.selectedItemIndex = this.identity.indexOf(item)
-       this.dialogDelete = true
-     },
+    closeDelete() {
+      this.dialogDelete = false;
+      this.$nextTick(() => {
+        this.selectedItemIndex = -1;
+      });
     },
-    mounted() {
-      this.getAllQueue();
-      this.date_function()
+    deleteItemConfirm() {
+      this.$store.dispatch("deleteQueues", this.getid);
+      this.queues.splice(this.selectedItemIndex, 1);
+      this.closeDelete();
     },
-    created() {
-      this.token = this.$store.state.token
+    deleteItem(item, id) {
+      this.getid = id;
+      this.selectedItemIndex = this.identity.indexOf(item);
+      this.dialogDelete = true;
     },
-  }
+  },
+  mounted() {
+    this.getAllQueue();
+  },
+};
 </script>
 
 <style>
 .JudulHeader {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -330,10 +336,10 @@ headers: { Authorization: "Bearer" + this.token ,
 
   /* color 7 */
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .MyHeader {
-  background-color: #0D987A;
+  background-color: #0d987a;
 }
 /* tanya ke mentor */
 .aksi {

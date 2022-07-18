@@ -1,85 +1,96 @@
 <template>
-    <div>
-        <v-navigation-drawer
-        permanent
-        color="#E5F5F2"
-        app
-        >
-        <br>
-        <div class="title">
+  <div>
+    <v-navigation-drawer permanent color="#E5F5F2" app>
+      <br />
+      <div class="title">
         <v-img
-            class="mx-auto"
-            max-width="110"
-            justify-center
-            src="../assets/img/logo1.svg"
+          class="mx-auto"
+          max-width="110"
+          justify-center
+          src="../assets/img/logo1.svg"
         ></v-img>
         <span class="black--text">KLINIK SEHAT</span>
-        </div>
+      </div>
 
-        <v-list-item class="px-2 pt-1">
-            <v-list-item-content>
-                <v-img class="navLogo"
-                alt="Logo Clinic"
-                contain
-                max-height="127px"
-                width="212px"
-                />
-            </v-list-item-content>
-        </v-list-item>
-        <v-list class="clickable">
-            <template v-for="item in items">
-            <v-list-group
-                v-if="item.children"
-                :key="item.text"
-                v-model="item.model"
-                :prepend-icon="item['icon-ctr']"
-                :append-icon="item.model ? item.icon : item['icon-alt']"
-                @click="press(item.text)"
-                active-class="orange--text"
-            >
-                <template v-slot:activator>
-                <v-list-item-content class="black--text">
-                    <v-list-item-title >
-                    {{ item.text }}
-                    </v-list-item-title>
-                </v-list-item-content>
-                </template>
-                <v-list-item class="black--text"
-                v-for="(child, i) in item.children"
-                :key="i"
-                route :to="child.route"
-                active-class="orange--text"
-                >
-                <v-list-item-action v-if="child.icon" >
-                    <v-icon>{{ child.icon }}</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                    <v-list-item-title>
-                    {{ child.text }}
-                    </v-list-item-title>
-                </v-list-item-content>
-                </v-list-item>
-            </v-list-group>
-            <v-list-item class="black--text"
-                v-else
-                :key="item.text"
-                active-class="orange--text"
-                route :to="item.route"
-                @click="press(item.text)"
-            >
-                <v-list-item-action>
-                <v-icon class="icon rounded-lg" color="#000000">{{ item.icon }}</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
+      <v-list-item class="px-2 pt-1">
+        <v-list-item-content>
+          <v-img
+            class="navLogo"
+            alt="Logo Clinic"
+            contain
+            max-height="127px"
+            width="212px"
+          />
+        </v-list-item-content>
+      </v-list-item>
+      <v-list class="clickable">
+        <template v-for="item in items">
+          <v-list-group
+            v-if="item.children"
+            :key="item.text"
+            v-model="item.model"
+            :prepend-icon="item['icon-ctr']"
+            :append-icon="item.model ? item.icon : item['icon-alt']"
+            @click="press(item.text)"
+            active-class="orange--text"
+          >
+            <template v-slot:activator>
+              <v-list-item-content class="black--text">
                 <v-list-item-title>
-                    {{ item.text }}
+                  {{ item.text }}
                 </v-list-item-title>
-                </v-list-item-content>
+              </v-list-item-content>
+            </template>
+            <v-list-item
+              class="black--text"
+              v-for="(child, i) in item.children"
+              :key="i"
+              route
+              :to="child.route"
+              active-class="orange--text"
+            >
+              <v-list-item-action v-if="child.icon">
+                <v-icon>{{ child.icon }}</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>
+                  {{ child.text }}
+                </v-list-item-title>
+              </v-list-item-content>
             </v-list-item>
-            </template>  
-        </v-list>
+          </v-list-group>
+          <v-list-item
+            class="black--text"
+            v-else
+            :key="item.text"
+            active-class="orange--text"
+            route
+            :to="item.route"
+            @click="press(item.text)"
+          >
+            <v-list-item-action>
+              <v-icon class="icon rounded-lg" color="#000000">{{
+                item.icon
+              }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ item.text }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
+      </v-list>
+    </v-navigation-drawer>
 
-        </v-navigation-drawer>
+    <v-app-bar app color="#FEFEFE" height="70px">
+      <div class="d-flex align-center">
+        <v-toolbar-title class="judulHalaman">
+          {{ this.page }}
+        </v-toolbar-title>
+      </div>
+
+      <v-spacer></v-spacer>
 
         <v-app-bar
         app
@@ -137,12 +148,10 @@
         </v-menu>
         </v-app-bar>
       <router-view />
-</div>
-
+  </div>
 </template>
 
 <script>
-
 export default {
     name: "SidebarPage",
     data: () => ({
@@ -167,9 +176,9 @@ export default {
       fab: false,
     }),
     watch: {
-      group () {
-        this.drawer = false
-      },
+        group() {
+        this.drawer = false;
+        }
     },
     methods :{
         press(title){
@@ -204,65 +213,65 @@ export default {
 </script>
 
 <style>
-.buttonLogout:hover{
-    background-color: #E0F8F2;
-    cursor: pointer;
-    display: block;
+.buttonLogout:hover {
+  background-color: #e0f8f2;
+  cursor: pointer;
+  display: block;
 }
 
 .v-application .orange--text {
-    color: #285e50 !important;
-    caret-color: #000000 !important;
-    background-repeat: repeat-x;
+  color: #285e50 !important;
+  caret-color: #000000 !important;
+  background-repeat: repeat-x;
 }
 
-.navLogo .v-image_image, .v-image_placeholder {
-    max-width: 70%;
-    left: 10%
+.navLogo .v-image_image,
+.v-image_placeholder {
+  max-width: 70%;
+  left: 10%;
 }
 
 .title {
-    text-align: center !important;
-    justify-content: center !important;
+  text-align: center !important;
+  justify-content: center !important;
 }
 
 * {
-    font-weight: 600;
-
+  font-weight: 600;
 }
 
 .nameUser {
-    color: #636060;
+  color: #636060;
 }
 
 .judulHalaman {
-    font-size: 30px !important;
+  font-size: 30px !important;
 }
 
 .icon-2 {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .antrean-bwh {
-    bottom: 6git bra5px;
-    position: absolute !important;
+  bottom: 6git bra5px;
+  position: absolute !important;
 }
 
 .icon {
-    background-color: #8BCEBC;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+  background-color: #8bcebc;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
 }
 
 .txt-opsi {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 500 !important;
-    font-size: 14px;
-    line-height: 17px;
-    color: #212121;
-    /* identical to box height */
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 14px;
+  line-height: 17px;
+  color: #212121;
+  /* identical to box height */
 
-    letter-spacing: 0.0125em;
+  letter-spacing: 0.0125em;
 }
 </style>

@@ -200,7 +200,7 @@
       </v-card>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn large class="btn white--text" color="#0D987A" href="/Pasien"> Kembali </v-btn>
+            <v-btn large class="btn white--text" color="#0D987A" href="/Patient"> Kembali </v-btn>
           </v-card-actions>
   </v-container>
 </template>

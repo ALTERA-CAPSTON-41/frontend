@@ -13,7 +13,7 @@
         </div>
         <v-btn
           class="white--text"
-          href="/AddPas"
+          href="/AddPa"
           height="53px"
           color="#0D987A"
           left
@@ -62,7 +62,9 @@
                           :class="h.class"
                           :key="index"
                         >
-                          <span class="white--text JudulHeader">{{h.text}}</span>
+                          <span class="white--text JudulHeader">{{
+                            h.text
+                          }}</span>
                         </th>
                       </tr>
                     </thead>
@@ -88,12 +90,14 @@
                     </v-dialog>
                   </template>
                   <template v-slot:[`item.actions`]="{ item }">
-                    <v-btn @click.prevent="directPage(item.actions.index)"
+                    <v-btn
+                      @click.prevent="directPage(item.actions.index)"
                       class="aksi mx-2"
                       height="33px"
                       width="27px"
                       dark
                       x-small
+                      href="/DetailPat"
                       color="#56CCF2"
                     >
                       <v-icon>mdi-card-account-details-outline</v-icon>
@@ -104,7 +108,7 @@
                       width="27px"
                       dark
                       x-small
-                      href="/EditPas"
+                      href="/EditPat"
                       color="#F2994A"
                     >
                       <v-icon>mdi-pencil</v-icon>
@@ -116,7 +120,7 @@
                       height="33px"
                       width="27px"
                       x-small
-                      @click="deleteItem(item)"
+                      @click="deleteItem(item, item.id)"
                     >
                       <v-icon>mdi-delete</v-icon>
                     </v-btn>
@@ -168,6 +172,7 @@ export default {
     return {
       totalPage: null,
       search: "",
+      getid: null,
       dialogDelete: false,
       selectedItemIndex: -1,
       pageCount: 0,
@@ -176,8 +181,8 @@ export default {
       patients: [],
       headers: [
         {
-          text: 'No.',
-          value: 'no',
+          text: "No.",
+          value: "no",
         },
         {
           text: "Nama",
@@ -272,37 +277,33 @@ export default {
     add(Registrasi) {
       this.$router.push({ name: Registrasi });
     },
-    methods :{
-
-    directPage(index){
-      console.log(index)
+    directPage(index) {
+      console.log(index);
     },
-     add(Registrasi){
-       this.$router.push({name: Registrasi})
-      },
-      // methods integrasi get data table
-      async getAllPatient() {
-        const patients = await this.$store.dispatch("getAllPatient");
-        console.log("patients dari method: ", patients)
-        this.patients = patients
-      },
-      hitungPage(totalitem) {
-        this.totalPage = totalitem;
-      },
-      closeDelete(){
-          this.dialogDelete = false
-          this.$nextTick(() => {
-            this.selectedItemIndex = -1
-          })
-        },
-      deleteItemConfirm(){
-        this.identity.splice(this.selectedItemIndex, 1)
-        this.closeDelete()
-      },
-      deleteItem(item){
-        this.selectedItemIndex = this.identity.indexOf(item)
-        this.dialogDelete = true
-      },
+    // methods integrasi get data table
+    async getAllPatient() {
+      const patients = await this.$store.dispatch("getAllPatient");
+      console.log("patients dari method: ", patients);
+      this.patients = patients;
+    },
+    hitungPage(totalitem) {
+      this.totalPage = totalitem;
+    },
+    closeDelete() {
+      this.dialogDelete = false;
+      this.$nextTick(() => {
+        this.selectedItemIndex = -1;
+      });
+    },
+    deleteItemConfirm() {
+      this.$store.dispatch("deletePatients", this.getid);
+      this.patients.splice(this.selectedItemIndex, 1);
+      this.closeDelete();
+    },
+    deleteItem(item, id) {
+      this.getid = id;
+      this.selectedItemIndex = this.identity.indexOf(item);
+      this.dialogDelete = true;
     },
   },
   mounted() {

@@ -106,6 +106,7 @@
               <!-- Form Password -->
               <p>Password</p>
               <v-text-field
+                v-model="pas"
                 :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
                 :type="show3 ? 'text' : 'password'"
                 name="input-10-2"
@@ -173,7 +174,7 @@ export default {
     show2: true,
     show3: false,
     show4: false,
-    password: "Password",
+    password: "",
     rules: {
       required: (value) => !!value || "Required.",
       emailMatch: () => `The email and password you entered don't match`,
@@ -193,10 +194,10 @@ export default {
         sip: this.sip,
         polyclinics_id: this.poliklinik,
         address: this.alamat,
-        gender: this.kelamin,
         dob: this.date,
+        gender: this.kelamin,
         email: this.email,
-        pas: this.password,
+        password: this.pas,
       };
       this.$store.dispatch("addNurses", payload);
       this.$router.push("/Perawat");

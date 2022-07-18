@@ -278,7 +278,7 @@ export default {
     // methods integrasi get data table
     async getAllNurses() {
       const nurses = await this.$store.dispatch("getAllNurses");
-      console.log("patients dari method: ", nurses);
+      console.log("nurses dari method: ", nurses);
       this.nurses = nurses;
     },
     hitungPage(totalitem) {

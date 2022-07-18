@@ -92,14 +92,19 @@
           <br />
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn large class="btn white--text" color="#DB5248" href="/Pasien">
+            <v-btn
+              large
+              class="btn white--text"
+              color="#DB5248"
+              href="/Patient"
+            >
               batal
             </v-btn>
             <v-btn
               large
               right
               class="btn mr-4 white--text"
-              @click="addPatients"
+              @click="addPatient"
               color="#0D987A"
             >
               Tambah
@@ -129,7 +134,7 @@ export default {
     menu2: false,
   }),
   methods: {
-    addPatients() {
+    addPatient() {
       const payload = {
         name: this.nama,
         nik: this.nik,
@@ -139,8 +144,8 @@ export default {
         gender: this.kelamin,
         blood_type: this.blood,
       };
-      this.$store.dispatch("addPatients", payload);
-      this.$router.push("/Pasien");
+      this.$store.dispatch("addPatient", payload);
+      this.$router.push("/Patient");
     },
   },
 };

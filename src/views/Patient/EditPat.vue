@@ -2,10 +2,10 @@
   <v-container fluid style="padding: 30px">
     <div class="my-4">
       <v-toolbar-title class="font-weight-medium">
-        <b>EDIT PERAWAT</b>
+        <b>EDIT PASIEN</b>
       </v-toolbar-title>
     </div>
-    <v-card class="rounded-xl" height="760px" color="#F9FFFB">
+    <v-card class="rounded-xl" height="840px" color="#F9FFFB">
       <v-form>
         <v-container>
           <p>Nama</p>
@@ -16,29 +16,22 @@
             solo
           ></v-text-field
           ><br />
-          <v-row>
-            <v-col cols="12" sm="6">
-              <p>NIP</p>
-              <v-text-field
-                class="form"
-                v-model="nip"
-                label="Masukkan NIP"
-                solo
-              ></v-text-field
-              ><br />
-            </v-col>
-
-            <v-col cols="12" sm="6">
-              <p>SIP</p>
-              <v-text-field
-                class="form"
-                v-model="sip"
-                label="Masukkan SIP"
-                solo
-              ></v-text-field
-              ><br />
-            </v-col>
-          </v-row>
+          <p>NIK</p>
+          <v-text-field
+            class="form"
+            v-model="nik"
+            label="Masukkan NIK"
+            solo
+          ></v-text-field
+          ><br />
+          <p>Nomor Telepon</p>
+          <v-text-field
+            class="form"
+            v-model="nt"
+            label="Masukkan Nomor Telepon"
+            solo
+          ></v-text-field
+          ><br />
           <p>Alamat</p>
           <v-text-field
             class="form"
@@ -47,12 +40,6 @@
             solo
           ></v-text-field
           ><br />
-
-          <p>Jenis Kelamin</p>
-          <v-radio-group v-model="kelamin" row>
-            <v-radio label="Perempuan" value="FEMALE"></v-radio>
-            <v-radio label="Laki-Laki" value="MALE"></v-radio>
-          </v-radio-group>
           <!-- Form Date Time -->
           <p>Tanggal Lahir</p>
           <v-dialog
@@ -84,23 +71,32 @@
               </v-btn>
             </v-date-picker> </v-dialog
           ><br />
-          <p>Poliklinik</p>
-          <v-text-field
-            class="form"
-            v-model="poliklinik"
-            label="Masukkan Poliklinik"
-            solo
-          ></v-text-field
-          ><br />
+
+          <p>Jenis Kelamin</p>
+          <v-radio-group v-model="kelamin" row>
+            <v-radio label="Perempuan" value="FEMALE"></v-radio>
+            <v-radio label="Laki-Laki" value="MALE"></v-radio>
+          </v-radio-group>
+
+          <p>Golongan Darah</p>
+          <v-radio-group v-model="row" row>
+            <v-radio label="A+" value="radio-1"></v-radio>
+            <v-radio label="A" value="radio-2"></v-radio>
+            <v-radio label="AB+" value="radio-3"></v-radio>
+            <v-radio label="AB-" value="radio-4"></v-radio>
+            <v-radio label="B+" value="radio-5"></v-radio>
+            <v-radio label="B-" value="radio-6"></v-radio>
+            <v-radio label="O+" value="radio-7"></v-radio>
+            <v-radio label="O-" value="radio-8"></v-radio>
+          </v-radio-group>
           <br />
           <v-card-actions>
             <v-spacer></v-spacer>
-
             <v-btn
               large
               class="btn white--text"
               color="#DB5248"
-              href="/Perawat"
+              href="/Patient"
             >
               batal
             </v-btn>
@@ -108,7 +104,7 @@
               large
               right
               class="btn mr-4 white--text"
-              @click="updateNurses"
+              @click="editPatient"
               color="#0D987A"
             >
               Simpan
@@ -125,23 +121,11 @@ export default {
   name: "App",
   data: () => ({
     nama: "",
-    nip: "",
-    sip: "",
+    nik: "",
+    nt: "",
     alamat: "",
-    poliklinik: null,
-    email: "",
-    pas: "",
-    confirmpas: "",
+    tgl: "",
     row: null,
-    show1: false,
-    show2: true,
-    show3: false,
-    show4: false,
-    password: "Password",
-    rules: {
-      required: (value) => !!value || "Required.",
-      emailMatch: () => `The email and password you entered don't match`,
-    },
     date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
       .toISOString()
       .substr(0, 10),
@@ -150,36 +134,35 @@ export default {
     menu2: false,
   }),
   methods: {
-    updateNurses() {
+    editPatient() {
       const payload = {
         name: this.nama,
-        nip: this.nip,
-        sip: this.sip,
-        polyclinics_id: this.poliklinik,
+        nik: this.nik,
+        phone: this.nt,
         address: this.alamat,
-        gender: this.kelamin,
         dob: this.date,
-        email: this.email,
-        pas: this.password,
+        gender: this.kelamin,
+        blood_type: this.blood,
       };
-      this.$store.dispatch("updateNurses", payload);
-      this.$router.push("/Perawat");
+      this.$store.dispatch("editPatient", payload);
+      this.$router.push("/Patient");
     },
   },
 };
 </script>
 
 <style>
-.btn {
-  height: 80px;
-  width: 135px;
-  border-radius: 15px;
-}
 .form {
   border-style: ridge;
   border-color: #0b715b;
   border-width: 1.5px;
   border-radius: 10px;
   height: 51px;
+}
+
+.btn {
+  height: 80px;
+  width: 135px;
+  border-radius: 15px;
 }
 </style>
