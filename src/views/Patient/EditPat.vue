@@ -104,7 +104,7 @@
               large
               right
               class="btn mr-4 white--text"
-              @click="EditPatient"
+              @click="editPatient"
               color="#0D987A"
             >
               Simpan
@@ -134,7 +134,7 @@ export default {
     menu2: false,
   }),
   methods: {
-    EditPatient() {
+    editPatient() {
       const payload = {
         name: this.nama,
         nik: this.nik,
@@ -144,7 +144,7 @@ export default {
         gender: this.kelamin,
         blood_type: this.blood,
       };
-      this.$store.dispatch("EditPatient", payload);
+      this.$store.dispatch("editPatient", payload);
       this.$router.push("/Patient");
     },
   },
