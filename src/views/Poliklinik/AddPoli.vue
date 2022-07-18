@@ -28,10 +28,10 @@
           large
           right
           class="btn mr-4 white--text"
-          @click="submit"
+          @click="addPoli"
           color="#0D987A"
         >
-          Simpan
+          Tambah
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -60,6 +60,15 @@ export default {
     modal: false,
     menu2: false,
   }),
+  methods: {
+    addPoli() {
+      const payload = {
+        name: this.nama,
+      };
+      this.$store.dispatch("addPoli", payload);
+      this.$router.push("/Poliklinik");
+    },
+  }
 };
 </script>
 
