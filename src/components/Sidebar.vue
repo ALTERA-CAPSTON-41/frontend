@@ -27,7 +27,7 @@
             </v-list-item-content>
         </v-list-item>
         <v-list class="clickable">
-            <template v-for="item in items1">
+            <template v-for="item in items">
             <v-list-group
                 v-if="item.children"
                 :key="item.text"
@@ -149,7 +149,7 @@ export default {
       group: null,
       page: "Beranda",
       selectedItem: 0,
-      items1: [
+      items: [
         { icon: 'mdi-view-dashboard', text: 'Beranda' , route:'/'},
         { icon: 'mdi-format-list-checks', text: 'Daftar Antrean' , route:'/DaftarAntrean'},
         { icon: 'mdi-account-multiple', text: ' Pasien', route:'/Pasien' },
@@ -158,11 +158,11 @@ export default {
         { icon: 'mdi-account', text: 'Perawat', route:'/Perawat' },
         { icon: 'mdi-shield-account', text: 'Administrator', route:'/Administrator' },
       ],
-      items2: [
-        { icon: 'mdi-view-dashboard', text: 'Beranda' , route:'/'},
-        { icon: 'mdi-format-list-checks', text: 'Daftar Antrean' , route:'/DaftarAntrean'},
-        { icon: 'mdi-account-multiple', text: ' Pasien', route:'/Pasien' },
-      ],
+    //   items2: [
+    //     { icon: 'mdi-view-dashboard', text: 'Beranda' , route:'/'},
+    //     { icon: 'mdi-format-list-checks', text: 'Daftar Antrean' , route:'/DaftarAntrean'},
+    //     { icon: 'mdi-account-multiple', text: ' Pasien', route:'/Pasien' },
+    //   ],
       mini: false,
       fab: false,
     }),
