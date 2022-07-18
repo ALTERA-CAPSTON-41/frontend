@@ -6,7 +6,7 @@ import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 const persistedDataState = createPersistedState({
-  paths: ["token", "role"],
+  paths: ["token"],
 });
 
 export default new Vuex.Store({
@@ -24,6 +24,7 @@ export default new Vuex.Store({
   },
 
   getters: {},
+
 
   mutations: {
     setToken(state, param) {
