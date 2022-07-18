@@ -48,7 +48,7 @@
                 </div>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">Jumlah Dokter</span> <br>
-                  <span class="number">10</span>
+                  <span class="number">{{getTotalDokter}}</span>
                 </div>
               </div>
               <!-- text row -->
@@ -66,7 +66,7 @@
                 </div>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">Jumlah Poli</span><br>
-                  <span class="number">4</span>
+                  <span class="number">{{getTotalPoli}}</span>
                 </div>
               </div>
               <!-- text row -->
@@ -86,7 +86,7 @@
                 </div>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">JumlahPerawat</span> <br>
-                  <span class="number">14</span>
+                  <span class="number">{{getTotalNurse}}</span>
                 </div>
               </div>
               <!-- text row -->
@@ -104,7 +104,7 @@
                 </div>
                 <div class="text-left col-md-5">
                   <span class="txt-jumlah">Jumlah Pasien</span> <br>
-                  <span class="number">21</span>
+                  <span class="number">{{getTotalPasien}}</span>
                 </div>
               </div>
               <!-- text row -->
@@ -116,7 +116,7 @@
                 <img src="../assets/img/icon-antrean.svg" width="90" /><br>
                 <div>
                 <span class="txt-jumlah">Jumlah Antrean</span> <br><br>
-                <span class="number-big">8</span>
+                <span class="number-big">{{getTotalAntrean}}</span>
                 </div>
               </div>
             </v-col>
@@ -181,17 +181,48 @@ export default ({
   }),
   created() {
     this.test = this.$store.state.token
+      this.$store.dispatch("fetchFeature", {
+        token : this.test,
+      });
+      this.$store.dispatch("fetchFeaturePasien", {
+        token : this.test,
+      });
+      this.$store.dispatch("fetchFeaturePoli", {
+        token : this.test,
+      });
+      this.$store.dispatch("fetchFeatureNurse", {
+        token : this.test,
+      });
+      this.$store.dispatch("fetchFeatureAntrean", {
+        token : this.test,
+      });
   },
   methods:{
     // methods integrasi get data table
-    async fetchFeature() {
-      const dashboards = await this.$store.dispatch("fetchFeature");
-      console.log("total dari method: ", dashboards)
-      this.dashboards = dashboards
+    
+      // console.log("total dari method: ", dashboards)
+      // this.dashboards = dashboards
     },
-  },
+
   mounted() {
     this.fetchFeature();
+  },
+  computed: {
+    getTotalDokter() {
+      return this.$store.state.total
+    },
+    getTotalAntrean() {
+      return this.$store.state.totalAntrean
+    },
+    getTotalPasien() {
+      return this.$store.state.totalPasien
+    },
+    getTotalPoli() {
+      return this.$store.state.totalPoli
+    },
+    getTotalNurse() {
+      return this.$store.state.totalNurse
+    },
   },
   props: {
     source: String
